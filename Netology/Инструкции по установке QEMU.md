@@ -34,3 +34,6 @@
 	qemu-img create -f qcow2 test 1G
 	qemu-system-x86_64 -hda ubuntu.qcow -boot d -cdrom ~/downloads/name_iso.iso -m 640
 
+
+# Полезные ссылки
+	https://www.opennet.ru/tips/3209_qemu_kvm_virtual.shtml

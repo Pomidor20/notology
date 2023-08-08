@@ -1,5 +1,6 @@
 # Установка QEMU + KVM
 
+
 ### Debian:
 	sudo apt install qemu-kvm qemu qemu-system
 
@@ -37,3 +38,4 @@
 
 # Полезные ссылки
 	https://www.opennet.ru/tips/3209_qemu_kvm_virtual.shtml
+	https://losst.pro/kak-polzovatsya-qemu

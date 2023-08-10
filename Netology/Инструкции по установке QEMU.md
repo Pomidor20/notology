@@ -34,6 +34,8 @@
 ### Создание VM QEMU (из лекции)
 	qemu-img create -f qcow2 test 1G
 	qemu-system-x86_64 -hda ubuntu.qcow -boot d -cdrom ~/downloads/name_iso.iso -m 640
+ 	qemu-system-i386 -display none -serial stdio -hda test -boot d -cdrom ./Загрузки/alpine-standard-3.13.5-x86.iso -m 640
+  	qemu-system-x86_64 -nographic -hda /home/snake/qemd -boot d -cdrom /home/snake/alpine-standard-3.13.5-x86.iso -m 2048
 
 
 # Полезные ссылки

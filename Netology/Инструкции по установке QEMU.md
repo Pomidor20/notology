@@ -39,3 +39,4 @@
 # Полезные ссылки
 	https://www.opennet.ru/tips/3209_qemu_kvm_virtual.shtml
 	https://losst.pro/kak-polzovatsya-qemu
+ 	https://ahelpme.com/software/qemu/qemu-full-virtualization-cpu-emulations-enable-disable-cpu-flags-instruction-sets-of-qemu-6-2-0/

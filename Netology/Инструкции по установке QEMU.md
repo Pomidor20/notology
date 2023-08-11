@@ -21,19 +21,27 @@
 1. Дальше можно выбрать ряд загрузок и устновок
 
 1. Установка с без gui
+	```
 	qemu-system-x86_64 display none -serial stdio -net nic -net user -hda test3 -boot d -cdrom ./Загрузки/alpine-standard-3.18.3-x86_64.iso -m 1024
   	qemu-system-x86_64 -nographic -net nic -net user -hda test3 -boot d -cdrom ./Загрузки/alpine-standard-3.18.3-x86_64.iso -m 1024
+	```
 
 1. C GUI
+	```
 	qemu-system-x86_64 -net nic -net user -hda test3 -boot d -cdrom ./Загрузки/alpine-standard-3.18.3-x86_64.iso -m 1024
+	````
 	
 1. После загрузки с диска нужно установить Alpine
+	```
 	setup-alpine -q
 	setup-disk
-
+	```
+	
 1. После установки запускаем 
+	```
 	qemu-system-x86_64 -nographic -net nic -net user -hda test3  -m 1024
-
+	```
+	
 ### Все установка окончена
 	
 #  По установке Alpine

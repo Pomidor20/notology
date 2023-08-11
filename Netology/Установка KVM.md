@@ -56,18 +56,18 @@ virt-manager
 create --file ./notology/Netology/Виртуализация/files/"template vm virsh.txt"
 ```
 Ключи команды:
-
-1.	virsh create target_guest_machine.xml - создать vm из консоли;
-1.      virsh edit <VM name> – изменить настройки виртуальной машины;
-1.      virsh start <VM name> – запустить виртуальную машину;
-1.      virsh shutdown <VM name> – выключить виртуальную машину;
-1.      virsh reboot <VM name> – перегрузить виртуальную машину;
-1.      virsh console <VM name> – открыть консоль виртуальной машины; выход из консоли осуществляется при помощи сочетания Ctrl + ] ;
-1.      virsh list --all – вывести список всех виртуальных машин;
-1.      virsh destroy <VM name> – уничтожает (останавливает) виртуальную машину (когда shutdown не работает);
-1.      virsh undefine <VM name> – удалить виртуальную машину из списка (необходимо применять после destroy);
-1.      virsh vcpuinfo <VM name> – просмотр привязки виртуальных ядер к физическим в данный момент времени (повторный вывод может отличаться, если привязка ядер не фиксированная).
-
+```
+virsh create target_guest_machine.xml - создать vm из консоли;
+virsh edit <VM name> – изменить настройки виртуальной машины;
+virsh start <VM name> – запустить виртуальную машину;
+virsh shutdown <VM name> – выключить виртуальную машину;
+virsh reboot <VM name> – перегрузить виртуальную машину;
+virsh console <VM name> – открыть консоль виртуальной машины; выход из консоли осуществляется при помощи сочетания Ctrl + ] ;
+virsh list --all – вывести список всех виртуальных машин;
+virsh destroy <VM name> – уничтожает (останавливает) виртуальную машину (когда shutdown не работает);
+virsh undefine <VM name> – удалить виртуальную машину из списка (необходимо применять после destroy);
+virsh vcpuinfo <VM name> – просмотр привязки виртуальных ядер к физическим в данный момент времени (повторный вывод может отличаться, если привязка ядер не фиксированная).
+```
 #### создание через virt-install
 ```
 virt-install --name centos8-2 --memory 10240 --vcpus=2 --os-type=Linux --os-variant=centos7.0 --location=/tmp/rhel-server-7.6-x86_64-dvd.iso  --network network=default --graphics=vnc -v Using centos7.0 default --disk size=10

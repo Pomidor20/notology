@@ -16,7 +16,7 @@
 ```
 	apt install -y qemu-kvm virt-manager libvirt-daemon-system virtinst libvirt-clients bridge-utils
 ```
-#####Пояснение к пакетам
+##### Пояснение к пакетам
 	qemu-kvm  –  эмулятор с открытым исходным кодом и пакет виртуализации, обеспечивающий аппаратную эмуляцию.
 	virt-manager –  графический интерфейс на основе Qt для управления виртуальными машинами через демон libvirt.
 	libvirt-daemon-system –  пакет, предоставляющий файлы конфигурации, необходимые для запуска демона libvirt.

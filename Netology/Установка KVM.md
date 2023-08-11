@@ -40,10 +40,42 @@ ip link
 brctl show
 ```
 Должен существовать интерфейс virbr0 
+
+#### Создание vm через gui
+
+Запускаем и в нем создаем gui
+```
+virt-manager
+```
+#### Создаем через cli
+Шаблон лежит с проекте в папке files
+
+####Управление VM из консоли virsh
+Для управления из консоли используем команду virsh.только перед этим надо создать диск с cow2.
+```
+create --file ./notology/Netology/Виртуализация/files/"template vm virsh.txt"
+```
+Ключи команды:
+
+1.	virsh create target_guest_machine.xml - создать vm из консоли;
+1.      virsh edit <VM name> – изменить настройки виртуальной машины;
+1.      virsh start <VM name> – запустить виртуальную машину;
+1.      virsh shutdown <VM name> – выключить виртуальную машину;
+1.      virsh reboot <VM name> – перегрузить виртуальную машину;
+1.      virsh console <VM name> – открыть консоль виртуальной машины; выход из консоли осуществляется при помощи сочетания Ctrl + ] ;
+1.      virsh list --all – вывести список всех виртуальных машин;
+1.      virsh destroy <VM name> – уничтожает (останавливает) виртуальную машину (когда shutdown не работает);
+1.      virsh undefine <VM name> – удалить виртуальную машину из списка (необходимо применять после destroy);
+1.      virsh vcpuinfo <VM name> – просмотр привязки виртуальных ядер к физическим в данный момент времени (повторный вывод может отличаться, если привязка ядер не фиксированная).
+
+#### создание через virt-install
+```
+virt-install --name centos8-2 --memory 10240 --vcpus=2 --os-type=Linux --os-variant=centos7.0 --location=/tmp/rhel-server-7.6-x86_64-dvd.iso  --network network=default --graphics=vnc -v Using centos7.0 default --disk size=10
+```
 #### Список сайтов в помощь
 1. https://www.linuxtechi.com/how-to-install-kvm-on-ubuntu-22-04/
 1. https://losst.pro/ustanovka-kvm-ubuntu-16-04
+1. https://libvirt.org/formatdomain.html
+1. https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/virtualization_getting_started_guide/chap-virtualization_getting_started-what_is_it
+1. https://www.golinuxcloud.com/virt-install-examples-kvm-virt-commands-linux/
 
-```
-
-```

@@ -1,5 +1,5 @@
 # Установка QEMU + KVM
-ы
+
 ### Debian:
 	sudo apt install qemu-kvm qemu qemu-system
 

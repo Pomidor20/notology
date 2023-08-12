@@ -30,6 +30,7 @@ apt install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-co
 1. Выбираем или создаем папку с прокетом и переходим в нее
 1. В этой папке создаем файл с именем Dockerfile
 1. Наполняем его и сохраняеи.Пример:
+
 ```
 FROM httpd:latest
 LABEL owner="apache snake"
@@ -37,10 +38,12 @@ LABEL owner="apache snake"
 COPY ./index.html /usr/local/apache2/htdocs/
 ```
 1. Запускаем сборку Имиджа
+
 ```
  docker build -t snake .
 ```
 1. Пробегают строки и создается имидж.
+
 ```
 [+] Building 0.5s (7/7) FINISHED                                                                                                                      docker:default
  => [internal] load build definition from Dockerfile                                                                                                            0.0s
@@ -58,11 +61,13 @@ COPY ./index.html /usr/local/apache2/htdocs/
  => => naming to docker.io/library/snake    
 ```
 1. Проверям что Имидж создался
+
 ```
  docker image ls
 ```
 
 1. Запускаем контейнер из имиджа. У меня делался апатч  
+
 ```
  docker run -dit --name my-running-app -p 8080:80 snake
 ```

@@ -1,6 +1,6 @@
 # Домашнее задание к занятию «Docker. Часть 1»
 
-# Все команды и этапы по дз описаны в файле ![#T](https://github.com/Pomidor20/notology/blob/main/Netology/%D0%A3%D1%81%D1%82%D0%B0%D0%BD%D0%BE%D0%B2%D0%BA%D0%B0%20Docke.md)
+# Все команды и этапы по дз описаны в файле ![{#T}](https://github.com/Pomidor20/notology/blob/main/Netology/%D0%A3%D1%81%D1%82%D0%B0%D0%BD%D0%BE%D0%B2%D0%BA%D0%B0%20Docke.md)
 
 ### Оформление домашнего задания
 

@@ -45,9 +45,9 @@
 
 ### Ответ 2
 
-[картинка](https://github.com/Pomidor20/notology/blob/main/Netology/%D0%92%D0%B8%D1%80%D1%82%D1%83%D0%B0%D0%BB%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D1%8F/pic/home%202.1.1.JPG)
-[картинка](https://github.com/Pomidor20/notology/blob/main/Netology/%D0%92%D0%B8%D1%80%D1%82%D1%83%D0%B0%D0%BB%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D1%8F/pic/home%202.1.2.JPG)
-[картинка](https://github.com/Pomidor20/notology/blob/main/Netology/%D0%92%D0%B8%D1%80%D1%82%D1%83%D0%B0%D0%BB%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D1%8F/pic/home%202.1.3.JPG)
+![картинка](https://github.com/Pomidor20/notology/blob/main/Netology/%D0%92%D0%B8%D1%80%D1%82%D1%83%D0%B0%D0%BB%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D1%8F/pic/home%202.1.1.JPG)
+![картинка](https://github.com/Pomidor20/notology/blob/main/Netology/%D0%92%D0%B8%D1%80%D1%82%D1%83%D0%B0%D0%BB%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D1%8F/pic/home%202.1.2.JPG)
+![картинка](https://github.com/Pomidor20/notology/blob/main/Netology/%D0%92%D0%B8%D1%80%D1%82%D1%83%D0%B0%D0%BB%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D1%8F/pic/home%202.1.3.JPG)
 
 ---
 
@@ -63,8 +63,8 @@
 Пример взят [с сайта](https://alpinelinux.org). 
 
 ### Ответ 3
-[картинка](https://github.com/Pomidor20/notology/blob/main/Netology/%D0%92%D0%B8%D1%80%D1%82%D1%83%D0%B0%D0%BB%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D1%8F/pic/home%202.2.1.JPG)
-[картинка](https://github.com/Pomidor20/notology/blob/main/Netology/%D0%92%D0%B8%D1%80%D1%82%D1%83%D0%B0%D0%BB%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D1%8F/pic/home%202.2.2.JPG)
+![картинка](https://github.com/Pomidor20/notology/blob/main/Netology/%D0%92%D0%B8%D1%80%D1%82%D1%83%D0%B0%D0%BB%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D1%8F/pic/home%202.2.1.JPG)
+![картинка](https://github.com/Pomidor20/notology/blob/main/Netology/%D0%92%D0%B8%D1%80%D1%82%D1%83%D0%B0%D0%BB%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D1%8F/pic/home%202.2.2.JPG)
  ---
 
 ### Задание 4
@@ -79,8 +79,8 @@
 
 ### Ответ 4
 
-[картинка](https://github.com/Pomidor20/notology/blob/main/Netology/%D0%92%D0%B8%D1%80%D1%82%D1%83%D0%B0%D0%BB%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D1%8F/pic/home2.4.1.png)
-[картинка](https://github.com/Pomidor20/notology/blob/main/Netology/%D0%92%D0%B8%D1%80%D1%82%D1%83%D0%B0%D0%BB%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D1%8F/pic/home2.4.2.png)
+![картинка](https://github.com/Pomidor20/notology/blob/main/Netology/%D0%92%D0%B8%D1%80%D1%82%D1%83%D0%B0%D0%BB%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D1%8F/pic/home2.4.1.png)
+![картинка](https://github.com/Pomidor20/notology/blob/main/Netology/%D0%92%D0%B8%D1%80%D1%82%D1%83%D0%B0%D0%BB%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D1%8F/pic/home2.4.2.png)
 ---
 
 ## Дополнительные задания* (со звёздочкой)

@@ -53,7 +53,7 @@
 1. Приложите скриншот.
 
 ### Ответ 3
-![картинка](https://github.com/Pomidor20/notology/blob/main/Netology/%D0%92%D0%B8%D1%80%D1%82%D1%83%D0%B0%D0%BB%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D1%8F/pic/docker1.2.JPG)
+![картинка](https://github.com/Pomidor20/notology/blob/main/Netology/%D0%92%D0%B8%D1%80%D1%82%D1%83%D0%B0%D0%BB%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D1%8F/pic/docker1.3.JPG)
 ```
 docker run hello-world
 ````
@@ -72,7 +72,7 @@ docker image
 docker rmi id_image
 ````
 ---
-![картинка](https://github.com/Pomidor20/notology/blob/main/Netology/%D0%92%D0%B8%D1%80%D1%82%D1%83%D0%B0%D0%BB%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D1%8F/pic/docker1.2.JPG)
+![картинка](https://github.com/Pomidor20/notology/blob/main/Netology/%D0%92%D0%B8%D1%80%D1%82%D1%83%D0%B0%D0%BB%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D1%8F/pic/docker1.4.JPG)
 ## Дополнительные задания* (со звёздочкой)
 
 Их выполнение необязательное и не влияет на получение зачёта по домашнему заданию. Можете их решить, если хотите лучше разобраться в материале.
@@ -88,7 +88,7 @@ docker rmi id_image
  * скриншот браузера, где вы открыли дефолтную страницу вашего apache внутри контейнера.
 
 ### Ответ 5
-![картинка](https://github.com/Pomidor20/notology/blob/main/Netology/%D0%92%D0%B8%D1%80%D1%82%D1%83%D0%B0%D0%BB%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D1%8F/pic/docker1.2.JPG)
+![картинка](https://github.com/Pomidor20/notology/blob/main/Netology/%D0%92%D0%B8%D1%80%D1%82%D1%83%D0%B0%D0%BB%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D1%8F/pic/docker1.5.JPG)
 ```
 docker run httpd
 docker run -dit --name my-apache-app3 -p 8081:80 -v /apache/:/usr/local/apache2/htdocs/ httpd
@@ -103,6 +103,6 @@ docker run -dit --name my-apache-app3 -p 8081:80 -v /apache/:/usr/local/apache2/
  * скриншот содержимого Dockerfile;
  * скриншот браузера, где apache2 из вашего контейнера выводит ваши ФИО.
 
-### ответ6
+### Ответ6
 
-![картинка](https://github.com/Pomidor20/notology/blob/main/Netology/%D0%92%D0%B8%D1%80%D1%82%D1%83%D0%B0%D0%BB%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D1%8F/pic/docker1.2.JPG)
+![картинка](https://github.com/Pomidor20/notology/blob/main/Netology/%D0%92%D0%B8%D1%80%D1%82%D1%83%D0%B0%D0%BB%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D1%8F/pic/docker1.6.JPG)

@@ -103,5 +103,5 @@ services:
 ключ = значение
 POSTGRES_PASSWORD = 123
 
-#Ссылки в помощь
+# Ссылки в помощь
 https://docs.docker.com/compose/networking/

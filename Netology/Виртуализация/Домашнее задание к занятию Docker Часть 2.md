@@ -1,4 +1,6 @@
 # Домашнее задание к занятию «Docker. Часть 2»
+# Все команды и этапы по дз описаны в файле [ТУТ](https://github.com/Pomidor20/notology/blob/main/Netology/%D0%A0%D0%B0%D0%B7%D0%B1%D0%B8%D1%80%D0%B0%D0%B5%D0%BC%20Docker%20Compose%20%D1%84%D0%B0%D0%B9%D0%BB.md)
+
 
 ### Оформление домашнего задания
 
@@ -177,7 +179,7 @@ networks:
 	  config:
 	    - subnet: 172.22.0.0
 ```
-
+![картинка](https://github.com/Pomidor20/notology/blob/main/Netology/%D0%92%D0%B8%D1%80%D1%82%D1%83%D0%B0%D0%BB%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D1%8F/pic/docker2.4.JPG)
 ---
 
 ### Задание 5 
@@ -256,6 +258,10 @@ networks:
 * скриншот команды docker ps;
 * скриншот авторизации в админке Zabbix.
 
+### Ответ 7
+![картинка](https://github.com/Pomidor20/notology/blob/main/Netology/%D0%92%D0%B8%D1%80%D1%82%D1%83%D0%B0%D0%BB%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D1%8F/pic/docker2.7.1.JPG)
+![картинка](https://github.com/Pomidor20/notology/blob/main/Netology/%D0%92%D0%B8%D1%80%D1%82%D1%83%D0%B0%D0%BB%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D1%8F/pic/docker2.7.JPG)
+Все команды и этапы по дз описаны в файле [ТУТ](https://github.com/Pomidor20/notology/blob/main/Netology/%D0%A0%D0%B0%D0%B7%D0%B1%D0%B8%D1%80%D0%B0%D0%B5%D0%BC%20Docker%20Compose%20%D1%84%D0%B0%D0%B9%D0%BB.md)
 ---
 
 ### Задание 8 
@@ -265,6 +271,7 @@ networks:
 1. Убейте все контейнеры и потом удалите их.
 1. Приложите скриншот консоли с проделанными действиями.
 
+### Ответ 8
 ```
 docker rmi $(docker images -aq)
 docker rm $(docker ps -aq)
@@ -287,3 +294,10 @@ docker rm $(docker ps -aq)
 2. Чем вы занимались в процессе создания сценария так, как это видите вы?
 3. Что бы вы улучшили в сценарии развёртывания?
 
+### Ответ 9
+```
+real    1m5.923s
+user    0m0.501s
+sys     0m1.967s
+
+```

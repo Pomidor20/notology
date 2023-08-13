@@ -2,7 +2,7 @@
 ```
 version: "3.8"
 services:
-  netology-db: # Имя Сервиса тут запускам Postgres
+  netology-db: # Имя Сервиса
     image: postgres:latest # Используем образ PostgreSQL
     container_name: GubochkinA-netology-db
     ports: # Порты, которые мы пробрасываем с нашего докер сервера внутрь контейнера
@@ -23,7 +23,7 @@ services:
              #always: политика всегда перезапускает контейнер до его удаления.
              #on-failure: политика перезапускает контейнер, если код выхода указывает на ошибку.
              #unless-stopped: политика перезапускает контейнер независимо от кода выхода, но прекращает перезапуск при остановке или удалении
-  pgadmin: #Имя Сервиса тут запускам pgadmin
+  pgadmin:
     image: dpage/pgadmin4:latest
     container_name: gubochkin-pgadmin
     ports:
@@ -31,6 +31,8 @@ services:
     environment: # Переменные среды
       PGADMIN_DEFAULT_EMAIL: gubochkin@ilove-netology.com
       PGADMIN_DEFAULT_PASSWORD: 123 # Задаём пароль от пользователя postgres
+    depends_on:
+    - netology-db
     networks:
       gubochkin.A.U-my-netology-hw:  # Подключаем контейнер к сети
         ipv4_address: 172.22.0.3  # Задаем статический IP-адрес для контейнера.
@@ -42,10 +44,12 @@ services:
     container_name: gubochkin-zabbix-netology
     ports:
     - 10051:10051
+    depends_on:
+    - netology-db
     links:
     - netology-db
     environment: # Переменные среды
-      DB_SERVER_HOST: '117.22.0.2'
+      DB_SERVER_HOST: '172.22.0.2'
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: 'Gubochkin12!3!!'
     networks:
@@ -59,7 +63,9 @@ services:
     container_name: gubochkin-netology-zabbix-frontend
     ports:
     - 443:8443
-    - 80:8880
+    - 80:8080
+    depends_on:
+    - zabbi-srv
     links:
     - netology-db
     - zabbi-srv
@@ -75,12 +81,14 @@ services:
         aliases: # Как другие контейнеру будут к нему обращаться
           - zabbi-gui
     restart: always
+
 networks:
   gubochkin.A.U-my-netology-hw: # Имя сети
     driver: bridge # Можеть быть bridge(что то типо NAT),host(изолированная,контейнеры видят только друг друга и не выходит в мир),none (как бы есть и нет)
     ipam: #IPAM расшифровывается как "IP Address Management" (Управление IP-адресами).Управляет настройками IP адресов
       config:
       - subnet: 172.22.0.0/24
+
 ```
 
 ###Удаляем все образа и Имиджи

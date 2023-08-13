@@ -1,5 +1,5 @@
 # Разбираем Docker Compose файл
-
+```
 version: "3.8"
 services:
   netology-db: # Имя Сервиса тут запускам Postgres
@@ -81,7 +81,7 @@ networks:
     ipam: #IPAM расшифровывается как "IP Address Management" (Управление IP-адресами).Управляет настройками IP адресов
       config:
       - subnet: 172.22.0.0/24
-
+```
 
 ###Удаляем все образа и Имиджи
 ```

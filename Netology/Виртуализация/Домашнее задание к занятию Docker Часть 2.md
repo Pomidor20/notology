@@ -131,7 +131,7 @@ networks:
 * скриншот админки pgAdmin.
 
 
-###Ответ 4
+### Ответ 4
 ```
 version: "3.8"
 services:

@@ -61,7 +61,7 @@ version: "3.8"
 services:
 
 networks:
-  gubochkin.A.U-my-netology-hw # Имя сети
+  gubochkin.A.U-my-netology-hw: # Имя сети
     driver: bridge # Можеть быть bridge(что то типо NAT),host(изолированная,контейнеры видят только друг друга и не выходит в мир),none (как бы есть и нет)
     ipam: #IPAM расшифровывается как "IP Address Management" (Управление IP-адресами).Управляет настройками IP адресов
   config:

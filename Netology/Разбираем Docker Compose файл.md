@@ -91,7 +91,7 @@ networks:
 
 ```
 
-###Удаляем все образа и Имиджи
+### Удаляем все образа и Имиджи
 ```
 docker rmi $(docker images -aq)
 docker rm $(docker ps -aq)

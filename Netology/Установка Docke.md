@@ -26,7 +26,7 @@ apt install docker-ce docker-ce-cli containerd.io -y
 apt install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin -y
 ```
 
-##Пилим свой имидж
+## Пилим свой имидж
 1. Выбираем или создаем папку с прокетом и переходим в нее
 1. В этой папке создаем файл с именем Dockerfile
 1. Наполняем его и сохраняеи.Пример:
@@ -74,6 +74,8 @@ COPY ./index.html /usr/local/apache2/htdocs/
 #### Если что то не так пошло провались в контейнер и проверяй))))
 ```
 docker exec -it my-running-app bash
+Docker network inspect имя сети
+Docker  inspect
 ```
 
 ## Ссылки в помощь

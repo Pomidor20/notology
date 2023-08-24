@@ -78,4 +78,4 @@ virt-install --name centos8-2 --memory 10240 --vcpus=2 --os-type=Linux --os-vari
 1. https://libvirt.org/formatdomain.html
 1. https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/virtualization_getting_started_guide/chap-virtualization_getting_started-what_is_it
 1. https://www.golinuxcloud.com/virt-install-examples-kvm-virt-commands-linux/
-
+1. https://www.techotopia.com/index.php/Installing_a_KVM_Guest_OS_from_the_Command-line_(virt-install)

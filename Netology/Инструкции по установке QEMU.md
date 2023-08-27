@@ -1,13 +1,13 @@
 # Установка QEMU + KVM
 
 ### Debian:
-	sudo apt install qemu-kvm qemu qemu-system
+	sudo apt install qemu qemu-system
 
 ### CentOS:
-	sudo yum install qemu-kvm qemu qemu-system
+	sudo yum install qemu qemu-system
 
 ### ArchLinux:
-	sudo pacman -i qemu-kvm qemu qemu-system
+	sudo pacman -i qemu qemu-system
 
 ### FreeBSD:
 	cd /usr/ports/emulator/qemu

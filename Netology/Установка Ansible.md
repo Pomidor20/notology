@@ -35,9 +35,11 @@
     sudo apt istall curl
     curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
     python3 get-pip.py --user
+    
     ```
 - Ставим ansible
   ```
+  apt install python3-pip
   python3 -m pip install --user ansible
   ```
   

@@ -61,19 +61,19 @@ vagrant ssh-config >> ~/.ssh/config
 ```
 Пример содержания файла ~/.ssh/config 
 ```
->!
-> Host vm1
->  HostName 127.0.0.1
-> User vagrant
->  Port 2200
->  UserKnownHostsFile /dev/null
->  StrictHostKeyChecking no
->  PasswordAuthentication no
->  IdentityFile /home/user/vagrant/.vagrant/machines/vm1/virtualbox/private_key
->  IdentitiesOnly yes
->  LogLevel FATAL
->  PubkeyAcceptedKeyTypes +ssh-rsa
->  HostKeyAlgorithms +ssh-rsa
+Host vm1
+  HostName 127.0.0.1
+  User vagrant
+  Port 2200
+  UserKnownHostsFile /dev/null
+  StrictHostKeyChecking no
+  PasswordAuthentication no
+  IdentityFile /home/user/vagrant/.vagrant/machines/vm1/virtualbox/private_key
+  IdentitiesOnly yes
+  LogLevel FATAL
+  PubkeyAcceptedKeyTypes +ssh-rsa
+  HostKeyAlgorithms +ssh-rsa
+
 ```
 
 Теперь при подключении по ssh мы пишем:

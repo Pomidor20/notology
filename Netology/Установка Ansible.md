@@ -1,6 +1,6 @@
 ## Установка и настройка ansible
 
-### Установка 
+### Установка [^1]
 - Начинается с обновления пакета
   ```
   sudo apt update
@@ -21,3 +21,8 @@
   ```
   sudo yum install ansible
   ```
+
+
+
+
+[^1]: https://docs.ansible.com/ansible/latest/installation_guide/installation_distros.html#installing-ansible-on-debian

@@ -80,8 +80,7 @@ ssh vm1
 
 [^2]: IdentityFile /home/user/vagrant/.vagrant/machines/vm3/virtualbox/private_key. Путь указывает на сесто где указана инициализация Vagrant
 
-[^3]: > Вот тут >
->
+[^3]: > Вот тут \
 >Host vm1
 >  HostName 127.0.0.1
 >  User vagrant

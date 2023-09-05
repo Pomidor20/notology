@@ -60,6 +60,7 @@ end
 vagrant ssh-config >> ~/.ssh/config 
 ```
 Пример содержания файла ~/.ssh/config 
+```
 >!
 > Host vm1
 >  HostName 127.0.0.1
@@ -73,7 +74,7 @@ vagrant ssh-config >> ~/.ssh/config
 >  LogLevel FATAL
 >  PubkeyAcceptedKeyTypes +ssh-rsa
 >  HostKeyAlgorithms +ssh-rsa
-
+```
 
 Теперь при подключении по ssh мы пишем:
 

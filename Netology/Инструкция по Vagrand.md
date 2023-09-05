@@ -73,7 +73,7 @@ end
           LogLevel FATAL
           PubkeyAcceptedKeyTypes +ssh-rsa
           HostKeyAlgorithms +ssh-rsa
-  ```
+          ```
 
   - Теперь при подключении по ssh мы пишем:
 

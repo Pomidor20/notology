@@ -61,7 +61,7 @@ vagrant ssh-config >> ~/.ssh/config
 ```
 Пример содержания файла ~/.ssh/config 
 >!
->Host vm1
+> Host vm1
 >  HostName 127.0.0.1
 > User vagrant
 >  Port 2200

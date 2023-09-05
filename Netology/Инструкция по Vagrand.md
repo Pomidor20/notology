@@ -51,11 +51,11 @@ end
 
 - Через стандартную команду ssh:
 
-  ssh vagrand@localhost -p _**проброшенный порт в vm**_ [1] -i _**путь к файлу закрытому ключу**_ [2] 
+  ssh vagrand@localhost -p _**проброшенный порт в vm**_ [^1] -i _**путь к файлу закрытому ключу**_ [^2] 
 
 
 - Через файл конфигурации ssh:
-  Выгружем файл подключений Vagrant к vm в папку.Пример в сноске [3]
+  Выгружем файл подключений Vagrant к vm в папку.Пример в сноске [^3]
 ```
 vagrant ssh-config >> ~/.ssh/config 
 ```
@@ -68,7 +68,7 @@ ssh vm1
 
 
 
-[1]: Из картнки ниже мы видим что нужно подключатся к 2200 порту
+[^1]: Из картнки ниже мы видим что нужно подключатся к 2200 порту
 ```
 ==> vm2: Preparing network interfaces based on configuration...
     vm2: Adapter 1: nat
@@ -78,9 +78,9 @@ ssh vm1
 
 ```
 
-[2]: IdentityFile /home/user/vagrant/.vagrant/machines/vm3/virtualbox/private_key. Путь указывает на сесто где указана инициализация Vagrant
+[^2]: IdentityFile /home/user/vagrant/.vagrant/machines/vm3/virtualbox/private_key. Путь указывает на сесто где указана инициализация Vagrant
 
-[3]: 
+[^3]: 
 ```
 Host vm1
   HostName 127.0.0.1

@@ -53,7 +53,9 @@
 
 - Создаем файл конфигурации [^4]
   ```
-  
+  sudo mkdir /etc/ansible/
+  sudo touch /etc/ansible/ansible.cfg
+  ansible-config init --disabled -t all > /etc/ansible/ansible.cfg
   ```
 
 [^1]: https://docs.ansible.com/ansible/latest/installation_guide/installation_distros.html#installing-ansible-on-debian

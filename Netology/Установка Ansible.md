@@ -34,7 +34,7 @@
     ```
     apt install python3-pip    
     ```
-- Ставим ansible
+- Ставим ansible 
   ```
   pip3 install ansible
   ```

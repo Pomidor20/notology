@@ -10,7 +10,7 @@
   ```
   sudo yum update
   ```
-- Добравляем репозиторий ppa
+- Добавляем репозиторий ppa
   ```
   sudo echo "deb http://ppa.launchpad.net/ansible/ansible/ubuntu focal main" >> /etc/apt/sources.list.d/ansible.list
   apt install gnupg

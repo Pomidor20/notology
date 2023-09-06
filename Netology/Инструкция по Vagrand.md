@@ -83,7 +83,7 @@ end
     ```
 
 
-
+### Ссылки и сноски
 [^1]: Из картнки ниже мы видим что нужно подключатся к 2200 порту
 ```
 ==> vm2: Preparing network interfaces based on configuration...
@@ -98,7 +98,7 @@ end
 
 [^3]: > Вот тут
 
-
+https://help.ubuntu.ru/wiki/vagrant
 
 
 

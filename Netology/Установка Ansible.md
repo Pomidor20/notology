@@ -46,16 +46,17 @@
 
 
 
+### Настраиваем Ansible [^3]
 
-
-- Создаем файл конфигурации [^3]
+- Создаем файл конфигурации [^4]
   ```
   
   ```
 
 [^1]: https://docs.ansible.com/ansible/latest/installation_guide/installation_distros.html#installing-ansible-on-debian
 [^2]: https://docs.ansible.com/ansible/latest/installation_guide/installation_distros.html#installing-ansible-on-debian
-[^3]: https://docs.ansible.com/ansible/latest/reference_appendices/config.html
+[^3]: 
+[^4]: https://docs.ansible.com/ansible/latest/reference_appendices/config.html
 https://habr.com/ru/companies/jugru/articles/416763/
 https://habr.com/ru/companies/veeam/articles/455604/
 https://tproger.ru/translations/yaml-za-5-minut-sintaksis-i-osnovnye-vozmozhnosti/#part4

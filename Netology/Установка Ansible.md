@@ -32,18 +32,14 @@
   ```
   - ставим pip,если в прошлом окне не показал версию pip
     ```
-    sudo apt istall curl
-    curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
-    python3 get-pip.py --user
-    
+    apt install python3-pip    
     ```
 - Ставим ansible
   ```
-  apt install python3-pip
-  python3 -m pip install --user ansible
+  pip3 install python
   ```
-  
-
+  >[!WARNING]  
+  > Если не запускается команда ansible.то нужно дабавть в переменную PATH путь до установленно ansible. 
 
 
 

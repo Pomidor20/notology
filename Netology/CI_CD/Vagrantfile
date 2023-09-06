@@ -1,8 +1,17 @@
 Vagrant.configure("2") do |config|
+
   # Конфигурация для первой виртуальной машины
   config.vm.define "vm1" do |vm1|
     vm1.vm.box = "debian/bullseye64" # Замените на имя образа, который вы хотите использовать
-    vm1.vm.network "public_network",bridge: "Intel(R) Wi-Fi 6 AX200 160MHz"
+    vm1.vm.network "public_network",bridge: "enxd037454c1418" # Подключаем 2 виз интерфейса
+    vm1.vm.hostname = "AnsibleSRV" # задаем имя внутри vm
+    vm1.vm.provision "shell", inline: <<-SHELL
+    # Установка программы
+    apt update
+    apt install python3-pip -y
+    pip3 install ansible
+    SHELL
+#    vm1.vm.provision "file", source: "~/.ssh/config", destination: "~/.ssh/config"
     vm1.vm.provider "virtualbox" do |vb1|
       vb1.name = 'NEXERA1'
 	  vb1.memory = 1024 # Выделить памяти (в мегабайтах)
@@ -13,7 +22,8 @@ Vagrant.configure("2") do |config|
   # Конфигурация для второй виртуальной машины
   config.vm.define "vm2" do |vm2|
     vm2.vm.box = "debian/bullseye64" # Замените на имя образа, который вы хотите использовать
-    vm2.vm.network "public_network", bridge: "Intel(R) Wi-Fi 6 AX200 160MHz"
+    vm2.vm.network "public_network", bridge: "enxd037454c1418"
+    vm2.vm.hostname = "AnsibleClient1"
 	vm2.vm.provider "virtualbox" do |vb2|
       vb2.name = 'NEXERA2_SEBE'
 	  vb2.memory = 1024 # Выделить памяти (в мегабайтах)
@@ -24,7 +34,8 @@ Vagrant.configure("2") do |config|
   # Конфигурация для третьей виртуальной машины
   config.vm.define "vm3" do |vm3|
     vm3.vm.box = "debian/bullseye64" # Замените на имя образа, который вы хотите использовать
-    vm3.vm.network "public_network", bridge: "Intel(R) Wi-Fi 6 AX200 160MHz"
+    vm3.vm.network "public_network", bridge: "enxd037454c1418"
+    vm3.vm.hostname = "AnsibleClient2"
 	vm3.vm.provider "virtualbox" do |vb3|
       vb3.memory = 1024 # Выделить памяти (в мегабайтах)
       vb3.cpus = 1 # Выделить процессорных ядер

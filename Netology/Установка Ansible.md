@@ -40,7 +40,8 @@
   ```
   >[!WARNING]  
   > Если не запускается команда ansible,то нужно дабавть в переменную PATH путь до установленно ansible. 
-
+  >export PATH="$PATH:/home/vagrant/.local/bin"
+  >Затем перезапустите вашу оболочку или выполните source ~/.bashrc (или source ~/.bash_profile) для применения изменений.
 
 
 

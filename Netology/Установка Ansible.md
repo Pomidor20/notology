@@ -36,7 +36,7 @@
     ```
 - Ставим ansible
   ```
-  pip3 install python
+  pip3 install ansible
   ```
   >[!WARNING]  
   > Если не запускается команда ansible,то нужно дабавть в переменную PATH путь до установленно ansible.  

@@ -54,7 +54,7 @@
   ```
 
 [^1]: https://docs.ansible.com/ansible/latest/installation_guide/installation_distros.html#installing-ansible-on-debian
-[^2]:
+[^2]: https://docs.ansible.com/ansible/latest/installation_guide/installation_distros.html#installing-ansible-on-debian
 [^3]: https://docs.ansible.com/ansible/latest/reference_appendices/config.html
 https://habr.com/ru/companies/jugru/articles/416763/
 https://habr.com/ru/companies/veeam/articles/455604/

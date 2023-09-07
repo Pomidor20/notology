@@ -94,12 +94,12 @@ end
 
 ```
 
-[^2]: IdentityFile /home/user/vagrant/.vagrant/machines/vm3/virtualbox/private_key. Путь указывает на сесто где указана инициализация Vagrant
+[^2]: IdentityFile /home/user/vagrant/.vagrant/machines/vm3/virtualbox/private_key. Путь указывает на место где указана инициализация Vagrant
 
 [^3]: > Вот тут
 
 https://help.ubuntu.ru/wiki/vagrant
-
+https://xakep.ru/2013/10/19/vagrant/ Хорошее описание файла конфигурации.
 
 
 

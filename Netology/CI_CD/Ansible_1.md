@@ -34,8 +34,8 @@
  
 ### Ответ 2
 
-Процесс установки Ansible описан в файле [ТУТ](https://github.com/Pomidor20/notology/blob/e9fa3d245bd191204f877aaaf6a05e2adf573b77/Netology/%D0%A3%D1%81%D1%82%D0%B0%D0%BD%D0%BE%D0%B2%D0%BA%D0%B0%20Ansible.md) 
-[!PingPong](https://github.com/Pomidor20/notology/blob/main/Netology/CI_CD/pic/Ansible_1.1.png)
+Процесс установки Ansible описан в файле [ТУТ](https://github.com/Pomidor20/notology/blob/e9fa3d245bd191204f877aaaf6a05e2adf573b77/Netology/%D0%A3%D1%81%D1%82%D0%B0%D0%BD%D0%BE%D0%B2%D0%BA%D0%B0%20Ansible.md)  
+![PingPong](https://github.com/Pomidor20/notology/blob/main/Netology/CI_CD/pic/Ansible_1.1.png)
  
 ---
 

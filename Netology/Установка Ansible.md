@@ -65,7 +65,7 @@
 	vm2
 	vm3
 	```
-  - Привем вида файла inventory.yml
+  - Пример вида файла inventory.yml
 	```
 	all:
     children:
@@ -83,7 +83,13 @@
 	 ```
 	 ansible debian -i /etc/ansible/inventory.ini -m ping
 	 ```
+	- Модули всегда можно посмотреть на оф сайте https://docs.ansible.com/ansible/2.9/modules/list_of_all_modules.html  
+	  или тут https://docs.ansible.com/ansible/2.9/modules/modules_by_category.html#modules-by-category
 
+
+
+
+=========================================================================================================================
 [^1]: https://docs.ansible.com/ansible/latest/installation_guide/installation_distros.html#installing-ansible-on-debian
 [^2]: https://docs.ansible.com/ansible/latest/installation_guide/installation_distros.html#installing-ansible-on-debian
 [^3]: 

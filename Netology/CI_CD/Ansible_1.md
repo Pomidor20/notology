@@ -65,7 +65,7 @@
  
 ### Ответ 4 
 
-- Были созданы файлы hosts и также inventory{ini,yaml}.Файл находится тут
+- Были созданы файлы hosts и также inventory{ini,yaml}.Файл находится [тут](https://github.com/Pomidor20/notology/tree/main/Netology/CI_CD/files)
 	- Как пример содержимого файла inventory.yml
 		```
 		all:
@@ -83,13 +83,13 @@
 	```
 	ansible debian -m apt -a "update_cache=true name=htop state=present" -b
 	```
-	Фото установки
+	![Фото установки}(https://github.com/Pomidor20/notology/blob/main/Netology/CI_CD/pic/Ansible_1.4.1.JPG)
 
 - Проверка статуса службы производилась с помощью команды:
 	```
 	ansible debian -i "/etc/ansible/inventory.ini" -m systemd -a "name=networking" -b
 	```
-	Фото службы
+	![Фото службы](https://github.com/Pomidor20/notology/blob/main/Netology/CI_CD/pic/Ansible_1.4.2.JPG)
 
 - __Создайте файл с содержимым «I like Linux» по пути /tmp/netology.txt.__ . Эту задачу я поделил на 2 части:
 	
@@ -102,4 +102,5 @@
 		ansible debian -m lineinfile -a 'path=/tmp/netology.txt line="I like Linux"' -b
 		```
 		
-Фото задания 
+	![Фото задания](https://github.com/Pomidor20/notology/blob/main/Netology/CI_CD/pic/Ansible_1.4.3.1.JPG)
+	![Фото задания](https://github.com/Pomidor20/notology/blob/main/Netology/CI_CD/pic/Ansible_1.4.3.2.JPG) 

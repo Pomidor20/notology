@@ -80,7 +80,7 @@
 	```
 
 ### Запуск кода Ansible через AD-HOC.Больше примеров по сноске[^6]
-
+--------------------------------------------------------------------------------------------------------
  ```
  ansible debian -i /etc/ansible/inventory.ini -m ping
  ```  
@@ -88,7 +88,7 @@
 - Модули всегда можно посмотреть на оф сайте https://docs.ansible.com/ansible/2.9/modules/list_of_all_modules.html  
 	  или тут https://docs.ansible.com/ansible/2.9/modules/modules_by_category.html#modules-by-category
 
--Для упрощения подключения по имени к машине можно сощдать файл ~/.ssh/config [^7].Пример содержания
+- Для упрощения подключения по имени к машине можно сощдать файл ~/.ssh/config [^7].Пример содержания
 
 ```
 Host vm2

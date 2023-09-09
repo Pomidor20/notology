@@ -80,13 +80,30 @@
 	```
 
 ### Запуск кода Ansible через AD-HOC.Больше примеров по сноске[^6]
-	 ```
-	 ansible debian -i /etc/ansible/inventory.ini -m ping
-	 ```
-  
-	- Модули всегда можно посмотреть на оф сайте https://docs.ansible.com/ansible/2.9/modules/list_of_all_modules.html  
+
+ ```
+ ansible debian -i /etc/ansible/inventory.ini -m ping
+ ```  
+ 
+- Модули всегда можно посмотреть на оф сайте https://docs.ansible.com/ansible/2.9/modules/list_of_all_modules.html  
 	  или тут https://docs.ansible.com/ansible/2.9/modules/modules_by_category.html#modules-by-category
 
+-Для упрощения подключения по имени к машине можно сощдать файл ~/.ssh/config [^7].Пример содержания
+
+```
+Host vm2
+  HostName 10.10.1.176
+  User vagrant
+  Port 22
+  UserKnownHostsFile /dev/null
+  StrictHostKeyChecking no
+  PasswordAuthentication no
+  IdentityFile /vagrant/private_key2
+  IdentitiesOnly yes
+  LogLevel FATAL
+  PubkeyAcceptedKeyTypes +ssh-rsa
+  HostKeyAlgorithms +ssh-rsa
+```
 
 
 
@@ -96,7 +113,8 @@
 [^3]: 
 [^4]: https://docs.ansible.com/ansible/latest/reference_appendices/config.html  
 [^5]: https://habr.com/ru/articles/516028/  
-[^6]: https://www.middlewareinventory.com/blog/ansible-ad-hoc-commands/   
+[^6]: https://www.middlewareinventory.com/blog/ansible-ad-hoc-commands/
+[^7]: https://freehost.com.ua/faq/articles/kak-nastroit-ssh-s-pomoschju--ssh-config/
 https://habr.com/ru/companies/jugru/articles/416763/  
 https://habr.com/ru/companies/veeam/articles/455604/  
 https://tproger.ru/translations/yaml-za-5-minut-sintaksis-i-osnovnye-vozmozhnosti/#part4  

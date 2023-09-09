@@ -83,7 +83,7 @@
 	```
 	ansible debian -m apt -a "update_cache=true name=htop state=present" -b
 	```
-	![Фото установки}(https://github.com/Pomidor20/notology/blob/main/Netology/CI_CD/pic/Ansible_1.4.1.JPG)
+	![Фото установки](https://github.com/Pomidor20/notology/blob/main/Netology/CI_CD/pic/Ansible_1.4.1.JPG)
 
 - Проверка статуса службы производилась с помощью команды:
 	```

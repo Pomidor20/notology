@@ -1,0 +1,11 @@
+all:
+  children:
+    debian:
+      children:
+        vm2:
+         hosts:
+           vm2
+        vm3:
+          hosts:
+           vm3
+

@@ -83,6 +83,7 @@
 	 ```
 	 ansible debian -i /etc/ansible/inventory.ini -m ping
 	 ```
+  
 	- Модули всегда можно посмотреть на оф сайте https://docs.ansible.com/ansible/2.9/modules/list_of_all_modules.html  
 	  или тут https://docs.ansible.com/ansible/2.9/modules/modules_by_category.html#modules-by-category
 

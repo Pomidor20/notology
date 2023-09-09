@@ -57,11 +57,39 @@
   sudo touch /etc/ansible/ansible.cfg
   ansible-config init --disabled -t all > /etc/ansible/ansible.cfg
   ```
+- настраиваем если нужно файл конфигурации[^5]
+- Создаем файл inventory{ini,json}
+  - Пример вида файла inventory.ini 	
+	```
+	[debian]
+	vm2
+	vm3
+	```
+  - Привем вида файла inventory.yml
+	```
+	all:
+    children:
+    debian:
+      children:
+        vm2:
+         hosts:
+           vm2
+        vm3:
+          hosts:
+           vm3
+	```
+
+### Запуск кода Ansible через AD-HOC.Больше примеров по сноске[^6]
+	 ```
+	 ansible debian -i /etc/ansible/inventory.ini -m ping
+	 ```
 
 [^1]: https://docs.ansible.com/ansible/latest/installation_guide/installation_distros.html#installing-ansible-on-debian
 [^2]: https://docs.ansible.com/ansible/latest/installation_guide/installation_distros.html#installing-ansible-on-debian
 [^3]: 
 [^4]: https://docs.ansible.com/ansible/latest/reference_appendices/config.html  
+[^5]: https://habr.com/ru/articles/516028/  
+[^6]: https://www.middlewareinventory.com/blog/ansible-ad-hoc-commands/   
 https://habr.com/ru/companies/jugru/articles/416763/  
 https://habr.com/ru/companies/veeam/articles/455604/  
 https://tproger.ru/translations/yaml-za-5-minut-sintaksis-i-osnovnye-vozmozhnosti/#part4  

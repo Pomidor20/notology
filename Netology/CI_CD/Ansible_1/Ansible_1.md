@@ -65,7 +65,7 @@
  
 ### Ответ 4 
 
-- Были созданы файлы hosts и также inventory{ini,yaml}.Файл находится [тут](https://github.com/Pomidor20/notology/tree/main/Netology/CI_CD/files)
+- Были созданы файлы hosts и также inventory{ini,yaml}.Файл находится [тут](https://github.com/Pomidor20/notology/blob/3e64b1435765b016c9b5743c91801df4798dc59d/Netology/CI_CD/Ansible_1/files/)
 	- Как пример содержимого файла inventory.yml
 		```
 		all:

@@ -18,6 +18,7 @@
 
 ```
 ansible-lint my_playbook.yml
+ansible-playbook имя playbook --syntax-check
 ```
 
 

@@ -1,0 +1,22 @@
+---
+    - name: homework
+      hosts: debian
+      become: yes
+      tasks:
+        - name: download archive
+          get_url:
+              url: https://downloads.apache.org/kafka/3.5.1/kafka-3.5.1-src.tgz
+              dest: /tmp/kafka-3.5.1-src.tgz
+              mode: '0755'
+              
+        - name: create folder
+          file:
+              path: /tmp/kafka
+              state: directory
+              mode: '0755'
+                
+        - name: extract files to folder
+          unarchive:
+              remote_src: yes
+              src: /tmp/kafka-3.5.1-src.tgz
+              dest: /tmp/kafka

@@ -28,9 +28,9 @@ Vagrant.configure("2") do |config|
   # Конфигурация для первой виртуальной машины
   config.vm.define "vm1" do |vm1|
     vm1.vm.box = "debian/bullseye64" # Замените на имя образа, который вы хотите использовать
-    vm1.vm.network "public_network",bridge: "Intel(R) Wi-Fi 6 AX200 160MHz"
+    vm1.vm.network "public_network",bridge: "Intel(R) Wi-Fi 6 AX200 160MHz" # Подключаем 2 физ интерфейса
     vm1.vm.provider "virtualbox" do |vb1|
-      vb1.name = 'VMcom1'
+      vb1.name = 'VMcom1' #задаем имя внутри vm
       vb1.memory = 1024 # Выделить памяти (в мегабайтах)
       vb1.cpus = 1 # Выделить процессорных ядер
     end
@@ -39,9 +39,9 @@ Vagrant.configure("2") do |config|
   # Конфигурация для второй виртуальной машины
   config.vm.define "vm2" do |vm2|
     vm2.vm.box = "debian/bullseye64" # Замените на имя образа, который вы хотите использовать
-    vm2.vm.network "public_network", bridge: "Intel(R) Wi-Fi 6 AX200 160MHz"
+    vm2.vm.network "public_network", bridge: "Intel(R) Wi-Fi 6 AX200 160MHz" # Подключаем 2 физ интерфейса
     vm2.vm.provider "virtualbox" do |vb2|
-      vb2.name = 'VMcom2'
+      vb2.name = 'VMcom2' ###задаем имя внутри vm
       vb2.memory = 1024 # Выделить памяти (в мегабайтах)
       vb2.cpus = 1 # Выделить процессорных ядер
     end

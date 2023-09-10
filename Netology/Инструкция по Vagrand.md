@@ -1,7 +1,25 @@
-###
+## Устновка Vаgrant[^1]
+### Скачивам и устанавливаем Vаgrant
 
+- Для DEB
+  ```
+ wget -O- https://apt.releases.hashicorp.com/gpg | sudo gpg --dearmor -o /usr/share/keyrings/hashicorp-archive-keyring.gpg
+ echo "deb [signed-by=/usr/share/keyrings/hashicorp-archive-keyring.gpg] https://apt.releases.hashicorp.com $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/hashicorp.list
+ sudo apt update && sudo apt install vagrant
+  
+  ```
+- Для RPM
+```
+ sudo yum install -y yum-utils
+ sudo yum-config-manager --add-repo https://rpm.releases.hashicorp.com/RHEL/hashicorp.repo
+ sudo yum -y install vagrant
+```
 
-
+### Создаем директорию и производим инициализацию.Потом правим файл Vagrantfile как хотим)
+```
+mkdir /home/user/vagrant && cd /home/user/vagrant/
+vagrant init
+```
 
 ### Создание 3-ех винтуальных машин(файл Vagrantfile)
 ```
@@ -52,7 +70,15 @@ end
 - Через стандартную команду ssh:
 
   ssh vagrand@localhost -p _**проброшенный порт в vm**_ [^1] -i _**путь к файлу закрытому ключу**_ [^2] 
+  Из картнки ниже мы видим что нужно подключатся к 2200 порту
+  ```
+      ==> vm2: Preparing network interfaces based on configuration...
+          vm2: Adapter 1: nat
+          vm2: Adapter 2: bridged
+      ==> vm2: Forwarding ports...
+          vm2: 22 (guest) => 2200 (host) (adapter 1)
 
+  ```
 
 - Через файл конфигурации ssh:
   - Выгружем файл подключений Vagrant к vm в папку.
@@ -84,16 +110,7 @@ end
 
 
 ### Ссылки и сноски
-[^1]: Из картнки ниже мы видим что нужно подключатся к 2200 порту
-```
-==> vm2: Preparing network interfaces based on configuration...
-    vm2: Adapter 1: nat
-    vm2: Adapter 2: bridged
-==> vm2: Forwarding ports...
-    vm2: 22 (guest) => 2200 (host) (adapter 1)
-
-```
-
+[^1]: https://developer.hashicorp.com/vagrant/downloads
 [^2]: IdentityFile /home/user/vagrant/.vagrant/machines/vm3/virtualbox/private_key. Путь указывает на место где указана инициализация Vagrant
 
 [^3]: > Вот тут

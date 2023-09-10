@@ -22,6 +22,7 @@ vagrant init
 ```
 
 ### Создание 3-ех винтуальных машин(файл Vagrantfile)
+nano /home/user/vagrant/Vagrantfile
 ```
 Vagrant.configure("2") do |config|
   # Конфигурация для первой виртуальной машины
@@ -69,7 +70,7 @@ end
 
 - Через стандартную команду ssh:
 
-  ssh vagrand@localhost -p _**проброшенный порт в vm**_ [^1] -i _**путь к файлу закрытому ключу**_ [^2] 
+  ssh vagrand@localhost -p _**проброшенный порт в vm**_ -i _**путь к файлу закрытому ключу**_ [^2] 
   Из картнки ниже мы видим что нужно подключатся к 2200 порту
   ```
       ==> vm2: Preparing network interfaces based on configuration...

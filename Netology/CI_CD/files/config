@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Host vm2
   HostName 10.10.1.176
   User vagrant
@@ -37,3 +38,5 @@ Host vm1
   PubkeyAcceptedKeyTypes +ssh-rsa
   HostKeyAlgorithms +ssh-rsa
 
+
+>>>>>>> b97b97c97a3798cd890c837545ef7f591b789158

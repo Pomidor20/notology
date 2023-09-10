@@ -35,7 +35,7 @@
 ### Ответ 2
 
 Процесс установки Ansible описан в файле [ТУТ](https://github.com/Pomidor20/notology/blob/e9fa3d245bd191204f877aaaf6a05e2adf573b77/Netology/%D0%A3%D1%81%D1%82%D0%B0%D0%BD%D0%BE%D0%B2%D0%BA%D0%B0%20Ansible.md)  
-![PingPong](https://github.com/Pomidor20/notology/tree/main/Netology/CI_CD/Ansible_1/pic/Ansible_1.1.png)
+![PingPong](https://github.com/Pomidor20/notology/blob/3e64b1435765b016c9b5743c91801df4798dc59d/Netology/CI_CD/Ansible_1/pic/Ansible_1.1.png)
  
 ---
 
@@ -83,13 +83,13 @@
 	```
 	ansible debian -m apt -a "update_cache=true name=htop state=present" -b
 	```
-	![Фото установки](https://github.com/Pomidor20/notology/tree/main/Netology/CI_CD/Ansible_1/pic/Ansible_1.4.1.JPG)
+	![Фото установки](https://github.com/Pomidor20/notology/blob/3e64b1435765b016c9b5743c91801df4798dc59d/Netology/CI_CD/Ansible_1/pic/Ansible_1.4.1.JPG)
 
 - Проверка статуса службы производилась с помощью команды:
 	```
 	ansible debian -i "/etc/ansible/inventory.ini" -m systemd -a "name=networking" -b
 	```
-	![Фото службы](https://github.com/Pomidor20/notology/tree/main/Netology/CI_CD/Ansible_1/pic/Ansible_1.4.2.JPG)
+	![Фото службы](https://github.com/Pomidor20/notology/blob/3e64b1435765b016c9b5743c91801df4798dc59d/Netology/CI_CD/Ansible_1/pic/Ansible_1.4.2.JPG)
 
 - __Создайте файл с содержимым «I like Linux» по пути /tmp/netology.txt.__ . Эту задачу я поделил на 2 части:
 	
@@ -102,5 +102,5 @@
 		ansible debian -m lineinfile -a 'path=/tmp/netology.txt line="I like Linux"' -b
 		```
 		
-	![Фото задания](https://github.com/Pomidor20/notology/tree/main/Netology/CI_CD/Ansible_1/pic/Ansible_1.4.3.1.JPG)
-	![Фото задания](https://github.com/Pomidor20/notology/tree/main/Netology/CI_CD/Ansible_1/pic/Ansible_1.4.3.2.JPG) 
+	![Фото задания](https://github.com/Pomidor20/notology/blob/3e64b1435765b016c9b5743c91801df4798dc59d/Netology/CI_CD/Ansible_1/pic/Ansible_1.4.3.1.JPG)
+	![Фото задания](https://github.com/Pomidor20/notology/blob/3e64b1435765b016c9b5743c91801df4798dc59d/Netology/CI_CD/Ansible_1/pic/Ansible_1.4.3.2.JPG) 

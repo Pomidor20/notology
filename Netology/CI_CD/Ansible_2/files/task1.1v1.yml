@@ -49,7 +49,7 @@
    hosts: debian
    become: yes
    vars:
-    myline: "HELLO MASTER"
+    myline:
    tags: motd
    tasks:
       - name: "remve string in motd"
@@ -64,7 +64,7 @@
           line: "{{ myline }}"
       - name: "modify motd"
         ansible.builtin.file:
-          path: /etc/update_motd.d
+          path: /etc/update-motd.d
           state: directory
           recurse: yes
           mode: '0644'

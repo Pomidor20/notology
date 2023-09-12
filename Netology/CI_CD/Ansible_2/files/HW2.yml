@@ -1,0 +1,27 @@
+---
+ - name: "change motd from env"
+   hosts: debian
+   become: yes
+   vars:
+    myline: |
+          "Привет! Твой IP-адрес: {{ ansible_facts.all_ipv4_addresses}}
+           Ты зашел на {{ ansible_facts.hostname }}
+           Have a nice day, BOSS"
+   tags: motd
+   tasks:
+      - name: "remve string in motd"
+        ansible.builtin.lineinfile:
+          path: /etc/motd
+          regexp: '.*'
+          state: absent
+      - name: "modify motd"
+        ansible.builtin.lineinfile:
+          path: /etc/motd
+          regexp: '.*'
+          line: "{{ myline }}"
+      - name: "modify perm"
+        ansible.builtin.file:
+          path: /etc/update_motd.d
+          state: directory
+          recurse: yes
+          mode: '0644'

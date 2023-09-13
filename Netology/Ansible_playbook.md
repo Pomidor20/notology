@@ -21,6 +21,7 @@ ansible-lint my_playbook.yml
 ansible-playbook имя playbook --syntax-check
 ```
 ### Блок по шаблоном jinja2 [^10]
+https://jinja.palletsprojects.com/en/2.11.x/templates/
 ### Циклы
 ```
 {% for i in range(1,11) %}

@@ -42,6 +42,6 @@ Have a nice day, BOSS
 
 ========================================================  
 https://github.com/ansible/ansible-examples
-
+https://docs.ansible.com/ansible/latest/collections/ansible/builtin/template_module.html#ansible-collections-ansible-builtin-template-module
 [^9]: https://docs.ansible.com/ansible/2.9/user_guide/playbooks_intro.html#linting-playbooks https://ansible.readthedocs.io/projects/lint/
 [^10]: https://andreyex.ru/linux/ansible-shablony-jinja2/

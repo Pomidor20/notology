@@ -21,8 +21,13 @@ ansible-lint my_playbook.yml
 ansible-playbook имя playbook --syntax-check
 ```
 ### Блок по шаблоном jinja2 [^10]
-
+###Циклы
 ```
+{% for i in range(1,11) %}
+	Number {{ i }}
+{% endfor %}
+
+
 Привет! Твой IP-адрес:
 {% for ip_address in ansible_default_ipv4.addresses %}
   {{ ip_address }}

@@ -10,7 +10,22 @@
 
 
 
-
+### Передать результаты одного task в другой.
+команда register
+пример
+```
+      - name: "find recurse files"
+        tags: find
+        ansible.builtin.find:
+          path: /etc/update-motd.d/
+          recurse: true
+        register: rm_files
+      - name: "remove files by env"
+        ansible.builtin.file:
+          path: {{ rm_files.path }}
+          state: absent     
+```
+В одном Джобе результат кладем в переменную rm_files,второй джобой удаляем все файты от туда.
 
 
 

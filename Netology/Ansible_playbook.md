@@ -7,10 +7,37 @@
 
 
 
+#### Как работать с фактами on playbook 
+https://www.redhat.com/sysadmin/playing-ansible-facts
+```
+Ansible факты и тип данных
+Факты Ansible хранятся в формате JSON и могут быть разделены на три основные категории:
+
+Список : хранит список элементов, а сохраненная информация записывается в квадратных скобках [] . В основном это факты, которые могут иметь несколько значений, например, system_capablities. Доступ к списку осуществляется с помощью квадратных скобок и указания индекса.
+
+    ansible_facts["all_ipv6_addresses"][1]
+    ansible_facts["all_ipv6_addresses"][2]
+
+Словарь : хранит данные в виде набора пар ключ-значение, а информация хранится внутри фигурных скобок {} . В основном это факты, внутри которых есть подфакты, например: memory_mb. Доступ к словарю осуществляется с помощью оператора точки.
+
+    ansible_facts.memory_mb.real
+Ansible Unsafe Text : переменные этого типа не имеют подчастей и хранят данные напрямую, например machine. Доступ к Ansible Unsafe Text можно получить напрямую, используя имя факта.
+
+    ansible_facts["machine"]
+Используйте фильтр type_debug , чтобы проверить тип данных на наличие фактов Ansible.
+
+- hosts: all
+  tasks:
+  - debug:
+      var: ansible_facts["all_ipv6_addresses"]|type_debug
+  - debug:
+      var: ansible_facts["memory_mb"]|type_debug
+  - debug:
+      var: ansible_facts["machine"]|type_debug
+```
 
 
-
-### Передать результаты одного task в другой.
+#### Передать результаты одного task в другой.
 команда register
 пример
 ```
@@ -29,7 +56,7 @@
 
 
 
-### Проверка playbook[^9]
+#### Проверка playbook[^9]
 
 ```
 ansible-lint my_playbook.yml
@@ -37,7 +64,7 @@ ansible-playbook имя playbook --syntax-check
 ```
 ### Блок по шаблоном jinja2 [^10]
 https://jinja.palletsprojects.com/en/2.11.x/templates/
-### Циклы
+#### Циклы
 ```
 {% for i in range(1,11) %}
 	Number {{ i }}

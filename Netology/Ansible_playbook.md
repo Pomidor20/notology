@@ -62,6 +62,27 @@ Ansible Unsafe Text : переменные этого типа не имеют �
 ansible-lint my_playbook.yml
 ansible-playbook имя playbook --syntax-check
 ```
+
+#### Модул  проверки условий
+__assert__
+```
+- name: Ensure a specific file exists
+  assert:
+    that:
+      - "ansible_distribution == 'Ubuntu'"
+      - "ansible_architecture == 'x86_64'"
+      - "ansible_fqdn == 'myserver.example.com'"
+    msg: "The conditions for file existence are not met."
+```
+> [!NOTE]  
+> В этом примере задача с модулем assert проверяет три условия:
+> 1. ansible_distribution должен быть равен "Ubuntu".
+> 2. ansible_architecture должен быть равен "x86_64".
+> 3. ansible_fqdn должен быть равен "myserver.example.com".
+>  Если хотя бы одно из этих условий не выполняется, задача завершается ошибкой с указанным сообщением "The conditions for file existence are not met."
+
+
+
 ### Блок по шаблоном jinja2 [^10]
 https://jinja.palletsprojects.com/en/2.11.x/templates/
 #### Циклы

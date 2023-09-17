@@ -1,0 +1,72 @@
+---
+
+# Homework 1.1
+ 
+ 
+ - name: "download and extract kafka"
+   hosts: debian
+   become: yes
+   tasks:
+      - name: "download archive"
+        ansible.builtin.get_url:
+            url: https://downloads.apache.org/kafka/3.5.1/kafka-3.5.1-src.tgz
+            dest: /tmp/kafka-3.5.1-src.tgz
+            mode: '0755'
+              
+      - name: "create folder"
+        ansible.builtin.file:
+            path: /tmp/kafka
+            state: directory
+            mode: '0755'
+                
+      - name: "extract files to folder"
+        ansible.builtin.unarchive:
+            remote_src: yes
+            src: /tmp/kafka-3.5.1-src.tgz
+            dest: /tmp/kafka
+ 
+ 
+ #Homework 1.2   
+ 
+ - name: "install and enable tuned service"
+   hosts: debian
+   become: yes
+   tasks:
+      - name: "install tuned"
+        ansible.builtin.apt:
+          update_cache: yes
+          name: tuned
+          state: present
+            
+      - name: "start and enable service"
+        ansible.builtin.service: 
+          name: tuned
+          state: started
+          enabled: yes
+ 
+ #Homework 1.3
+ - name: "change motd from env"
+   hosts: debian
+   become: yes
+   vars:
+    myline:
+   tags: motd
+   tasks:
+      - name: "remve string in motd"
+        ansible.builtin.lineinfile:
+          path: /etc/motd
+          regexp: '.*'
+          state: absent
+      - name: "modify permissions def file"
+        tags: perm
+        ansible.builtin.file:
+          path: /etc/update-motd.d
+          state: directory
+          recurse: true
+          mode: '0500'
+      - name: "modify motd"
+        ansible.builtin.template:
+          src: vagrant/templates/motd.j2
+          dest: /etc/motd
+          regexp: '.*'
+          line: "{{ myline }}"

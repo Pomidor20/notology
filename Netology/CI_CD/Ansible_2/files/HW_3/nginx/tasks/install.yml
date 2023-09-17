@@ -1,0 +1,12 @@
+---
+- name: "update cache apt"
+  ansible.builtin.apt:
+    update-cache: true
+    name: nginx
+    state: present
+    #when: ansible_os_family == "Debian"
+- name: "enable nginx service"
+  ansible.builtin.systemd:
+    name: nginx
+    enabled: true
+    state: started

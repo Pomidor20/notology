@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Welcome to nginx!</title>
+<meta charset="UTF-8">
+<style>
+    body {
+        width: 35em;
+        margin: 0 auto;
+        font-family: Tahoma, Verdana, Arial, sans-serif;
+    }
+</style>
+</head>
+<body>
+<h1>Welcome to nginx Pomidor20!</h1>
+
+<p>Ты на сервере {{ ansible_hostname }} </p>
+
+<h1>CPU</h1>
+<p> {{ ansible_processor[2] }} </p>
+
+<h1>RAM</h1>
+<p>free {{ ansible_facts.memory_mb.real.free }}
+<br />
+total {{ ansible_facts.memory_mb.real.total }}
+<br />
+used {{ ansible_facts.memory_mb.real.used }}  </p>
+
+<h1>HDD</h1>
+<p> место на диске {{ ansible_mounts[0].size_available }} </p>
+
+<h1>IP</h1>
+
+{% for ip in ansible_facts['all_ipv4_addresses'] %}
+{{ ip }}
+{% endfor %}
+</body>
+</html>

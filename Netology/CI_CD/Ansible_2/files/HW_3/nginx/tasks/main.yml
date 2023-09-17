@@ -2,3 +2,4 @@
 # tasks file for nginx
 - include: install.yml
 - include: copy.yml
+- include: check_url.yml

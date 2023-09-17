@@ -1,0 +1,8 @@
+- name: "check url"
+  uri:
+    url: "http://localhost"
+    return_content: yes
+  register: response
+  failed_when: response.status != 200
+- debug:
+    var: response.status

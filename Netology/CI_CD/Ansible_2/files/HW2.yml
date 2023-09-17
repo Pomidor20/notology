@@ -1,12 +1,9 @@
 ---
+
  - name: "change motd from env"
    hosts: debian
    become: yes
-   vars:
-    myline: |
-          "Привет! Твой IP-адрес: {{ ansible_facts.all_ipv4_addresses}}
-           Ты зашел на {{ ansible_facts.hostname }}
-           Have a nice day, BOSS"
+   become_method: sudo
    tags: motd
    tasks:
       - name: "remve string in motd"
@@ -14,14 +11,32 @@
           path: /etc/motd
           regexp: '.*'
           state: absent
-      - name: "modify motd"
-        ansible.builtin.lineinfile:
-          path: /etc/motd
-          regexp: '.*'
-          line: "{{ myline }}"
-      - name: "modify perm"
+      - name: "find recurse files"
+        tags: find
+        ansible.builtin.find:
+          path: /etc/update-motd.d/
+          recurse: true
+        register: "rm_files" 
+      - name: take fackt
+        ansible.builtin.debug:
+          msg: "{{ rm_files }}"
+      - name: "remove files by env"
         ansible.builtin.file:
-          path: /etc/update_motd.d
-          state: directory
-          recurse: yes
-          mode: '0644'
+          path: "{{ item.path }}"
+          state: absent
+        loop: "{{ rm_files.files }}"     
+      - name: "modify motd"
+        ansible.builtin.template:
+          src: templates/motd.j2
+          dest: /etc/motd
+        
+        
+### Тут блок который должен был отработать не не отработал
+#      - name: "modify permissions def file"
+#        tags: perm
+#        ansible.builtin.file:
+#          path: /etc/update-motd.d
+#          state: directory
+#          recurse: true
+#          mode: '0500'
+          

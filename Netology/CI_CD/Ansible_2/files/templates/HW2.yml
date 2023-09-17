@@ -8,7 +8,7 @@
     myline: "HELLO MASTER"
    tags: motd
    tasks:
-      - name: "remve string in motd"
+      - name: "remove string in motd"
         ansible.builtin.lineinfile:
           path: /etc/motd
           regexp: '.*'
@@ -24,6 +24,3 @@
         ansible.builtin.template:
           source: tempaltes/motd.j2
           dest: /etc/motd
-          regexp: '.*'
-          line: "{{ myline }}"
-          

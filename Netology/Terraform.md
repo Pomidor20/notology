@@ -30,6 +30,40 @@
 
 ### Настройка
 
+Для поделбючения провайдера yandex.cloud нужно
+- Создать файл .terraform в профиле пользователя
+```
+touch ~/.terraformrc
+```
+- Наполнить файл содержиммым
+```
+provider_installation {
+  network_mirror {
+    url = "https://terraform-mirror.yandexcloud.net/"
+    include = ["registry.terraform.io/*/*"]
+  }
+  direct {
+    exclude = ["registry.terraform.io/*/*"]
+  }
+}
+```
+- В папке где будет располагаться проект по терраформу (скрипты и тд), нужно создать файл конфигурации
+  ```
+  terraform {
+  required_providers {
+    yandex = {
+      source = "yandex-cloud/yandex"
+    }
+  }
+  required_version = ">= 0.13"
+}
+
+provider "yandex" {
+  zone = "<зона доступности по умолчанию>"
+}
+  ```
+- 
+- 
 ### Полезные ссылки и сноски
 
 - https://developer.hashicorp.com/terraform/language/resources

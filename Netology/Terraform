@@ -1,4 +1,31 @@
-### Усновка
+## Установка
+### C официального сайта:
+- Идеи на оф сайт и следуем инстукции https://developer.hashicorp.com/terraform/downloads?product_intent=terraform  
+  - Для DEB
+    ```
+    wget -O- https://apt.releases.hashicorp.com/gpg | sudo gpg --dearmor -o /usr/share/keyrings/hashicorp-archive-keyring.gpg
+    echo "deb [signed-by=/usr/share/keyrings/hashicorp-archive-keyring.gpg] https://apt.releases.hashicorp.com $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/hashicorp.list
+    sudo apt update && sudo apt install terraform
+    ```
+  - Для RPM
+    ```
+    sudo yum install -y yum-utils
+    sudo yum-config-manager --add-repo https://rpm.releases.hashicorp.com/RHEL/hashicorp.repo
+    sudo yum -y install terraform
+    ```
+> [!NOTE]  
+> При данном подходе не требуется бинарник перемещать в /usr/...... Установщик сам положит его в  /usr/bin/terraform  
+
+### C Яндекс облака:
+
+- Идем на https://cloud.yandex.ru/docs/tutorials/infrastructure-management/terraform-quickstart  
+  - Находим там установку из серкала https://hashicorp-releases.yandexcloud.net/terraform/  
+  - После скачивания перемещаем бинарник в /usr/local/bin/
+    ```
+    cp имя скаченного файла /usr/local/bin/terraform
+    ```    
+    > [!NOTE]  
+    > При данном подходе нужно помещать бинарник в /usr/...... После перемещения можно из консоли просто запускать terraform 
 
 ### Настройка
 

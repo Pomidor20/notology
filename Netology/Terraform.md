@@ -65,7 +65,7 @@ nano ~/main.tf
     }
     
     provider "yandex" {
-      zone = "<зона доступности по умолчанию>"
+      zone = "ru-central1-b"
     }
     ```
 - 

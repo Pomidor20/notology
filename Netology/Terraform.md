@@ -47,21 +47,27 @@ provider_installation {
   }
 }
 ```
-- В папке где будет располагаться проект по терраформу (скрипты и тд), нужно создать файл конфигурации
-  ```
-  terraform {
-  required_providers {
-    yandex = {
-      source = "yandex-cloud/yandex"
-    }
-  }
-  required_version = ">= 0.13"
-}
+- В папке где будет располагаться проект по терраформу (скрипты и тд), нужно создать файл конфигурации main.tf (имя не важно,главное расшиерние).Я все делаю в хомах пользователя
 
-provider "yandex" {
-  zone = "<зона доступности по умолчанию>"
-}
-  ```
+```
+touch ~/main.cf
+nano ~/main.cf
+```
+  - Вставляем код ниже
+    ```
+    terraform {
+      required_providers {
+        yandex = {
+          source = "yandex-cloud/yandex"
+        }
+      }
+      required_version = ">= 0.13"
+    }
+    
+    provider "yandex" {
+      zone = "<зона доступности по умолчанию>"
+    }
+    ```
 - 
 - 
 ### Полезные ссылки и сноски

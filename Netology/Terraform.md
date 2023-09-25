@@ -30,8 +30,8 @@
 
 ### Настройка
 
-Для подключения провайдера yandex.cloud нужно
-- Создать файл .terraform в профиле пользователя
+Для подключения провайдера yandex.cloud нужно 
+- Создать файл .terraform в профиле пользователя [^1]
 ```
 touch ~/.terraformrc
 ```
@@ -74,3 +74,4 @@ nano ~/main.tf
 
 - https://developer.hashicorp.com/terraform/language/resources
 - https://habr.com/ru/companies/otus/articles/696694/
+[^1]: https://developer.hashicorp.com/terraform/cli/config/config-file#explicit-installation-method-configuration

@@ -73,6 +73,7 @@ nano ~/main.tf
 ### Полезные ссылки и сноски
 - описание языка https://developer.hashicorp.com/terraform/language
 - описание функций https://developer.hashicorp.com/terraform/language/expressions/strings#interpolation
+- backend https://ru.hexlet.io/courses/terraform-basics/lessons/remote-state/theory_unit
 - https://developer.hashicorp.com/terraform/language/resources
 - https://habr.com/ru/companies/otus/articles/696694/
 [^1]: https://developer.hashicorp.com/terraform/cli/config/config-file#explicit-installation-method-configuration

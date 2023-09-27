@@ -87,6 +87,7 @@ touch ~/main.tf
 nano ~/main.tf
 ```
   - Вставляем код ниже
+```
 terraform {
   required_providers {
     yandex = {
@@ -105,7 +106,7 @@ provider "yandex" {
 }
 
     ```
-- 
+- Для создания VN используем https://terraform-provider.yandexcloud.net//Resources/compute_instance
 - 
 ### Полезные ссылки и сноски
 - описание языка https://developer.hashicorp.com/terraform/language

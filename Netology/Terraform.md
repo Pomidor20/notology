@@ -105,7 +105,7 @@ provider "yandex" {
   zone      = "ru-central1-b"
 }
 
-    ```
+```
 - Для создания VN используем https://terraform-provider.yandexcloud.net//Resources/compute_instance
 - 
 ### Полезные ссылки и сноски

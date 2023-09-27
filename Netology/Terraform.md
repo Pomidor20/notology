@@ -31,7 +31,26 @@
 ### Настройка
 
 Для подключения провайдера yandex.cloud нужно 
-- Создать файл .terraform в профиле пользователя [^1]
+
+- Установить консоль Яндекс Клауда (yc)[^1]
+  ```
+  curl -sSL https://storage.yandexcloud.net/yandexcloud-yc/install.sh | bash
+  ```
+
+- Нужно получить токен на подключение консоли yc к yc по ссылке из пункта 1.1
+https://cloud.yandex.com/en/docs/cli/quickstart#install
+ 
+- Инициализируем консоль yc и вставляем токен из пункта выше.
+```
+yc init
+
+```
+- Далее выбираем облако к которому будем подключаться
+- Выбираем папку по усолчанию в этом облаке
+- Говорим нужно ли нам выбрать зону по умолчанию и выбираем нужную зону
+- 
+
+- Создать файл .terraform в профиле пользователя [^2]
 ```
 touch ~/.terraformrc
 ```
@@ -76,4 +95,6 @@ nano ~/main.tf
 - backend https://ru.hexlet.io/courses/terraform-basics/lessons/remote-state/theory_unit
 - https://developer.hashicorp.com/terraform/language/resources
 - https://habr.com/ru/companies/otus/articles/696694/
-[^1]: https://developer.hashicorp.com/terraform/cli/config/config-file#explicit-installation-method-configuration
+- 
+[^1]: https://cloud.yandex.com/en/docs/cli/quickstart#install
+[^2]: https://developer.hashicorp.com/terraform/cli/config/config-file#explicit-installation-method-configuration

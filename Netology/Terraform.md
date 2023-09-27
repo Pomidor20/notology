@@ -48,8 +48,22 @@ yc init
 - Далее выбираем облако к которому будем подключаться
 - Выбираем папку по усолчанию в этом облаке
 - Говорим нужно ли нам выбрать зону по умолчанию и выбираем нужную зону
+- Создаем сервис-аккаунт
+  ```
+  yc iam service-account create ИМЯ
+  yc 
+  ```
+- Назначаем сервис-аккаунту роли edit
+```
+yc iam service-account list # посмеотреть все сервис акки
+yc resource-manager folder list-access-bindings default # Посмотреть права на папку в облаке
+yc resource-manager folder add-access-binding default --role editor --subject serviceAccount:тут ID аккаунта
+```
+- Создаем токен для подлючения сервистного аккаунта к облаку
+  ```
+  yc iam key create --service-account-name ИМЯ --output key.json
+  ```
 - 
-
 - Создать файл .terraform в профиле пользователя [^2]
 ```
 touch ~/.terraformrc
@@ -73,19 +87,23 @@ touch ~/main.tf
 nano ~/main.tf
 ```
   - Вставляем код ниже
-    ```
-    terraform {
-      required_providers {
-        yandex = {
-          source = "yandex-cloud/yandex"
-        }
-      }
-      required_version = ">= 0.13"
+terraform {
+  required_providers {
+    yandex = {
+      source = "yandex-cloud/yandex"
     }
-    
-    provider "yandex" {
-      zone = "ru-central1-b"
-    }
+  }
+  required_version = ">= 0.13"
+}
+
+provider "yandex" {
+  token     = "<OAuth или статический ключ сервисного аккаунта>"
+  service_account_key_file = руть к файлу JSON сервис аккаунта
+  cloud_id  = "ИД облака"
+  folder_id = " ИД папки"
+  zone      = "ru-central1-b"
+}
+
     ```
 - 
 - 

@@ -107,6 +107,7 @@ provider "yandex" {
 
 ```
 - Для создания VN используем https://terraform-provider.yandexcloud.net//Resources/compute_instance
+  https://cloud.yandex.ru/docs/compute/operations/vm-create/create-linux-vm
 - 
 ### Полезные ссылки и сноски
 - описание языка https://developer.hashicorp.com/terraform/language

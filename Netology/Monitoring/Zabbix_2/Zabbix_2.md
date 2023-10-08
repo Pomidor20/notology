@@ -9,7 +9,7 @@
 4. Создайте Item который будет собирать информацию об загрузке RAM в процентах
 
 #### Требования к результату
-![]()
+![](https://github.com/Pomidor20/notology/blob/main/Netology/Monitoring/Zabbix_2/pic/1.JPG)
 
  ---
 
@@ -25,7 +25,9 @@
 6. Проверьте что в разделе Latest Data начали появляться данные с добавленных агентов
 
 #### Требования к результату
-![]()
+![](https://github.com/Pomidor20/notology/blob/main/Netology/Monitoring/Zabbix_2/pic/2.1.JPG)
+![](https://github.com/Pomidor20/notology/blob/main/Netology/Monitoring/Zabbix_2/pic/2.JPG)
+
 
  ---
 
@@ -39,7 +41,8 @@
 4. Проверьте что в раздел Latest Data начали поступать необходимые данные из вашего шаблона
 
 #### Требования к результату
-![]()
+![](https://github.com/Pomidor20/notology/blob/main/Netology/Monitoring/Zabbix_2/pic/3.1.JPG)
+![](https://github.com/Pomidor20/notology/blob/main/Netology/Monitoring/Zabbix_2/pic/3.JPG)
 
  ---
 
@@ -52,4 +55,4 @@
 3. Разместите на нём несколько графиков на ваше усмотрение.
 
 #### Требования к результату
-![]()
+![](https://github.com/Pomidor20/notology/blob/main/Netology/Monitoring/Zabbix_2/pic/4.JPG)

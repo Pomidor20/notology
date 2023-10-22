@@ -1,4 +1,7 @@
  *.tfstate
  *.tfstate*
  *tfstate*
-
+# Compiled files
+*.tfstate
+*.tfstate.backup
+*.tfstate.lock.info

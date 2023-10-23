@@ -1,7 +1,8 @@
+#cloud-config
 users:
-  - name: vagrant
+  - name: test
     groups: sudo
     shell: /bin/bash
-    sudo: ['ALL=(ALL) NOPASSWD:ALL']
+    sudo: 'ALL=(ALL) NOPASSWD:ALL'
     ssh-authorized-keys:
-      - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDEhr84hiabvu3wz/GELBjddMLMHGOGMOkQ7Dk1b1BUr70Z/jTgnFcyoIhzbezhzMU5L1jSAiPXyO0Rgky/y8VvcENGolvPYWvZWZZXXKN0wz9+5Rkzp+Jix6XacH+ybAgKZF8IQE5liBZkF8NKovqFpSN3QARtOn48v9kiDESFcqYmacGpIdkj4xqzojPK7jBBMUN0A0ZVvn3hmdrsThJBIgNHNHD7TAkwZYxgyBXQ8feBNdK4JYONss8wka0xqP2yGP5xdzuY1WFxSnRnOdvW5oMejA8WPAueNCToM0k08kM82rTdPsvKhPdUat/8CCM7jHNnCPtSeu0jG5fNnaI9
+      - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIIH9pSFapJXzsy7yxXODt2ukktO1DiOvRvCm1JB5G41k gubochkin@yupshara.local@snakepc

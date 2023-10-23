@@ -55,11 +55,7 @@ resource "yandex_compute_instance" "vm" {
     user-data = "${file("./meta.txt")}"
   }
 
-
-
-
 }
-
 
 ######### NETWORKS ##############
 

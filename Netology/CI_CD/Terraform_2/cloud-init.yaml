@@ -1,0 +1,7 @@
+users:
+  - name: test
+    groups: sudo
+    shell: /bin/bash
+    sudo: 'ALL=(ALL) NOPASSWD:ALL'
+    ssh-authorized-keys:
+      - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDJBag1+acXGNBWJ/EfAVg71VACP9gYyy2XBjwlAzdURptVHZl/JjfOZz79bBFobANewyLp1rt2bAIkucfKYB+CUONUz7BRIFNLZ2Ynj4djcFR18p2z1AXIrxJS0/UpQFeRKMX2tWHaF/rqiLWdEyngm8ZZBJJV+QySb2w3ssHclwmgZSlZ74l/GSmGXKBy6vOxpiCJaiosS5iDX8MQrhA14qfnyPs1qoWvXng7mxFiZ5VWuqGzMN7pW9bM2G5+578hcfDc6VtfrJHNGcuEqxNO+/TKP+8EneUpuPWVQV6osJoHHRKeRXCraj0IXq292AGbw1ux3R7q9bfJMjpWkJEHeQJqnwsUNv1yk0v6F9q62rMhGgMqA5qTkKDl0RBvqF8DYXIKv6GEpwiG9XrHE0AmGasEL+GPkevOFg4UPR/Agg1SzJ1tp8jDQv7LoynUu0+Kzb2ZFsg9CE5kQ1lWX6l0zTBTZzhVkVAC6l2Z2OoHpsTdtHr7Zl483iT1J386FYc= gubochkin@yupshara.local@snakepc

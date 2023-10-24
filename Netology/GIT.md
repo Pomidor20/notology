@@ -33,3 +33,4 @@
 ----  
 Ссылки на полезные ресурсы
 1. https://git-scm.com/docs/git-log
+2. https://webhamster.ru/mytetrashare/index/mtb0/143575842521lohpnj4q #Pull fetch 

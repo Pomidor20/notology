@@ -83,3 +83,4 @@ Docker  inspect
 1. https://docs.docker.com/engine/reference/commandline/image_rm/
 1. https://docs.docker.com/build/guide/intro/
 1. https://docs.docker.com/engine/reference/builder/
+2. https://github.com/veggiemonk/awesome-docker #Полезный сайт по докеру

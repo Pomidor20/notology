@@ -37,4 +37,6 @@
 ----  
 Ссылки на полезные ресурсы
 1. https://git-scm.com/docs/git-log
-2. https://webhamster.ru/mytetrashare/index/mtb0/143575842521lohpnj4q #Pull fetch 
+2. https://webhamster.ru/mytetrashare/index/mtb0/143575842521lohpnj4q #Pull fetch
+3. https://git-scm.com/book/ru/v2/Git-%D0%B8%D0%B7%D0%BD%D1%83%D1%82%D1%80%D0%B8-%D0%A1%D0%B0%D0%BD%D1%82%D0%B5%D1%85%D0%BD%D0%B8%D0%BA%D0%B0-%D0%B8-%D0%A4%D0%B0%D1%80%D1%84%D0%BE%D1%80#ch10-git-internals Внут кухня
+4. https://git-scm.com/book/ru/v2/%D0%9E%D1%81%D0%BD%D0%BE%D0%B2%D1%8B-Git-%D0%A1%D0%BE%D0%B7%D0%B4%D0%B0%D0%BD%D0%B8%D0%B5-Git-%D1%80%D0%B5%D0%BF%D0%BE%D0%B7%D0%B8%D1%82%D0%BE%D1%80%D0%B8%D1%8F#ch02-git-basics-chapter Базис

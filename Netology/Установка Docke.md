@@ -71,6 +71,13 @@ Docker network inspect имя сети
 Docker  inspect
 ```
 
+## Docker перестал показывать эпаы сборки как вренуть
+```
+DOCKER_BUILDKIT=0 docker build .
+или
+docker build --progress=plain .
+```
+
 ## Ссылки в помощь
 1. https://docs.docker.com/engine/install
 1. https://docs.docker.com/engine/reference/commandline/image_rm/

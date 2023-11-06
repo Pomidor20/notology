@@ -33,5 +33,9 @@ cat /var/lib/jenkins/secrets/initialAdminPassword
    ```
    usermod -a -G docker jenkins
    ```
+ - Перезапустить службу Jenkins.что бы она смогла интегрироваться с докером)
+   ```
+   systemctl restart jenkins
+   ```
  - 
  

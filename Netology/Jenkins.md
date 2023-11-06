@@ -26,3 +26,12 @@ cat /var/lib/jenkins/secrets/initialAdminPassword
  ```
  apt install git
  ```
+ ### Docker в pipeline
+ Итак для того что бы использовать докер в pipeline нужно:
+ - Установить docker
+ - Добавить пользователя jenkins в группу докер
+   ```
+   usermod -a -G docker jenkins
+   ```
+ - 
+ 

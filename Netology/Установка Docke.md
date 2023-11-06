@@ -10,7 +10,7 @@ chmod a+r /etc/apt/keyrings/docker.gpg
 
 apt update
 
-apt install docker-ce docker-ce-cli containerd.io -y
+apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin -y
 
 
 ```

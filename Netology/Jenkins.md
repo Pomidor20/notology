@@ -22,7 +22,7 @@ cat /var/lib/jenkins/secrets/initialAdminPassword
 
  http://10.10.20.244:8080/
 
- Для связки рабы с гитом не забываем ставить git на мастер
+ Для связки работы с гитом не забываем ставить git на мастер
  ```
  apt install git
  ```

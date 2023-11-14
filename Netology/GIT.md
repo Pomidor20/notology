@@ -14,8 +14,8 @@
   > git add -  добавлыем файлы в индекс  
   > git commint - Делаем снимок файлов и перемещаем HEAD на наш комит в ветке где он был сделан.
   ```
-  **git config --global user.name "Vasya Pupkin"
-  git config --global user.email vasya@localhost**
+  git config --global user.name "Vasya Pupkin"
+  git config --global user.email vasya@localhost
   ```
 - Заменить последний комит.Переписыват старый комит новым
   ```

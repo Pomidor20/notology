@@ -15,6 +15,7 @@ echo deb [signed-by=/usr/share/keyrings/jenkins-keyring.asc] \
  apt-get install jenkins
 systemctl enable jenkins
 systemctl start jenkins
+<<<<<<< HEAD
 пароль берем 
 cat /var/lib/jenkins/secrets/initialAdminPassword
  http://10.10.20.244:8080/
@@ -23,3 +24,29 @@ cat /var/lib/jenkins/secrets/initialAdminPassword
  
  
  https://www.jenkins.io/doc/book/pipeline/syntax/#available-options options 
+=======
+
+пароль берем 
+
+cat /var/lib/jenkins/secrets/initialAdminPassword
+
+ http://10.10.20.244:8080/
+
+ Для связки работы с гитом не забываем ставить git на мастер
+ ```
+ apt install git
+ ```
+ ### Docker в pipeline
+ Итак для того что бы использовать докер в pipeline нужно:
+ - Установить docker
+ - Добавить пользователя jenkins в группу докер
+   ```
+   usermod -a -G docker jenkins
+   ```
+ - Перезапустить службу Jenkins.что бы она смогла интегрироваться с докером)
+   ```
+   systemctl restart jenkins
+   ```
+ - 
+ 
+>>>>>>> 8a3571004188133cfdea7d7d212864c6d747eedf

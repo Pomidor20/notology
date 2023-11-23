@@ -75,8 +75,8 @@
 	Track interface GigabitEthernet0/0 state Up decrement 10
 	Group name is hsrp-Gig0/1-1 (default)
    ```
-- Отключаем порт идущий к RO на SW0.
-  Видимо что R2 меняет статус со Standby на Active в группе доступности 0.
+- Отключаем порт идущий к RO на SW0.   
+  Видимо что R1 меняет статус со Standby на Active в группе доступности 0.
   ![1](https://github.com/Pomidor20/notology/blob/15c945e85b6fc1dd3c33a93a97420ea6559f0ebe/Netology/Fault%20tolerance/HM-1/pic/1.JPG)  
   ![1.1](https://github.com/Pomidor20/notology/blob/15c945e85b6fc1dd3c33a93a97420ea6559f0ebe/Netology/Fault%20tolerance/HM-1/pic/1.1.JPG)  
   [файл c моим СPK](https://github.com/Pomidor20/notology/blob/bc2e58621c5cbd15ffc9c8e7d71057c56d97f3de/Netology/Fault%20tolerance/HM-1/files/hsrp-advanced.pkt)  

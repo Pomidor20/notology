@@ -77,8 +77,8 @@
    ```
 - Отключаем порт идущий к RO на SW0.
   Видимо что R2 меняет статус со Standby на Active в группе доступности 0.
-  ![1]()
-  ![1.1]()
+  ![1](https://github.com/Pomidor20/notology/blob/15c945e85b6fc1dd3c33a93a97420ea6559f0ebe/Netology/Fault%20tolerance/HM-1/pic/1.JPG)
+  ![1.1](https://github.com/Pomidor20/notology/blob/15c945e85b6fc1dd3c33a93a97420ea6559f0ebe/Netology/Fault%20tolerance/HM-1/pic/1.1.JPG)
   [файл c моим СPK]()
 
 ------

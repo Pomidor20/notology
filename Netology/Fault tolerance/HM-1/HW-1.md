@@ -96,7 +96,11 @@
  - На проверку отправьте получившейся bash-скрипт и конфигурационный файл keepalived, а также скриншот с демонстрацией переезда плавающего ip на другой сервер в случае недоступности порта или файла index.html
  </details>
 
+### Решенеи 2
 
+![2](https://github.com/Pomidor20/notology/blob/main/Netology/Fault%20tolerance/HM-1/pic/2.JPG)  
+![2](https://github.com/Pomidor20/notology/blob/main/Netology/Fault%20tolerance/HM-1/pic/2.1.JPG)  
+[Файлы конфигураций лежат тут](https://github.com/Pomidor20/notology/tree/main/Netology/Fault%20tolerance/HM-1/files)
 ------
 
 ## Дополнительные задания со звёздочкой*

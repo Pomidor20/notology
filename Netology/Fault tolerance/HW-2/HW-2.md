@@ -78,8 +78,8 @@
 	systemctl reload haproxy
 	```
 -Делаем проверки работоспособности HA
-![1](https://github.com/Pomidor20/notology/blob/main/Netology/Fault%20tolerance/HW-2/pic/task_2.1.JPG)  
-[ФАЙЛ HAProxy](https://github.com/Pomidor20/notology/blob/main/Netology/Fault%20tolerance/HW-2/files/haproxy_task_2.conf)  
+![1](https://github.com/Pomidor20/notology/blob/main/Netology/Fault%20tolerance/HW-2/pic/task_2.1.JPG)   
+[ФАЙЛ HAproxy](https://github.com/Pomidor20/notology/blob/main/Netology/Fault%20tolerance/HW-2/files/haproxy_task_2.conf)    
 ---
 
 ## Задания со звёздочкой*
@@ -94,6 +94,7 @@
 - Настройте Nginx так, чтобы файлы .jpg выдавались самим Nginx (предварительно разместите несколько тестовых картинок в директории /var/www/), а остальные запросы переадресовывались на HAProxy, который в свою очередь переадресовывал их на два Simple Python server.
 - На проверку направьте конфигурационные файлы nginx, HAProxy, скриншоты с запросами jpg картинок и других файлов на Simple Python Server, демонстрирующие корректную настройку.
  </details>
+ 
  ![1](https://github.com/Pomidor20/notology/blob/main/Netology/Fault%20tolerance/HW-2/pic/task_3.1.JPG)
  [ФАЙЛ NIGINX САЙТА](https://github.com/Pomidor20/notology/blob/main/Netology/Fault%20tolerance/HW-2/files/default)
 ---

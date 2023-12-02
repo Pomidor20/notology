@@ -78,8 +78,8 @@
 	systemctl reload haproxy
 	```
 -Делаем проверки работоспособности HA
-![1](https://github.com/Pomidor20/notology/blob/main/Netology/Fault%20tolerance/HW-2/pic/task_2.1.JPG)
-[ФАЙЛ HAProxy](https://github.com/Pomidor20/notology/blob/main/Netology/Fault%20tolerance/HW-2/files/haproxy_task_2.conf)
+![1](https://github.com/Pomidor20/notology/blob/main/Netology/Fault%20tolerance/HW-2/pic/task_2.1.JPG)  
+[ФАЙЛ HAProxy](https://github.com/Pomidor20/notology/blob/main/Netology/Fault%20tolerance/HW-2/files/haproxy_task_2.conf)  
 ---
 
 ## Задания со звёздочкой*

@@ -60,7 +60,19 @@
   git push origin --all
   git push origin --tags
   ```
+### Проблемы при слиянии
+- При конфликте выбираем автоматический режим https://nitaym.github.io/ourstheirs/
 
+- чтобы выбрать изменения, сделанные в master
+   ```
+   git checkout --ours codefile.js
+   ```
+- чтобы выбрать изменения, сделанные в  ветке feature
+
+   ```
+   git checkout --theirs codefile.js
+   ```
+   
 ----  
 Ссылки на полезные ресурсы
 1. https://git-scm.com/docs/git-log

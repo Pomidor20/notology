@@ -55,6 +55,11 @@
    ```
   git rm --cached имя_файла
   ```
+- Запушить все локальные ветки
+  ```
+  git push origin --all
+  git push origin --tags
+  ```
 
 ----  
 Ссылки на полезные ресурсы

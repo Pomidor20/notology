@@ -103,3 +103,4 @@ sudo systemctl start redis-server
 ---
 [^1]: https://fixmypc.ru/post/ustanovka-bazy-dannykh-redis-na-ubuntu-20/?ysclid=lq0xd738e1589656970
 [^2]: https://habr.com/ru/companies/nixys/articles/765694/
+https://webdevblog.ru/redis-dlya-nachinajushhij/

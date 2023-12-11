@@ -5,6 +5,7 @@
   apt update
   apt install memcached
   ```
+- Можно использовать в VS-Code - Называется memcached
 ### Подключение
 ```
 telnet localhost 11211 

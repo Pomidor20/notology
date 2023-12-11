@@ -28,7 +28,7 @@ telnet localhost 11211
   ```
 - Чтобы получить список ключей в каждой плите (slab). первая цифра это номер slab (идентификатор slab), вторая количество элементов для извлечения (0 = извлечь все)
   ```
-  stats slabs 1 0
+  stats cachedump 1 0
   ```
 ---
 [^1]: https://linux-notes.org/rabota-s-memcached-v-unix-linux/

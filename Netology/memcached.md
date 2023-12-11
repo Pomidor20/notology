@@ -30,6 +30,6 @@ telnet localhost 11211
   ```
   stats slabs 1 0
   ```
-===
+---
 [^1]: https://linux-notes.org/rabota-s-memcached-v-unix-linux/
 [^2]: https://www.w3big.com/ru/memcached/memcached-set-data.html#gsc.tab=0

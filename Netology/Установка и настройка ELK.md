@@ -121,3 +121,4 @@ https://habr.com/ru/articles/538840/
 https://www.elastic.co/guide/en/logstash/current/configuration-file-structure.html   
 https://habr.com/ru/articles/165059/    
 https://github.com/hpcugent/logstash-patterns/blob/master/files/grok-patterns # разбор грока
+https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-module-nginx.html   #filebeats модули и их настройка

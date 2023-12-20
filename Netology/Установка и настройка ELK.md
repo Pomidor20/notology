@@ -119,3 +119,4 @@ https://www.dmosk.ru/instruktions.php?object=elk-ubuntu
 https://habr.com/ru/articles/538974/   
 https://habr.com/ru/articles/538840/   
 https://www.elastic.co/guide/en/logstash/current/configuration-file-structure.html   
+https://habr.com/ru/articles/165059/    

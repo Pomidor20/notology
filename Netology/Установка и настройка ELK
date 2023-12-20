@@ -1,0 +1,99 @@
+## Elasticsearch
+
+apt install apt-transport-https gpg openjdk-17-jre
+
+
+качаем ключ репозитория
+wget -qO - https://artifacts.elastic.co/GPG-KEY-elasticsearch | sudo gpg --dearmor -o /usr/share/keyrings/elasticsearch-keyring.gpg
+
+Качаем репозиторий и устанавливаем его
+echo "deb [signed-by=/usr/share/keyrings/elasticsearch-keyring.gpg] https://artifacts.elastic.co/packages/8.x/apt stable main" | tee /etc/apt/sources.list.d/elastic-8.x.list
+
+Устанавливаем elasticsearch
+apt update && apt-get install elasticsearch
+
+настраиваем файл 
+```
+cluster.name: my-elk
+node.name: node-1
+discovery.type: single-node
+network.host: 192.168.99.158
+http.port: 9200
+
+```
+>[!NOTE]
+>Обязательно комментировать последнюю строчку #cluster.initial_master_nodes: ["elk"]
+>https://discuss.elastic.co/t/unable-to-start-elastic-service-setting-cluster-initial-master-nodes-is-not-allowed-when-discovery-type-is-set-to-single-node/314375
+>
+>
+># Enable encryption and mutual authentication between cluster nodes
+>xpack.security.transport.ssl:
+>  enabled: true
+>  verification_mode: certificate
+>  keystore.path: certs/transport.p12
+>  truststore.path: certs/transport.p12
+># Create a new cluster with the current node only
+># Additional nodes can still join the cluster later
+>#cluster.initial_master_nodes: ["elk"]
+
+Генерим пароль пользователя
+cd /usr/share/elasticsearch/bin/
+./elasticsearch-reset-password --interactive -u elastic
+
+
+## КИБАНА
+
+
+apt install kibana
+
+/etc/kibana/kibana.yml 
+
+Меняем
+server.host: “localhost”.
+
+Идем на сервер Эластика за токеном
+/usr/share/elasticsearch/bin/elasticsearch-create-enrollment-token -s kibana
+
+Открываем сайт Кибаны и вставляем токен,который получили выше.
+http://127.0.0.1:5601/
+
+Откроется окно с вводом проверочного кода. Возвращаемся на сервер с кибаной и вводим команду:
+
+/usr/share/kibana/bin/kibana-verification-code
+
+
+
+
+
+## Logstash
+
+apt install logstash
+Настройки для логстэша хранятся в каталоге /etc/logstash/conf.d в файлах формата JSON. Для конфигурации используются следующие секции:
+
+input (входные данные).
+filter (фильтры).
+output (выходные данные).
+Для каждой из них мы создадим свой файл.
+```
+vi /etc/logstash/conf.d/input.conf
+
+input {
+  beats {
+    port => 5044
+  }
+}
+```
+
+
+
+
+
+
+
+Открыть консоль в kibana
+http://192.168.99.158:5601/app/dev_tools#/console
+
+Состояние кластера
+GET /_cluster/health?pretty
+https://cloud.vk.com/docs/additionals/cases/cases-logs/case-logging
+https://www.dmosk.ru/instruktions.php?object=elk-ubuntu

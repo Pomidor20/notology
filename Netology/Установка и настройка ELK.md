@@ -22,7 +22,7 @@ apt update && apt-get install elasticsearch
 cluster.name: my-elk
 node.name: node-1
 discovery.type: single-node
-network.host: 192.168.99.158
+network.host: 192.168.0.1
 http.port: 9200
 
 ```
@@ -56,7 +56,8 @@ vi /etc/kibana/kibana.yml
 ```
  - Меняем
 ```
-server.host: “localhost”.
+server.host: 192.168.0.1
+elasticsearch.hosts: ['https://192.168.0.1:9200']
 ```
 
 - Идем на сервер Эластика за токеном
@@ -66,13 +67,16 @@ server.host: “localhost”.
 
 - Открываем сайт Кибаны и вставляем токен,который получили выше.
 ```
-http://127.0.0.1:5601/
+http://192.168.0.1:5601/
 ```
 - Откроется окно с вводом проверочного кода. Возвращаемся на сервер с кибаной и вводим команду:
 ```
 /usr/share/kibana/bin/kibana-verification-code
 ```
+ - Чтобы запустить несколько экземпляров Kibana на одном узле, необходимо указать путь к файлу конфигурации каждого из них. Для этого используется ключ -c:
 
+bin/kibana -c <путь_к_файлу_конфигурации_#1>
+bin/kibana -c <путь_к_файлу_конфигурации_#2>
 
 
 
@@ -106,9 +110,12 @@ input {
 
 
 Открыть консоль в kibana
-http://192.168.99.158:5601/app/dev_tools#/console
+http://192.168.0.1:5601/app/dev_tools#/console
 
-Состояние кластера
-GET /_cluster/health?pretty
-https://cloud.vk.com/docs/additionals/cases/cases-logs/case-logging
-https://www.dmosk.ru/instruktions.php?object=elk-ubuntu
+Состояние кластера    
+GET /_cluster/health?pretty   
+https://cloud.vk.com/docs/additionals/cases/cases-logs/case-logging   
+https://www.dmosk.ru/instruktions.php?object=elk-ubuntu   
+https://habr.com/ru/articles/538974/   
+https://habr.com/ru/articles/538840/   
+https://www.elastic.co/guide/en/logstash/current/configuration-file-structure.html   

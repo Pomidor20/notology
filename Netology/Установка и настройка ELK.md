@@ -85,8 +85,10 @@ apt install logstash
 input (входные данные).
 filter (фильтры).
 output (выходные данные).
+```
 
 - Для каждой из них мы создадим свой файл.
+
 ```
 vi /etc/logstash/conf.d/input.conf
 

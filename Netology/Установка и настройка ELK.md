@@ -31,14 +31,14 @@ http.port: 9200
 >https://discuss.elastic.co/t/unable-to-start-elastic-service-setting-cluster-initial-master-nodes-is-not-allowed-when-discovery-type-is-set-to-single-node/314375
 >
 >
-># Enable encryption and mutual authentication between cluster nodes
+>#Enable encryption and mutual authentication between cluster nodes
 >xpack.security.transport.ssl:
 >  enabled: true
 >  verification_mode: certificate
 >  keystore.path: certs/transport.p12
 >  truststore.path: certs/transport.p12
-># Create a new cluster with the current node only
-># Additional nodes can still join the cluster later
+>#Create a new cluster with the current node only
+>#Additional nodes can still join the cluster later
 >#cluster.initial_master_nodes: ["elk"]
 
 - Генерим пароль пользователя

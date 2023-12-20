@@ -1,18 +1,23 @@
 ## Elasticsearch
-
+```
 apt install apt-transport-https gpg openjdk-17-jre
+```
 
-
-качаем ключ репозитория
+ - качаем ключ репозитория
+```
 wget -qO - https://artifacts.elastic.co/GPG-KEY-elasticsearch | sudo gpg --dearmor -o /usr/share/keyrings/elasticsearch-keyring.gpg
+```
 
-Качаем репозиторий и устанавливаем его
+- Качаем репозиторий и устанавливаем его
+```
 echo "deb [signed-by=/usr/share/keyrings/elasticsearch-keyring.gpg] https://artifacts.elastic.co/packages/8.x/apt stable main" | tee /etc/apt/sources.list.d/elastic-8.x.list
-
-Устанавливаем elasticsearch
+```
+- Устанавливаем elasticsearch
+```
 apt update && apt-get install elasticsearch
+```
 
-настраиваем файл 
+- Настраиваем файл 
 ```
 cluster.name: my-elk
 node.name: node-1
@@ -36,44 +41,52 @@ http.port: 9200
 ># Additional nodes can still join the cluster later
 >#cluster.initial_master_nodes: ["elk"]
 
-Генерим пароль пользователя
+- Генерим пароль пользователя
+```
 cd /usr/share/elasticsearch/bin/
 ./elasticsearch-reset-password --interactive -u elastic
 
-
+```
 ## КИБАНА
 
-
+```
 apt install kibana
 
-/etc/kibana/kibana.yml 
-
-Меняем
+vi /etc/kibana/kibana.yml 
+```
+ - Меняем
+```
 server.host: “localhost”.
+```
 
-Идем на сервер Эластика за токеном
+- Идем на сервер Эластика за токеном
+```
 /usr/share/elasticsearch/bin/elasticsearch-create-enrollment-token -s kibana
+```
 
-Открываем сайт Кибаны и вставляем токен,который получили выше.
+- Открываем сайт Кибаны и вставляем токен,который получили выше.
+```
 http://127.0.0.1:5601/
-
-Откроется окно с вводом проверочного кода. Возвращаемся на сервер с кибаной и вводим команду:
-
+```
+- Откроется окно с вводом проверочного кода. Возвращаемся на сервер с кибаной и вводим команду:
+```
 /usr/share/kibana/bin/kibana-verification-code
-
+```
 
 
 
 
 ## Logstash
-
+```
 apt install logstash
-Настройки для логстэша хранятся в каталоге /etc/logstash/conf.d в файлах формата JSON. Для конфигурации используются следующие секции:
-
+```
+- Настройки для логстэша хранятся в каталоге /etc/logstash/conf.d в файлах формата JSON. Для конфигурации используются следующие секции:
+```
 input (входные данные).
 filter (фильтры).
 output (выходные данные).
-Для каждой из них мы создадим свой файл.
+
+- Для каждой из них мы создадим свой файл.
 ```
 vi /etc/logstash/conf.d/input.conf
 

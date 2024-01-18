@@ -115,8 +115,11 @@ http://192.168.0.1:5601/app/dev_tools#/console
 Состояние кластера    
 GET /_cluster/health?pretty   
 Состояние ноды
-curl -k -X GET 'https://localhost:9200/_nodes?format=yaml' --user "elastic:lfQgjhEkbnm!"
+curl -k -X GET 'https://localhost:9200/_nodes?format=yaml' --user "elastic:пароль"
 
+- Настройка очиски и тонкая 
+  https://habr.com/ru/companies/domclick/articles/507072/
+---
 
 https://cloud.vk.com/docs/additionals/cases/cases-logs/case-logging   
 https://www.dmosk.ru/instruktions.php?object=elk-ubuntu   

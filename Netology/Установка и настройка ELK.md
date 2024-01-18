@@ -117,10 +117,11 @@ GET /_cluster/health?pretty
 Состояние ноды
 curl -k -X GET 'https://localhost:9200/_nodes?format=yaml' --user "elastic:пароль"
 
-- Настройка очиски и тонкая 
+- Настройка очиски и тонкая     
   https://habr.com/ru/companies/domclick/articles/507072/
+  
 ---
-
+https://habr.com/ru/companies/galssoftware/articles/547000/   
 https://cloud.vk.com/docs/additionals/cases/cases-logs/case-logging   
 https://www.dmosk.ru/instruktions.php?object=elk-ubuntu   
 https://habr.com/ru/articles/538974/   

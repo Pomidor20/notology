@@ -112,6 +112,11 @@ input {
 Открыть консоль в kibana
 http://192.168.0.1:5601/app/dev_tools#/console
 
+Посмотреть все воманды в elastic
+ip elastic:9200/_cat
+Информация по индексам
+ip elastic:9200/_cat/indices
+
 Состояние кластера    
 GET /_cluster/health?pretty   
 Состояние ноды
@@ -119,6 +124,8 @@ curl -k -X GET 'https://localhost:9200/_nodes?format=yaml' --user "elastic:па�
 
 - Настройка очиски и тонкая     
   https://habr.com/ru/companies/domclick/articles/507072/
+
+
   
 ---
 https://habr.com/ru/companies/galssoftware/articles/547000/   

@@ -112,15 +112,18 @@ input {
 Открыть консоль в kibana    
 http://192.168.0.1:5601/app/dev_tools#/console    
 
-Посмотреть все воманды в elastic   
+- Посмотреть все воманды в elastic   
  ip elastic:9200/_cat
-Информация по индексам     
+- Информация по индексам     
  ip elastic:9200/_cat/indices
+>[!NOTICE]
+>Для того что бы спользовать команды из _cat - нужно их дописать к _cat/indices.
+>Для Того что бы уже в самой команде дописать аргументы нужно к команде добавить аргумент к примеру мы хотим вывести описание таблицы из описания с фо сайта написано - что для >этого нуно добавить аргумен и присвоить ему true в итоге конечный вариант будет выгялдеть как http://192.168.0.1:9200/_cat/indices/my-index-*?v=true  
 
-Состояние кластера    
-GET /_cluster/health?pretty   
-Состояние ноды
-curl -k -X GET 'https://localhost:9200/_nodes?format=yaml' --user "elastic:пароль"
+- Состояние кластера    
+GET /_cluster/health?pretty      
+- Состояние ноды    
+curl -k -X GET 'https://localhost:9200/_nodes?format=yaml' --user "elastic:пароль"    
 
 - Настройка очиски и тонкая     
   https://habr.com/ru/companies/domclick/articles/507072/

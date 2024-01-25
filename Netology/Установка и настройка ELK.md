@@ -117,8 +117,8 @@ http://192.168.0.1:5601/app/dev_tools#/console
 - Информация по индексам     
  ip elastic:9200/_cat/indices
 >[!NOTE]
->Для того что бы спользовать команды из _cat - нужно их дописать к _cat/indices.
->Для Того что бы уже в самой команде дописать аргументы нужно к команде добавить аргумент к примеру мы хотим вывести описание таблицы из описания с фо сайта написано - что для >этого нуно добавить аргумен и присвоить ему true в итоге конечный вариант будет выгялдеть как http://192.168.0.1:9200/_cat/indices/my-index-*?v=true  
+>Для того что бы спользовать команды из _cat - нужно их дописать к _cat/indices[^20].
+>Для Того что бы уже в самой команде дописать аргументы нужно к команде добавить аргумент - к примеру мы хотим вывести описание таблицы из описания с оф сайта написано - что для >этого нужно добавить аргумен и присвоить ему true в итоге конечный вариант будет выгялдеть как http://192.168.0.1:9200/_cat/indices/my-index-*?v=true  
 
 - Состояние кластера    
 GET /_cluster/health?pretty      
@@ -140,3 +140,4 @@ https://www.elastic.co/guide/en/logstash/current/configuration-file-structure.ht
 https://habr.com/ru/articles/165059/    
 https://github.com/hpcugent/logstash-patterns/blob/master/files/grok-patterns # разбор грока
 https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-module-nginx.html   #filebeats модули и их настройка
+[^20]:https://www.elastic.co/guide/en/elasticsearch/reference/current/cat-indices.html#cat-indices-api-example

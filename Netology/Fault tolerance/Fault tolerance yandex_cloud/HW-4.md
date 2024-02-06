@@ -67,13 +67,14 @@
 
 ## Решение 1
 
-Файлы terraform находится [ТУТ]()
+Файлы terraform находится [ТУТ](https://github.com/Pomidor20/notology/tree/main/Netology/Fault%20tolerance/Fault%20tolerance%20yandex_cloud/files)
 
 Скриншот статуса балансировщика и целевой группы:
-![photo]()
+![photo](https://github.com/Pomidor20/notology/blob/main/Netology/Fault%20tolerance/Fault%20tolerance%20yandex_cloud/pic/3.JPG)
 Скриншот страницы, которая открылась при запросе IP-адреса балансировщика:
-![photo]()
-![photo]()
+![photo](https://github.com/Pomidor20/notology/blob/main/Netology/Fault%20tolerance/Fault%20tolerance%20yandex_cloud/pic/2.JPG)
+![photo](https://github.com/Pomidor20/notology/blob/main/Netology/Fault%20tolerance/Fault%20tolerance%20yandex_cloud/pic/1.JPG)
+
 
 ---
 

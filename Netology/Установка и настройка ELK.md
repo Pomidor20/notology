@@ -150,8 +150,10 @@ processors:
 ```
 systemctl start filebeat
 
-```
+```   
+
 ---
+
 Открыть консоль в kibana    
 http://192.168.0.1:5601/app/dev_tools#/console    
 

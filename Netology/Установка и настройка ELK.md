@@ -91,16 +91,38 @@ filter (фильтры).
 output (выходные данные).
 ```
 
-- Для каждой из них мы создадим свой файл.
+- Cоздадим свой файл.
 
 ```
-vi /etc/logstash/conf.d/input.conf
-
+vi /etc/logstash/conf.d/pipe.conf
 input {
   beats {
     port => 5044
+    ssl => false
+  }
+  file {
+   path => "/var/log/nginx/access.log"
+   start_position => "beginning" 
   }
 }
+filter {
+if [fields][type] == "nginx" {
+    grok {	
+     match => { "message" => "%{IPORHOST:remote_ip} - %{DATA:user} \[%{HTTPDATE:access_time}\] \"%{WORD:http_method} %{DATA:url} HTTP/%{NUMBER:http_version}\" %{NUMBER:response_code} %{NUMBER:body_sent_bytes} \"%{DATA:referrer}\" \"%{DATA:agent}\"" }
+         } 
+    }
+}
+output {
+  elasticsearch {
+    hosts => ["https://192.168.0.1:9200"]
+    index => "windows-%{+YYYY.MM.dd}"
+    ssl => true
+    ssl_certificate_verification => false
+    user => "elastic"
+    password => "password"
+  }
+}
+
 ```
 
 
@@ -136,7 +158,7 @@ filebeat.config.modules:
 setup.template.settings:
   index.number_of_shards: 1
 output.logstash:
-  hosts: ["192.168.99.158:5044"]
+  hosts: ["192.168.0.1:5044"]
 processors:
   - add_host_metadata:
       when.not.contains.tags: forwarded

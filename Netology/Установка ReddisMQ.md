@@ -4,7 +4,7 @@
 
 - Ставим пакеты каоторые нам понялрбятся для установки Кролика
 	```
-	apt-get install curl gnupg apt-transport-https -y
+	apt install curl gnupg apt-transport-https -y
 	```
 	 - curl — программа для отправки http-запросов. Нам нужна для загрузки ключа репозитория.
 	 - gnupg — для шифровки и дешифровки цифровых подписей. Нужна для работы с репозиториями.
@@ -38,11 +38,11 @@
 	```
 - Обновляем кеш репозиториев
 	```
-	apt-get update -y
+	apt update -y
 	```
 - Ставим пакеты для Erlang
 	```
-	sudo apt-get install -y erlang-base \
+	apt install -y erlang-base \
                         erlang-asn1 erlang-crypto erlang-eldap erlang-ftp erlang-inets \
                         erlang-mnesia erlang-os-mon erlang-parsetools erlang-public-key \
                         erlang-runtime-tools erlang-snmp erlang-ssl \

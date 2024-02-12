@@ -52,4 +52,27 @@
 	```
 	apt install rabbitmq-server -y --fix-missing
 	```
-	
+
+ ## настройка RabbitMQ
+
+ - Создаем пользователя.
+	```
+	 rabbitmqctl add_user admin password
+ 	```	
+ - Делаем нашего пользователя администратором
+	```
+	 rabbitmqctl set_user_tags admin administrator
+ 	```
+ - Даем нашему пользователю права на виртуальный хост
+	```
+ 	rabbitmqctl set_permissions -p / admin ".*" ".*" ".*"
+ 	```
+ - Включаем вебку
+   	```
+    	rabbitmq-plugins enable rabbitmq_management
+    	```
+- Проверяем что вебка стартанула и открылась.
+  	```
+   	ss -tunlp
+	```
+	- Нам нужен 15672 порт 

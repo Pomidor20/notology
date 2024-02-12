@@ -131,6 +131,11 @@
 	rabbitmqctl start_app
 	rabbitmqctl cluster_status
  	```
+- На мастер ноду выполняем команду
+  	```
+   	rabbitmqctl set_policy ha-all "" '{"ha-mode":"all","ha-sync-mode":"automatic"}'
+   	```
+- 
 ---
 
 https://rabbitmq-website.pages.dev/docs/configure#supported-environment-variables

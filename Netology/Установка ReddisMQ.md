@@ -18,7 +18,7 @@
 	```
 - Создаем файл с путями репозиториев для кролика.
 	```
-	sudo tee /etc/apt/sources.list.d/rabbitmq.list <<EOF
+	tee /etc/apt/sources.list.d/rabbitmq.list <<EOF
 	deb [signed-by=/usr/share/keyrings/rabbitmq.E495BB49CC4BBE5B.gpg] https://ppa1.novemberain.com/rabbitmq/rabbitmq-erlang/deb/ubuntu bullseye main
 	deb-src [signed-by=/usr/share/keyrings/rabbitmq.E495BB49CC4BBE5B.gpg] https://ppa1.novemberain.com/rabbitmq/rabbitmq-erlang/deb/ubuntu bullseye main
 

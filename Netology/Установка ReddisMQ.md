@@ -109,3 +109,29 @@
 
 ## ASK
 Важный параметр который влияет на действие над сообщением.Если ставится - то после подтверждения ототправилея/получателя удаяет сообщение.
+
+## Настройка кластера
+- Все части ноды должны пинговаться по имени.(можно настроить через файл hosts
+- На всех нодах должно быть одинаковое содержание в файле куков var/lib/rabbitmq/.erlang.cookie
+	```
+ 	echo "11" >  /var/lib/rabbitmq/.erlang.cookie
+ 	```
+
+- Редактируем файл  /etc/rabbitmq/rabbitmq-env.conf
+  	```
+   	vi /etc/rabbitmq/rabbitmq-env.conf
+   	RABBITMQ_NODENAME=rabbit@rabbitmq-server1.your_domain
+	RABBITMQ_USE_LONGNAME=true
+   	
+	```
+- На каждом слейве нужно выполнить команды для присоединения их к кластеру.
+	```
+	rabbitmqctl stop_app
+	rabbitmqctl join_cluster {ip_addr or dns name} # Имя из RABBITMQ_NODENAME
+	rabbitmqctl start_app
+	rabbitmqctl cluster_status
+ 	```
+---
+
+https://rabbitmq-website.pages.dev/docs/configure#supported-environment-variables
+https://elma365.com/ru/help/platform/configure-rabbitmq.html

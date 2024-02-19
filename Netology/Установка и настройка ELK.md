@@ -91,16 +91,38 @@ filter (фильтры).
 output (выходные данные).
 ```
 
-- Для каждой из них мы создадим свой файл.
+- Cоздадим свой файл.
 
 ```
-vi /etc/logstash/conf.d/input.conf
-
+vi /etc/logstash/conf.d/pipe.conf
 input {
   beats {
     port => 5044
+    ssl => false
+  }
+  file {
+   path => "/var/log/nginx/access.log"
+   start_position => "beginning" 
   }
 }
+filter {
+if [fields][type] == "nginx" {
+    grok {	
+     match => { "message" => "%{IPORHOST:remote_ip} - %{DATA:user} \[%{HTTPDATE:access_time}\] \"%{WORD:http_method} %{DATA:url} HTTP/%{NUMBER:http_version}\" %{NUMBER:response_code} %{NUMBER:body_sent_bytes} \"%{DATA:referrer}\" \"%{DATA:agent}\"" }
+         } 
+    }
+}
+output {
+  elasticsearch {
+    hosts => ["https://192.168.0.1:9200"]
+    index => "windows-%{+YYYY.MM.dd}"
+    ssl => true
+    ssl_certificate_verification => false
+    user => "elastic"
+    password => "password"
+  }
+}
+
 ```
 
 
@@ -108,6 +130,51 @@ input {
 
 
 
+
+## filebeats
+- Устанавливам filebeats
+```
+curl -L -O https://artifacts.elastic.co/downloads/beats/filebeat/filebeat-8.12.1-amd64.deb
+sudo dpkg -i filebeat-8.12.1-amd64.deb
+```
+- Производим настройки файла filebeat.yml.
+```
+vi /etc/filebeat/filebeat.yml
+```
+- Вставляем данные
+```
+filebeat.inputs:
+- type: filestream
+  id: nginx
+  enabled: enable
+  paths:
+    - /var/log/nginx/*.log
+    #- c:\programdata\elasticsearch\logs\*
+  fields:
+    type: nginx
+filebeat.config.modules:
+  path: ${path.config}/modules.d/*.yml
+  reload.enabled: false
+setup.template.settings:
+  index.number_of_shards: 1
+output.logstash:
+  hosts: ["192.168.0.1:5044"]
+processors:
+  - add_host_metadata:
+      when.not.contains.tags: forwarded
+  - add_cloud_metadata: ~
+  - add_docker_metadata: ~
+  - add_kubernetes_metadata: ~
+```
+
+
+- Стартуем службу и радуемся жизни.
+```
+systemctl start filebeat
+
+```   
+
+---
 
 Открыть консоль в kibana    
 http://192.168.0.1:5601/app/dev_tools#/console    

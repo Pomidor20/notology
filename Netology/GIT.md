@@ -21,7 +21,11 @@
   ```
 - Если используем http и не хоти вводить пароль каждый раз.Сохраняет логин и пароль в файле в незашифрованном виде.
   ```
-  git config --global credential.helper  store
+  git config --global credential.helper 'store --file ~/.my-credentials'
+  ```
+- Посмотреть статус git
+  ```
+  git status
   ```
 - Заменить последний комит.Переписыват старый комит новым
   ```

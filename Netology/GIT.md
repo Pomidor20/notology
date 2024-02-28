@@ -27,6 +27,10 @@
   ```
   git status
   ```
+-Посмотреть всю сторию
+  ```
+  git reflog 
+  ```
 - Вывести все ветки в графике
   ```
   git log --graph --simplify-by-decoration --all

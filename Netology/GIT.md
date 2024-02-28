@@ -152,7 +152,14 @@
    ```
    git checkout --theirs codefile.js
    ```
-   
+### Работа с ветками
+
+git switch -c <branch> <tag>   =  git checkout -b  <branch> <tag>
+
+HEAD  -  служебный указатель на директорию, загруженную в рабочую
+
+git log  --outline --all --decorate   команда вывода веток
+
 ----  
 Ссылки на полезные ресурсы
 1. https://git-scm.com/docs/git-log

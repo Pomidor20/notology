@@ -215,6 +215,24 @@ git log  --outline --all --decorate   команда вывода веток
   ```
   git rebase -i HEAD~3
   ```
+- Удалить кактой то файл во всех комитах в ветке!!!!Перезапиет все коммиты
+  ```
+  git filter-branch --tree-filter 'тут команда' HEAD
+  git filter-branch --tree-filter 'rm -f password.txt' HEAD
+  ```
+  --tree-filter - лезет в каждый комит и удаляет файл,если файла нет то просто идет дальше
+  --commit-filter - седержимое комита
+
+- ОТКАТИТЬ merge коммит.
+  - Перезапись истории и откат на прошлый комит
+     ```
+     git reset --hard HEAD~
+     ```
+  - Отменить через добавление комита ключ -m.
+     ```
+     get revert -m 1 HEAD
+     ```
+  - 
 - 
 ----  
 Ссылки на полезные ресурсы

@@ -231,6 +231,7 @@ git log  --outline --all --decorate   команда вывода веток
   - Отменить через добавление комита ключ -m.
      ```
      get revert -m 1 HEAD
+     Git revert -m 1 <коммит начиная откуда или HEAD)
      ```
   - 
 - 

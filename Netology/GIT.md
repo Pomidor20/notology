@@ -267,6 +267,9 @@ git log  --outline --all --decorate   команда вывода веток
   git rebase main
   git checkout main
   git merge fix
+
+  или последние 2 строчки
+  git rebase fix main
   ```
 ### Подпись для коммитов
 

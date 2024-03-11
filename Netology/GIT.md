@@ -254,8 +254,22 @@ git log  --outline --all --decorate   команда вывода веток
      get revert -m 1 HEAD
      Git revert -m 1 <коммит начиная откуда или HEAD)
      ```
-  - 
+ 
+### Rebase Merge
+- Что бы слить ветку fix в main,нужно перейти в вветку main и ввести команду merge fix.
+  ```
+  git checkout main
+  git merge fix
+  ```
+- Что бы в ветку main залить данные через rebase.Идем в ветку которую хотим залить,вводим ребейс и имя ветку куда бедет перписывать комиты,потом возвращаемся в основную ветку и делаем мердж - что бы HEAD основной ветки переместился в конец.
+  ```
+  git checkout fix
+  git rebase main
+  git checkout main
+  git merge fix
+  ```
 ### Подпись для коммитов
+
 
 - Установка пакетов для использования ключей
 ```

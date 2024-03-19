@@ -91,6 +91,7 @@ chown prometheus:prometheus /usr/local/bin/promtool
    WantedBy=default.target
   
    systemctl start prometheus
+   ```
 
 ## Настройка  
 

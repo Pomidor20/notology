@@ -12,13 +12,18 @@ apt install wget
 cd /opt/
 wget https://github.com/prometheus/prometheus/releases/download/v2.51.0-rc.0/prometheus-2.51.0-rc.0.linux-amd64.tar.gz
 ```
+- Создаем пользователя от имени которого дальше будет работать прометиус.
+ ```
+ useradd --no-create-home --shell /bin/false prometheus
+ ```
+- 
 ## Установка
-### Установка через пакетный менеджер
 - После проделанных шагов выше, нужно вытащить все данные из архива.Делаем это все через tar -xzf.
 ```
 tar -zxf prometheus-2.51.0-rc.0.linux-amd64.tar.gz
+cd ./prometheus-2.51.0-rc.0.linux-amd64
 ```
- 
+
 > [!NOTE]  
 > Сожержимое извлеченного архива с описанием  
 > console_libraries - директория, которая содержит библиотеки для html шаблонов;  
@@ -27,6 +32,65 @@ tar -zxf prometheus-2.51.0-rc.0.linux-amd64.tar.gz
 > prometheus.yml - конфигурационный файл Prometheus;  
 > promtool - утилита для проверки конфигурации, работы с TSDB и получения метрик;  
 
+### Установка через распаковку архива.Есть 2 варианта - распихиватьв се по своим папкам или все держать в 1 папке и запусать от туда. 
+
+### Для первого варианта нужно создать диерктории и скопировать в них файлы из изылеченного архива:
+```
+mkdir /etc/prometheus
+mkdir /var/lib/prometheus
+cp prometheus promtool /usr/local/bin/
+cp -R ./console_libraries/ /etc/prometheus/
+cp -R ./consoles/ /etc/prometheus/
+cp prometheus.yml /etc/prometheus/
+chown -R prometheus:prometheus /etc/prometheus /var/lib/prometheus
+chown prometheus:prometheus /usr/local/bin/prometheus
+chown prometheus:prometheus /usr/local/bin/promtool
+```
+ - Далее создаем демона
+   ```
+   nano /etc/systemd/system/prometheus.service
+
+   [Unit] 
+   Description=Prometheus Service Netology Lesson 9.4 
+   After=network.target 
+   [Service] 
+   User=prometheus 
+   Group=prometheus 
+   Type=simple 
+   ExecStart=/usr/local/bin/prometheus \ 
+   --config.file /etc/prometheus/prometheus.yml \ 
+   --storage.tsdb.path /var/lib/prometheus/ \ 
+   --web.console.templates=/etc/prometheus/consoles \ 
+   --web.console.libraries=/etc/prometheus/console_libraries 
+   ExecReload=/bin/kill -HUP $MAINPID Restart=on-failure 
+   [Install] 
+   WantedBy=multi-user.target
+
+   systemctl start prometheus
+   ```
+### Для второго варианта вс находится уже в извлеченной папке и мы только создаем демона:
+   ```
+   chown  prometheus:prometheus -R /opt/prometheus-2.51.0-rc.0.linux-amd64 ./
+   nano /etc/systemd/system/prometheus.service
+   
+   [Unit]
+   Description=Prometheus
+   Wants=network-online.target
+   After=network-online.target
+   
+   [Service]
+   User=prometheus
+   Group=prometheus
+   ExecStart=/opt/prometheus/prometheus \
+       --config.file=/opt/prometheus/prometheus.yml \
+       --storage.tsdb.path=/opt/prometheus/data \
+       --web.console.templates=/opt/prometheus/consoles \
+       --web.console.libraries=/opt/prometheus/console_libraries
+   ExecReload=/bin/kill -HUP $MAINPID Restart=on-failure 
+   [Install]
+   WantedBy=default.target
+  
+   systemctl start prometheus
 
 ## Настройка  
 

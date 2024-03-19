@@ -70,7 +70,9 @@ chown prometheus:prometheus /usr/local/bin/promtool
    ```
 ### Для второго варианта вс находится уже в извлеченной папке и мы только создаем демона:
    ```
-   chown  prometheus:prometheus -R /opt/prometheus-2.51.0-rc.0.linux-amd64
+   mkdir /opt/prometheus
+   cp -R ./ /opt/prometheus
+   chown  prometheus:prometheus -R /opt/prometheus/
    nano /etc/systemd/system/prometheus.service
    
    [Unit]

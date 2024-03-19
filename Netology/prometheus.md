@@ -99,6 +99,11 @@ chown prometheus:prometheus /usr/local/bin/promtool
 
 ## Полезная информация  
 
+- Посмотерть метрики 
+```
+http://127.0.0.1:9090/metrics
+```
+
 - основные ключи запуска Prometheus:  
  
  --config.file="prometheus.yml" - какой конфигурационный файл использовать;  

@@ -66,6 +66,7 @@ chown prometheus:prometheus /usr/local/bin/promtool
    [Install] 
    WantedBy=multi-user.target
 
+   systemctl daemon-reload
    systemctl start prometheus
    ```
 ### Для второго варианта вс находится уже в извлеченной папке и мы только создаем демона:
@@ -91,7 +92,8 @@ chown prometheus:prometheus /usr/local/bin/promtool
    ExecReload=/bin/kill -HUP $MAINPID Restart=on-failure 
    [Install]
    WantedBy=default.target
-  
+
+   systemctl daemon-reload
    systemctl start prometheus
    ```
 

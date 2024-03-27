@@ -11,7 +11,13 @@
   - DELETE удаляет данные;
 
 
-
+## Общие команды
+- Создать базу данных
+```
+CREATE DATABASE numbers;
+CREATE DATABASE if not exists numbers;
+```
+- 
 
 ## MYSQL
 - SHOW.Командля для просмотра чего либо.

@@ -17,6 +17,24 @@
 CREATE DATABASE numbers;
 CREATE DATABASE if not exists numbers;
 ```
+- Создать таблицу
+```
+create table zlooba (
+number int(15) primary key AUTO_INCREMENT,
+user varchar(15) not null,
+male varchar(15) not null
+);
+```
+- Наполнить таблицу данными
+```
+INSERT INTO	zlooba ()
+VALUES (122, 'pupkin', 'male')
+```
+или
+```
+INSERT INTO	zlooba (тут список полей через запятую)
+VALUES (122, 'pupkin', 'male')
+```
 - 
 
 ## MYSQL

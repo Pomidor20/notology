@@ -17,7 +17,7 @@
 CREATE DATABASE numbers;
 CREATE DATABASE if not exists numbers;
 ```
-- Создать таблицу
+- Создать таблицу.Перед создание таблицы нужно провалиться в нее исользуя USE имя_базы_данных;!!!!!!
 ```
 create table zlooba (
 number int(15) primary key AUTO_INCREMENT,

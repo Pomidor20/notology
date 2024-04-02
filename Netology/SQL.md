@@ -35,6 +35,14 @@ VALUES (122, 'pupkin', 'male')
 INSERT INTO	zlooba (тут список полей через запятую)
 VALUES (122, 'pupkin', 'male')
 ```
+- Получить что то с выборкой (SELECT)
+```
+Select имя_стобца(ов) From имя_таблицы
+SELECT name FROM table1
+SELECT name,date FROM table1
+```
+>[!Note]
+>Можно к выборке добавить ко всем одно значение.SELECT name,15 FROM table1.Вы выоде добавит всем колонку 15простовит у всех в этой колонке 15
 - 
 
 ## MYSQL

@@ -86,10 +86,19 @@ SELECT name FROM table1 WHERE id in (8,15,25)
 
 
 
+- Сортировка от меньшего к большему.(по умолчанию в конце троки скрыто слово ASK)
+  ```
+  select * from table1 order by male;
+  ```
 
-
-- 
-
+-   Сортировка от большему меньшему.Нужно в конце добавить только DESC
+  ```
+  select * from table1 order by male DESC;
+  ```
+-  Сортировка от меньшего к большему и вывести только 3 строки 
+  ```
+  select * from table1 order by male limit 3;
+  ```
 
 ## MYSQL
 - SHOW.Командля для просмотра чего либо.

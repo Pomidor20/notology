@@ -35,6 +35,13 @@ VALUES (122, 'pupkin', 'male')
 INSERT INTO	zlooba (тут список полей через запятую)
 VALUES (122, 'pupkin', 'male')
 ```
+Если много
+```
+INSERT INTO table1 (name,male)
+values ('kolya','man'),
+('fedya','man'),
+('ann','woman');
+```
 ## SELECT
 ### Простые выборки
 - Получить что то с выборкой (SELECT)

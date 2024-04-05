@@ -99,7 +99,14 @@ SELECT name FROM table1 WHERE id in (8,15,25)
   ```
   select * from table1 order by male limit 3;
   ```
-
+- Тут будет выбраны все поля,где id больше 2,отсортированы меньшего к большему по строке male, выведены первый 3 строки,далее OFFSET сдивитт резуьтат на 2 строчки вниз.
+  ```
+  select * from table1
+  where 'id' > 2
+  order by male
+  limit 3 offset 2
+  ```
+- 
 ## MYSQL
 - SHOW.Командля для просмотра чего либо.
   ```

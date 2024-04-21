@@ -59,3 +59,65 @@ kube-proxy – сетевой прокси, работающий на каждо
 Kubectl describe pod
 ```
 
+
+
+
+Команды kubernates
+- Получить список NOd
+```
+ kubectl get nodes
+```
+
+- Получить все пространства имен
+```
+kubectl get ns
+```
+
+- Получить все поды во всех namespaces
+```
+kubectl get po -A
+```
+- Получить ip адреса подов
+```
+kubectl get pod -o wide
+```
+
+Что такое
+kubectl get endpoints 
+
+## HELM
+curl https://baltocdn.com/helm/signing.asc | gpg --dearmor |  tee /usr/share/keyrings/helm.gpg > /dev/null
+apt-get install apt-transport-https --yes
+echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/helm.gpg] https://baltocdn.com/helm/stable/debian/ all main" |  tee /etc/apt/sources.list.d/helm-stable-debian.list
+apt-get update
+apt-get install helm
+
+kubectl get ingress -n ingress-nginx
+helm upgrade --install ingress-nginx /mnt/ingress-nginx/ -n ingress-nginx
+
+ kubectl get secrets sh.helm.release.v1.ingress-nginx.v1 -n ingress-nginx -o yaml
+ 
+  helm template helm-test /mnt/helm-test/  -n helm-test
+
+
+---
+## POD
+Создание и описание POD
+```
+apiVersion: v1
+kind: Pod                                            # 1
+metadata:
+  name: sa-frontend                                  # 2
+spec:                                                # 3
+  containers:
+    - image: rinormaloku/sentiment-analysis-frontend # 4
+      name: sa-frontend                              # 5
+      ports:
+        - containerPort: 80
+```
+Kind: задаёт вид ресурса Kubernetes, который мы хотим создать. В нашем случае это Pod.
+Name: имя ресурса. Мы назвали его sa-frontend.
+Spec: объект, который описывает нужное состояние ресурса. Самое важное свойство здесь — это массив контейнеров.
+Image: образ контейнера, который мы хотим запустить в данном поде.
+Name: уникальное имя для контейнера, находящегося в поде.
+ContainerPort: порт, который прослушивает контейнер. Этот параметр можно считать указанием для того, кто читает этот файл (если этот параметр опустить, это не ограничит доступ к порту).

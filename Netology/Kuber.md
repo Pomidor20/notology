@@ -85,6 +85,9 @@ kubectl get pod -o wide
 Что такое
 kubectl get endpoints 
 
+- Пропатчить (изменить конфигурацию) через команду на горячую
+kubectl patch service my-app -p '{"spec": {"selector":{"version ":"v2.0.0"}}}'
+
 ## HELM
 curl https://baltocdn.com/helm/signing.asc | gpg --dearmor |  tee /usr/share/keyrings/helm.gpg > /dev/null
 apt-get install apt-transport-https --yes

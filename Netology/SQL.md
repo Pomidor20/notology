@@ -86,20 +86,6 @@ SELECT name FROM table1 WHERE id in (8,15,25)
 
 
 
-
-- Сортировка от меньшего к большему.(по умолчанию в конце троки скрыто слово **ASK**)
-  ```
-  select * from table1 order by male;
-  ```
-
--   Сортировка от большему меньшему.Нужно в конце добавить только **DESC**
-  ```
-  select * from table1 order by male DESC;
-  ```
--  Сортировка от меньшего к большему и вывести только 3 строки 
-  ```
-  select * from table1 order by male limit 3;
-  ```
 - Тут будет выбраны все поля,где id больше 2,отсортированы меньшего к большему по строке male, выведены первый 3 строки,далее **OFFSET** сдивитт резуьтат на 2 строчки вниз.
   ```
   select * from table1
@@ -107,10 +93,7 @@ SELECT name FROM table1 WHERE id in (8,15,25)
   order by male
   limit 3 offset 2
   ```
-- **GROUP BY**.Групирует не уникальные значения в столбце.Если вы хотите выбрать имя пользователя для каждого значения в столбце "male", вам нужно либо исключить столбец "name" из оператора   SELECT, либо включить его в оператор GROUP BY.
-  ```
-  SELECT name, male FROM table1 GROUP BY male, name;
-  ```
+
 - **AS**. Задает alias или "имя колонки".
   ```
   SELECT user_id AS id, username AS user FROM accounts;
@@ -121,7 +104,25 @@ SELECT name FROM table1 WHERE id in (8,15,25)
   UNION
   SELECT Album FROM Artists
   ```
-- 
+### Сортировки
+- **order by**.Сортировка от меньшего к большему.(по умолчанию в конце троки скрыто слово **ASK**)
+  ```
+  select * from table1 order by male;
+  ```
+
+-   **order by**.Сортировка от большему меньшему.Нужно в конце добавить только **DESC**
+  ```
+  select * from table1 order by male DESC;
+  ```
+-  **order by**.Сортировка от меньшего к большему и вывести только 3 строки 
+  ```
+  select * from table1 order by male limit 3;
+  ```
+- **GROUP BY**.Групирует не уникальные значения в столбце(в выводе будут только уникальные значения).Если вы хотите выбрать имя пользователя для каждого значения в столбце "male", вам нужно либо исключить столбец "name" из оператора   SELECT, либо включить его в оператор GROUP BY.
+  ```
+  SELECT name, male FROM table1 GROUP BY male, name;
+  ```
+
 ### Агрегационные функции
 Таблица
 

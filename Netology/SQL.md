@@ -115,6 +115,12 @@ SELECT name FROM table1 WHERE id in (8,15,25)
   ```
   SELECT user_id AS id, username AS user FROM accounts;
   ```
+- **UNION**. Оператор SQL UNION используется для объединения двух и более запросов оператора SQL SELECT
+  ```
+  SELECT Singer FROM Artists
+  UNION
+  SELECT Album FROM Artists
+  ```
 - 
 ### Агрегационные функции
 Таблица

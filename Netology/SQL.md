@@ -111,6 +111,11 @@ SELECT name FROM table1 WHERE id in (8,15,25)
   ```
   SELECT name, male FROM table1 GROUP BY male, name;
   ```
+- **AS**. Задает alias или "имя колонки".
+  ```
+  SELECT user_id AS id, username AS user FROM accounts;
+  ```
+- 
 ### Агрегационные функции
 Таблица
 
@@ -121,6 +126,13 @@ SELECT name FROM table1 WHERE id in (8,15,25)
 | MAX(expr) | Выбирает максимальное значение выражения/атрибута expr |
 | AVG(expr) | Вычисляет среднее арифметическое значение выражения/атрибута expr |
 | SUM(expr) | Вычисляет сумму значений выражения/атрибута expr |
+| (expr) | Это столбец или вычисляемое значение с помощью таблицы | 
+
+Пример использования 
+```
+SELECT MAX('AGE') FROM users
+````
+
 
 ## MYSQL
 - SHOW.Командля для просмотра чего либо.

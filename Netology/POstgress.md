@@ -21,7 +21,7 @@ pg_ctlcluster версия имя_кластера действие
 ```
 pg_ctl reload(stop,start)
 pg_ctlcluster 13 main stop
-
+```
 
 
 ------------

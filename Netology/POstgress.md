@@ -70,4 +70,6 @@ WHERE pg_stat_activity.datname = 'testbd' AND pid <> pg_backend_pid();
       FROM pg_tables LIMIT 3   
       \gexec   
       ```
-
+-------------
+ ## Файлы и папки
+- pg_xact.Лежит в $PGDATA (/var/lib/postgresql/15/main/).В нем лежат файлы статусов транзакций в системе.

@@ -66,6 +66,10 @@ WHERE pg_stat_activity.datname = 'testbd' AND pid <> pg_backend_pid();
   EXPLAIN (analyze, buffers, costs off, timing off)
   SELECT * FROM t;
   ```
+- Посмотреть текущую позицию в журнале WAL.
+  ```
+  SELECT pg_current_wal_lsn();
+  ```
 - 
 -----
 ###  короткие команды PSQL   

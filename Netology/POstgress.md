@@ -57,8 +57,18 @@ WHERE pg_stat_activity.datname = 'testbd' AND pid <> pg_backend_pid();
   ```
   select * from pg_tables;
   ```
+- Посмотреть значение буферного кеша.
+  ```
+  SHOW shared_buffers;
+  ```
+- Посмотреть использовался ли буферный кеш и если использовался то сколько .
+  ```
+  EXPLAIN (analyze, buffers, costs off, timing off)
+  SELECT * FROM t;
+  ```
+- 
 -----
-## короткие команды PSQL
+###  короткие команды PSQL   
 \set - вывести все переменны   
 \i - выполнить команды из файла   
 \o - пеерключить вывпод в файл   

@@ -70,6 +70,14 @@ WHERE pg_stat_activity.datname = 'testbd' AND pid <> pg_backend_pid();
   ```
   SELECT pg_current_wal_lsn();
   ```
+- получить размер изменения между 2 журналами в байтах
+  ```
+  SELECT '0/345C978'::pg_lsn - '0/3459948'::pg_lsn AS bytes;
+  ```
+- посмотреь файлы WAL в папке
+  ```
+  SELECT * FROM pg_ls_waldir() ORDER BY name;
+  ```
 - 
 -----
 ###  короткие команды PSQL   

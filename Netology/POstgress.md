@@ -32,10 +32,11 @@ pg_ctlcluster 13 main stop
 - Таблица pg_settings показывает текущую конфигурауию сервера.
  ```
  select * from pg_settings;
+ select * from pg_settings \gx
  ```
 - Таблица pg_file_settings показывает содержимое файлов конфигурации
  ```
-  SELECT *  FROM   pg_file_settings
+  SELECT *  FROM   pg_file_settings ;
  ```
   или
  ```

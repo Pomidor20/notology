@@ -77,4 +77,4 @@ WHERE pg_stat_activity.datname = 'testbd' AND pid <> pg_backend_pid();
 
 -----
 Рекомендации к настройке
-- Беферный кеш выставлять 1/4 от размера оперативки
+- Буферный кеш выставлять 1/4 от размера оперативки.Изменяется в файле postgres.conf - shared_buffers=..

@@ -59,7 +59,12 @@ pg_ctlcluster 13 main stop
 SELECT pg_terminate_backend(pg_stat_activity.pid)     
 FROM pg_stat_activity   
 WHERE pg_stat_activity.datname = 'testbd' AND pid <> pg_backend_pid();   
-
+- Глобальная статистика по всей базе данных
+```
+SELECT *
+FROM pg_stat_database
+WHERE datname = 'admin_monitoring' \gx
+```
 - Получить список всех таблиц
   ```
   select * from pg_tables;

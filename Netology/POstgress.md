@@ -47,6 +47,10 @@ pg_ctlcluster 13 main stop
  FROM pg_file_settings
  WHERE sourcefile LIKE '/etc/postgresql/13/main/postgresql.conf'
  ``` 
+-  Получить весь список таблиц пердаствления
+ ```
+ \dv pg_catalog.*
+ ```
 -  
 ------------
 ## Полезные запросы

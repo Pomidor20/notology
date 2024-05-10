@@ -61,6 +61,10 @@ WHERE pg_stat_activity.datname = 'testbd' AND pid <> pg_backend_pid();
   ```
   select * from  pg_database;
   ```
+- Получить размер бд
+  ```
+   SELECT pg_size_pretty(pg_database_size('appdb'));
+  ```
 - 
 - Посмотреть значение буферного кеша.
   ```

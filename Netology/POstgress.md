@@ -59,6 +59,14 @@ pg_ctlcluster 13 main stop
 SELECT pg_terminate_backend(pg_stat_activity.pid)     
 FROM pg_stat_activity   
 WHERE pg_stat_activity.datname = 'testbd' AND pid <> pg_backend_pid();   
+
+- Убить процесс зная его pid
+  ```
+  SELECT pg_terminate_backend(b.pid)
+  FROM unnest(pg_blocking_pids(16746)) AS b(pid);
+  ```
+- 
+
 - Глобальная статистика по всей базе данных
 ```
 SELECT *

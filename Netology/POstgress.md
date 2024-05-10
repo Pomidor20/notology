@@ -57,6 +57,11 @@ WHERE pg_stat_activity.datname = 'testbd' AND pid <> pg_backend_pid();
   ```
   select * from pg_tables;
   ```
+- Получить список всех баз.
+  ```
+  select * from  pg_database;
+  ```
+- 
 - Посмотреть значение буферного кеша.
   ```
   SHOW shared_buffers;

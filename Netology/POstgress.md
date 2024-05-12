@@ -136,5 +136,5 @@ WHERE datname = 'admin_monitoring' \gx
 
 
 --------
- - Посмотеть описание таблиц
+ - Посмотеть описание таблиц связанных со статистикой   
    https://postgrespro.ru/docs/postgresql/16/monitoring-stats#MONITORING-PG-STAT-REPLICATION-SLOTS-VIEW

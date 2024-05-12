@@ -26,7 +26,21 @@ initdb -U postgres -K -D /путь_до_места где будут лежат�
   ```
   GRANT admins TO joe;
   ```
-
+- Если пользователь включен в в другую группу с правами,то надо текущему пользовтаелю переключиться на эту роль,выполнить задачи и вернуться в свою роль.
+  ```
+  SET ROLE student;
+  SELECT session_user, current_user;
+  RESET ROLE;
+  SELECT session_user, current_user;
+  ```
+- Дать привелегия на базу
+  ```
+  GRANT ALL PRIVILEGES ON DATABASE "database1" to joe;
+  \c database1
+  GRANT pg_read_all_data TO joe;
+  GRANT pg_write_all_data TO joe;
+  ```
+- 
 ## Простые команды
 - Команда управления postgresql
 ```
@@ -152,4 +166,6 @@ WHERE datname = 'admin_monitoring' \gx
    https://postgrespro.ru/docs/postgresql/16/monitoring-stats#MONITORING-PG-STAT-REPLICATION-SLOTS-VIEW
 - Описание трибутов у создавайемой роли   
   https://postgrespro.ru/docs/postgresql/9.6/sql-createrole
+- Системный каталоги и их описание   
+  https://postgrespro.ru/docs/postgresql/9.5/catalogs-overview
 - 

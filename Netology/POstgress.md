@@ -133,3 +133,8 @@ WHERE datname = 'admin_monitoring' \gx
 -----
 Рекомендации к настройке
 - Буферный кеш выставлять 1/4 от размера оперативки.Изменяется в файле postgres.conf - shared_buffers=..
+
+
+--------
+ - Посмотеть описание таблиц
+   https://postgrespro.ru/docs/postgresql/16/monitoring-stats#MONITORING-PG-STAT-REPLICATION-SLOTS-VIEW

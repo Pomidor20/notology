@@ -105,7 +105,10 @@ WHERE pg_stat_activity.datname = 'testbd' AND pid <> pg_backend_pid();
   SELECT pg_terminate_backend(b.pid)
   FROM unnest(pg_blocking_pids(16746)) AS b(pid);
   ```
-- 
+- Посотреть все индексы.
+  ```
+   select * from  pg_indexes;
+  ```
 
 - Глобальная статистика по всей базе данных
 ```

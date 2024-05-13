@@ -160,6 +160,11 @@ WHERE datname = 'admin_monitoring' \gx
  ## Файлы и папки
 - pg_xact.Лежит в $PGDATA (/var/lib/postgresql/15/main/).В нем лежат файлы статусов транзакций в системе.
 - PGDATA/pg_stat_tmp и PGDATA/pg_stat - тут лежат файлы статистики собранные от процесса  stats collector
+- ~/.pgpass.Лежит на клиенте (который хочет подключаться к серверу) в профиле.Разрешение на файл должно быть 0600(В системах Unix разрешения .pgpass должны запрещать чтение его всеми или группой; этого можно добиться командой chmod 0600 ~/.pgpass. Если разрешения будут менее строгими, этот файл не будет прочитан). Формат записи указан ниже.   
+  ```
+  сервер:порт:база_данных:имя_пользователя:пароль
+  ```
+- 
 
 -----
 Рекомендации к настройке
@@ -173,6 +178,8 @@ WHERE datname = 'admin_monitoring' \gx
   https://postgrespro.ru/docs/postgresql/9.6/sql-createrole
 - Системный каталоги и их описание   
   https://postgrespro.ru/docs/postgresql/9.5/catalogs-overview
-- Таблица с ролями
+- Таблица с ролями   
   https://postgrespro.ru/docs/postgresql/16/predefined-roles
+- Файл паролей   
+  https://postgrespro.ru/docs/postgrespro/9.5/libpq-pgpass
 - 

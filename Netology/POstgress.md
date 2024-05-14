@@ -239,8 +239,8 @@ $ pg_dump -t mytab mydb > db.sql
      Команды:
      ```
      pg_basebackup --pgdata=/home/student/basebackup
-     
-
+     mv /home/student/basebackup/ /var/lib/postgresql/15/replica
+     chown -R postgres:postgres /var/lib/postgresql/15/replica
      ```
   
 --------

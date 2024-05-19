@@ -118,6 +118,14 @@ SELECT * FROM payment WHERE amount BETWEEN 5 AND 7;
   ```
   SELECT user_id AS id, username AS user FROM accounts;
   ```
+  или не обязательно указывать слово AS
+  ```
+  SELECT customer_id, last_name Фамилия, first_name Имя FROM customer;
+  SELECT f.title, c.name Имя, f.rental_rate/f.rental_duration AS cost_per_day 
+  FROM film f
+  JOIN film_category fc ON fc.film_id = f.film_id
+  JOIN category c ON c.category_id = fc.category_id;
+  ```
 - **UNION**. Оператор SQL UNION используется для объединения двух и более запросов оператора SQL SELECT.Нужно выбирать одинаковое количество столбов в каждом запросе select!!!
   ```
   SELECT Singer FROM Artists

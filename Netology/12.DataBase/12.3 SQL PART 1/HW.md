@@ -72,6 +72,22 @@ and lower(first_name) like 'kelly' or  lower(first_name) like 'willie'
 
 Выведите Email каждого покупателя, разделив значение Email на две отдельных колонки: в первой колонке должно быть значение, указанное до @, во второй — значение, указанное после @.
 
+```
+SELECT c.customer_id,
+       c.email,
+       SUBSTRING_INDEX(c.email, '@', 1) AS "Email before @",
+       SUBSTRING_INDEX(c.email, '@', -1) AS "Email after @"
+FROM customer c;
+```
+
 ### Задание 6*
 
 Доработайте запрос из предыдущего задания, скорректируйте значения в новых колонках: первая буква должна быть заглавной, остальные — строчными.
+
+```
+SELECT c.customer_id,
+       c.email,
+       SUBSTRING_INDEX(CONCAT(UPPER(LEFT(c.email, 1)),LOWER(SUBSTRING(c.email, 2))), '@', 1) AS "Email before @",
+       CONCAT(UPPER(LEFT(SUBSTRING_INDEX(c.email, '@', -1), 1)), SUBSTRING(SUBSTRING_INDEX(c.email, '@', -1), 2)) AS "Email after @"
+FROM customer c; 
+```

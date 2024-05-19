@@ -45,6 +45,12 @@ select amount, payment_date from payment
 
 Получите последние пять аренд фильмов.
 
+### Ответ 3
+```
+select * from rental
+order by return_date  desc limit 5
+;
+```
 ### Задание 4
 
 Одним запросом получите активных покупателей, имена которых Kelly или Willie. 

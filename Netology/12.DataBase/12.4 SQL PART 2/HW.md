@@ -43,10 +43,26 @@ having count(customer.customer_id) > 300
 
 Получите количество фильмов, продолжительность которых больше средней продолжительности всех фильмов.
 
+### Ответ 2
+```
+select count(*)  from film 
+where lENGTH > (SELECT avg(LENGTH) FROM sakila.film);
+;
+```
+
 ### Задание 3
 
 Получите информацию, за какой месяц была получена наибольшая сумма платежей, и добавьте информацию по количеству аренд за этот месяц.
 
+### Ответ 3
+```
+ SELECT DATE_FORMAT(p.payment_date, '%d.%m.%y') AS "Дата аренды", 
+         count(r.rental_id) AS "Количество аренд"
+    FROM payment p 
+    JOIN rental r ON r.rental_id = p.rental_id 
+GROUP BY DATE_FORMAT(p.payment_date, '%d.%m.%y')
+ORDER BY sum(p.amount) DESC LIMIT 1;
+```
 
 ## Дополнительные задания (со звёздочкой*)
 Эти задания дополнительные, то есть не обязательные к выполнению, и никак не повлияют на получение вами зачёта по этому домашнему заданию. Вы можете их выполнить, если хотите глубже шире разобраться в материале.
@@ -55,6 +71,43 @@ having count(customer.customer_id) > 300
 
 Посчитайте количество продаж, выполненных каждым продавцом. Добавьте вычисляемую колонку «Премия». Если количество продаж превышает 8000, то значение в колонке будет «Да», иначе должно быть значение «Нет».
 
+### Ответ 4
+```
+-- Посчитайте количество продаж, выполненных каждым продавцом. Добавьте вычисляемую колонку «Премия». Если количество продаж превышает 8000, то значение в колонке будет «Да», иначе должно быть значение «Нет».
+
+SELECT  
+ staff_id,
+ count(*) cnt,
+ CASE
+    WHEN  count(*) > 8000 THEN 'yes'
+	ELSE 'nor'
+	END AS premia
+FROM sakila.rental
+group by staff_id
+HAVING cnt > 8000;
+```
 ### Задание 5*
 
 Найдите фильмы, которые ни разу не брали в аренду.
+
+### Ответ 5
+```
+SELECT f.title AS "Название фильма",
+         f.rating AS "Рейтинг",
+         c2.name AS "Жанр",
+         f.release_year AS "Год выпуска",
+         l.name AS "Язык", 
+         count(r.rental_id) AS "Количество аренд",
+         sum(p.amount) AS "Общая стоимость аренды"
+    FROM film f
+         LEFT JOIN inventory i ON i.film_id = f.film_id 
+         LEFT JOIN rental r ON r.inventory_id = i.inventory_id
+         LEFT JOIN customer c ON c.customer_id = r.inventory_id
+         LEFT JOIN payment p ON p.rental_id = r.rental_id
+         INNER JOIN film_category fc ON fc.film_id = f.film_id 
+         INNER JOIN category c2 ON c2.category_id = fc.category_id 
+         INNER JOIN "language" l ON l.language_id = f.language_id 
+GROUP BY f.film_id, c2.category_id, l.language_id
+HAVING count(r.rental_id) = 0 
+ORDER BY f.title
+```

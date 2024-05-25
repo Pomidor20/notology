@@ -181,6 +181,14 @@ INNER JOIN table2
 ON table1.column_name = table2.column_name;
 ```
 
+### LEFT JOIN
+LEFT JOIN - это операция объединения, которая возвращает все строки из левой таблицы table1 и только соответствующие строки из правой таблицы table2. Если в правой таблице нет соответствующей строки, то возвращается NULL для значений правой таблицы.
+```
+SELECT *
+FROM table1
+LEFT JOIN table2
+ON table1.key_column = table2.key_column;
+```
 
 ## MYSQL
 - SHOW.Командля для просмотра чего либо.

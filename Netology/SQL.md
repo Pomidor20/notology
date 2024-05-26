@@ -205,6 +205,7 @@ sudo nano /etc/mysql/my.cnf
 slow-query-log      = 1
 slow-query-log-file = /var/log/mysql/mysql-slow.log
 long_query_time     = 3
+/etc/init.d/mysql restart
 ```
  - slow-query-log - ключем логирование медленных запросов
  - slow-query-log-file - указываем в какой фаил писать лог

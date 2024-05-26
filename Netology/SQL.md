@@ -194,6 +194,25 @@ ON table1.key_column = table2.key_column;
 ```
 http://2sql.ru/novosti/sql-left-join/
 
+## Индексы
+Индексы помогают и ускоряют запросы SQL.
+
+### Что бы увидеть какие запросы выполняются медленно открываем файл и вносим измененрия (в примере ниже мы используем MYSQL)
+После изменения файла конфигурации нужно рестартануть службу MYSQL.
+```
+	
+sudo nano /etc/mysql/my.cnf
+slow-query-log      = 1
+slow-query-log-file = /var/log/mysql/mysql-slow.log
+long_query_time     = 3
+```
+ - slow-query-log - ключем логирование медленных запросов
+ - slow-query-log-file - указываем в какой фаил писать лог
+ - long_query_time  - Тут указываем после какого колическва секунд запрос будет считаться медленным.
+
+
+
+
 ## MYSQL
 - SHOW.Командля для просмотра чего либо.
   ```

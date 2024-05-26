@@ -201,6 +201,21 @@ http://2sql.ru/novosti/sql-left-join/
 CREATE INDEX id_index ON table_name(column_name);
 ALTER TABLE t2 ADD INDEX (d);
 ```
+
+### EXPLAIN
+Эта команда помогает определить узкое место в запросе.Эту команду ставят перед SELECT.EXPLAIN работает с SELECT, DELETE, INSERT, REPLACE и UPDATE операторами. В MySQL 8.0.19 и более поздних версиях он также работает с оператором TABLE. Оператор EXPLAIN выводит план запроса.
+Имеет 3 варианта запуска.ДЛя измененрия запуска после explain пишут format = тут тип из списка ниже  :
+- TRADITIONAL — вывод в табличном формате;
+- JSON — вывод в формате JSON;
+- TREE — древовидный вывод с более точными описаниями обработки запросов, чем TRADITIONAL.
+```
+explain #format = tree #traditional
+SELECT s.store_id ,
+         c.city,
+         concat(s2.first_name,' ',s2.last_name),
+         count(c2.customer_id)
+         ......
+```
 ### Что бы увидеть какие запросы выполняются медленно открываем файл и вносим измененрия (в примере ниже мы используем MYSQL)
 После изменения файла конфигурации нужно рестартануть службу MYSQL.
 ```

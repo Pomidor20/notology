@@ -61,6 +61,35 @@ WHERE
 GROUP BY 
     c.customer_id, f.title, c.last_name, c.first_name;
 ```
+----
+Новый запрос
+
+```
+CREATE INDEX idx_payment_date ON payment (payment_date);
+CREATE INDEX idx_rental_id ON payment (rental_id);
+CREATE INDEX idx_customer_id ON rental (customer_id);
+CREATE INDEX idx_inventory_id ON rental (inventory_id);
+CREATE INDEX idx_film_id ON inventory (film_id);
+explain # analyze
+SELECT DISTINCT 
+    CONCAT(c.last_name, ' ', c.first_name) AS customer_name, 
+    SUM(p.amount) AS total_amount
+FROM 
+    payment p
+JOIN 
+    rental r ON p.rental_id = r.rental_id
+JOIN 
+    customer c ON r.customer_id = c.customer_id
+JOIN 
+    inventory i ON r.inventory_id = i.inventory_id
+JOIN 
+    film f ON i.film_id = f.film_id
+WHERE 
+    p.payment_date >= '2005-07-30' AND p.payment_date < DATE_ADD('2005-07-30', INTERVAL 1 DAY)
+GROUP BY 
+    c.customer_id, f.title, c.last_name, c.first_name;
+```
+![](https://github.com/Pomidor20/notology/blob/main/Netology/12.DataBase/12.5%20INDEX/INDEX.JPG)
 ## Дополнительные задания (со звёздочкой*)
 Эти задания дополнительные, то есть не обязательные к выполнению, и никак не повлияют на получение вами зачёта по этому домашнему заданию. Вы можете их выполнить, если хотите глубже шире разобраться в материале.
 

@@ -19,6 +19,14 @@
 
 Напишите запрос к учебной базе данных, который вернёт процентное отношение общего размера всех индексов к общему размеру всех таблиц.
 
+### Ответ 1
+```
+SELECT table_name, sum(index_length)*100/sum(data_length) as '% of index_length'
+FROM INFORMATION_SCHEMA.TABLES
+WHERE table_schema = 'sakila' and TABLE_TYPE = 'BASE TABLE'
+GROUP BY table_name
+;
+```
 ### Задание 2
 
 Выполните explain analyze следующего запроса:

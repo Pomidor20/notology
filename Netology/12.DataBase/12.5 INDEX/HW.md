@@ -37,7 +37,30 @@ where date(p.payment_date) = '2005-07-30' and p.payment_date = r.rental_date and
 ```
 - перечислите узкие места;
 - оптимизируйте запрос: внесите корректировки по использованию операторов, при необходимости добавьте индексы.
-
+```
+CREATE INDEX idx_payment_date ON payment (payment_date);
+CREATE INDEX idx_rental_id ON payment (rental_id);
+CREATE INDEX idx_customer_id ON rental (customer_id);
+CREATE INDEX idx_inventory_id ON rental (inventory_id);
+CREATE INDEX idx_film_id ON inventory (film_id);
+SELECT DISTINCT 
+    CONCAT(c.last_name, ' ', c.first_name) AS customer_name, 
+    SUM(p.amount) AS total_amount
+FROM 
+    payment p
+JOIN 
+    rental r ON p.rental_id = r.rental_id
+JOIN 
+    customer c ON r.customer_id = c.customer_id
+JOIN 
+    inventory i ON r.inventory_id = i.inventory_id
+JOIN 
+    film f ON i.film_id = f.film_id
+WHERE 
+    DATE(p.payment_date) = '2005-07-30'
+GROUP BY 
+    c.customer_id, f.title, c.last_name, c.first_name;
+```
 ## Дополнительные задания (со звёздочкой*)
 Эти задания дополнительные, то есть не обязательные к выполнению, и никак не повлияют на получение вами зачёта по этому домашнему заданию. Вы можете их выполнить, если хотите глубже шире разобраться в материале.
 

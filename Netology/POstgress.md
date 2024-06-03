@@ -111,6 +111,12 @@ SELECT pg_terminate_backend(pg_stat_activity.pid)
 FROM pg_stat_activity   
 WHERE pg_stat_activity.datname = 'testbd' AND pid <> pg_backend_pid();   
 
+- Посмотреть все права пользователя
+  ```
+  SELECT table_catalog, table_schema, table_name, privilege_type
+  FROM information_schema.table_privileges
+  WHERE grantee = 'username';
+  ```
 - Убить процесс зная его pid
   ```
   SELECT pg_terminate_backend(b.pid)

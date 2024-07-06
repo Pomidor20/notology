@@ -117,6 +117,10 @@ WHERE pg_stat_activity.datname = 'testbd' AND pid <> pg_backend_pid();
   FROM information_schema.table_privileges
   WHERE grantee = 'username';
   ```
+- Посмотреть все права у таблицы
+  ```
+  SELECT * FROM information_schema.role_table_grants WHERE grantee = '
+  ```
 - Убить процесс зная его pid
   ```
   SELECT pg_terminate_backend(b.pid)

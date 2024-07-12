@@ -106,6 +106,12 @@ SELECT * FROM pg_stat_activity
 ------------
 ## Полезные запросы
 
+- Посмотреть схемы в бд
+  ```
+  SELECT schema_name 
+  FROM information_schema.schemata;
+  ```
+
 - Закрыть все соединения у БД     
 SELECT pg_terminate_backend(pg_stat_activity.pid)     
 FROM pg_stat_activity   

@@ -102,6 +102,13 @@ helm upgrade --install ingress-nginx /mnt/ingress-nginx/ -n ingress-nginx
  
   helm template helm-test /mnt/helm-test/  -n helm-test
 
+### ПОЛЕЗНВЕ КОМАНДЫ
+- Посмотреть все установленные чарт
+  ```
+  helm list --all-namespaces
+  ```
+ 
+- 
 
 ---
 ## POD

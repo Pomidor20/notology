@@ -105,6 +105,10 @@ SELECT * FROM pg_stat_activity
 -  
 ------------
 ## Полезные запросы
+- Посмотреть хеш пароля пользователя
+  ```
+  SELECT rolpassword from pg_authid where rolname = 'airflow';
+  ```
 
 - Посмотреть схемы в бд
   ```

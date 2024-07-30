@@ -39,14 +39,23 @@ docker login
 docker tag custom-nginx:1.0.0 pomidor20/custom-nginx:1.0.0
 docker push pomidor20/custom-nginx:1.0.0
 ```
-
+Имя репозитория:
+https://hub.docker.com/r/pomidor20/custom-nginx
 
 ## Задача 2
 1. Запустите ваш образ custom-nginx:1.0.0 командой docker run в соответвии с требованиями:
 - имя контейнера "ФИО-custom-nginx-t2"
 - контейнер работает в фоне
 - контейнер опубликован на порту хост системы 127.0.0.1:8080
+```
+docker run --name GAU-custom-nginx-t2 -p 8080:80 -d pomidor20/custom-nginx:1.0.0
+```
+
 2. Не удаляя, переименуйте контейнер в "custom-nginx-t2"
+
+```
+docker rename GAU-custom-nginx-t2 custom-nginx-t2
+```
 3. Выполните команду ```date +"%d-%m-%Y %T.%N %Z" ; sleep 0.150 ; docker ps ; ss -tlpn | grep 127.0.0.1:8080  ; docker logs custom-nginx-t2 -n1 ; docker exec -it custom-nginx-t2 base64 /usr/share/nginx/html/index.html```
 4. Убедитесь с помощью curl или веб браузера, что индекс-страница доступна.
 
@@ -55,15 +64,33 @@ docker push pomidor20/custom-nginx:1.0.0
 
 ## Задача 3
 1. Воспользуйтесь docker help или google, чтобы узнать как подключиться к стандартному потоку ввода/вывода/ошибок контейнера "custom-nginx-t2".
+```
+docker attach custom-nginx-t2
+```
 2. Подключитесь к контейнеру и нажмите комбинацию Ctrl-C.
 3. Выполните ```docker ps -a``` и объясните своими словами почему контейнер остановился.
+```
+ Ctrl-C отправляет SIGINT, который прервет работу приложения. Обычно это приводит к прерыванию, но решение об этом принимает приложение.
+ А это значит что мы отправили прерывание работы контейнеру.
+```
 4. Перезапустите контейнер
 5. Зайдите в интерактивный терминал контейнера "custom-nginx-t2" с оболочкой bash.
 6. Установите любимый текстовый редактор(vim, nano итд) с помощью apt-get.
 7. Отредактируйте файл "/etc/nginx/conf.d/default.conf", заменив порт "listen 80" на "listen 81".
 8. Запомните(!) и выполните команду ```nginx -s reload```, а затем внутри контейнера ```curl http://127.0.0.1:80 ; curl http://127.0.0.1:81```.
+```
+Docker exec -it custom-nginx-t2 bash
+apt update
+apt install nano 
+nano /etc/nginx/conf.d/default.conf
+```
+
 9. Выйдите из контейнера, набрав в консоли  ```exit``` или Ctrl-D.
 10. Проверьте вывод команд: ```ss -tlpn | grep 127.0.0.1:8080``` , ```docker port custom-nginx-t2```, ```curl http://127.0.0.1:8080```. Кратко объясните суть возникшей проблемы.
+```
+МЫ изменили порт приложения которое работает в контейнере,но port-forvarding все еще казывает 80.
+
+```
 11. * Это дополнительное, необязательное задание. Попробуйте самостоятельно исправить конфигурацию контейнера, используя доступные источники в интернете. Не изменяйте конфигурацию nginx и не удаляйте контейнер. Останавливать контейнер можно. [пример источника](https://www.baeldung.com/linux/assign-port-docker-container)
 12. Удалите запущенный контейнер "custom-nginx-t2", не останавливая его.(воспользуйтесь --help или google)
 
@@ -78,6 +105,21 @@ docker push pomidor20/custom-nginx:1.0.0
 - Добавьте ещё один файл в текущий каталог ```$(pwd)``` на хостовой машине.
 - Подключитесь во второй контейнер и отобразите листинг и содержание файлов в ```/data``` контейнера.
 
+```
+docker run -it -v $(pwd):/data -d centos &
+docker run -it -v $(pwd):/data -d debian &
+или
+docker run -d -v $(pwd):/data debian:latest
+docker run -d -v $(pwd):/data centos:latest
+
+ docker exec -it ddf79f9d579a  bash -c "echo 'Hello from CentOS' > /data/centos_file.txt"
+ touch host.txt
+ docker exec -it 0f586ce6d63d  bash -c " ls -l /data"
+total 4
+-rw-r--r-- 1 root root 18 Jul 30 19:24 centos_file.txt
+-rw-r--r-- 1 root root  0 Jul 30 19:25 host.txt
+
+```
 
 В качестве ответа приложите скриншоты консоли, где видно все введенные команды и их вывод.
 
@@ -131,6 +173,40 @@ services:
 
 В качестве ответа приложите скриншоты консоли, где видно все введенные команды и их вывод, файл compose.yaml , скриншот portainer c задеплоенным компоузом.
 
+## Ответ 5
+
+Docker Compose работает с 2 типами файлов (compose.yaml и docker-compose.yaml),но в последней версии приоритет отдается compose.yaml.При запуске Docker Compose, он об этом и сообщает 
+
+```
+ mkdir -p /tmp/netology/docker/task5
+ cd /tmp/netology/docker/task5
+ touch compose.yaml
+ touch docker-compose.yaml
+ nano compose.yaml
+ nano docker-compose.yaml
+ docker compose up -d
+```
+Изменяем файл compose.yaml и дописываем в него возможность запускать второй compose файл через include/
+```
+nano compose.yaml
+
+version: "3"
+include:
+  - docker-compose.yaml
+services:
+  portainer:
+    image: portainer/portainer-ce:latest
+    network_mode: host
+    ports:
+      - "9000:9000"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+```
+
+Получаем ошибку
+```
+failed to deploy a stack: nginx Pulling nginx Error Error response from daemon: manifest for 127.0.0.1:5000/custom-nginx:latest not found: manifest unknown: manifest unknown
+```
 ---
 
 ### Правила приема

@@ -60,7 +60,8 @@ docker rename GAU-custom-nginx-t2 custom-nginx-t2
 4. Убедитесь с помощью curl или веб браузера, что индекс-страница доступна.
 
 В качестве ответа приложите скриншоты консоли, где видно все введенные команды и их вывод.
-
+![](https://github.com/Pomidor20/notology/blob/main/Netology/17.%D0%92%D0%B8%D1%80%D1%82%D1%83%D0%B0%D0%BB%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D1%8F/17.3%20docker-intro/pic/2.3.JPG)
+![](https://github.com/Pomidor20/notology/blob/main/Netology/17.%D0%92%D0%B8%D1%80%D1%82%D1%83%D0%B0%D0%BB%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D1%8F/17.3%20docker-intro/pic/2.4.JPG)
 
 ## Задача 3
 1. Воспользуйтесь docker help или google, чтобы узнать как подключиться к стандартному потоку ввода/вывода/ошибок контейнера "custom-nginx-t2".

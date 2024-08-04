@@ -60,7 +60,8 @@ docker rename GAU-custom-nginx-t2 custom-nginx-t2
 4. Убедитесь с помощью curl или веб браузера, что индекс-страница доступна.
 
 В качестве ответа приложите скриншоты консоли, где видно все введенные команды и их вывод.
-
+![](https://github.com/Pomidor20/notology/blob/main/Netology/17.%D0%92%D0%B8%D1%80%D1%82%D1%83%D0%B0%D0%BB%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D1%8F/17.3%20docker-intro/pic/2.3.JPG)
+![](https://github.com/Pomidor20/notology/blob/main/Netology/17.%D0%92%D0%B8%D1%80%D1%82%D1%83%D0%B0%D0%BB%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D1%8F/17.3%20docker-intro/pic/2.4.JPG)
 
 ## Задача 3
 1. Воспользуйтесь docker help или google, чтобы узнать как подключиться к стандартному потоку ввода/вывода/ошибок контейнера "custom-nginx-t2".
@@ -93,7 +94,9 @@ nano /etc/nginx/conf.d/default.conf
 ```
 11. * Это дополнительное, необязательное задание. Попробуйте самостоятельно исправить конфигурацию контейнера, используя доступные источники в интернете. Не изменяйте конфигурацию nginx и не удаляйте контейнер. Останавливать контейнер можно. [пример источника](https://www.baeldung.com/linux/assign-port-docker-container)
 12. Удалите запущенный контейнер "custom-nginx-t2", не останавливая его.(воспользуйтесь --help или google)
-
+```
+docker rm -f custom-nginx-t2
+```
 В качестве ответа приложите скриншоты консоли, где видно все введенные команды и их вывод.
 
 ## Задача 4
@@ -203,10 +206,18 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock
 ```
 
-Получаем ошибку
+Выходим в хотсовую машину и пушим нужный нам образ в локальный репозиторий(Иначе пункт 5.5 не выполнить)
 ```
-failed to deploy a stack: nginx Pulling nginx Error Error response from daemon: manifest for 127.0.0.1:5000/custom-nginx:latest not found: manifest unknown: manifest unknown
+docker tag custom-nginx:1.0.0  localhost:5000/custom-nginx:latest
+docker push  localhost:5000/custom-nginx:latest
+
 ```
+
+В последнем пункте мы видим, что после удаления манифеста у нас выскочило предупреждение - что сревисы запущенные чеерз docker compose отличаются от тех что находятся в текущем манифесте и предлагает нам или имсправить проблему с файлом или удлаишь личшии контейнеры (которые отсутствую в текущем манифесте).
+```
+ docker compose down --remove-orphans
+```
+
 ---
 
 ### Правила приема

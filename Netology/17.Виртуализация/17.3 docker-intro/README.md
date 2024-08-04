@@ -206,9 +206,11 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock
 ```
 
-Получаем ошибку
+Выходим в хотсовую машину и пушим нужный нам образ в локальный репозиторий(Иначе пункт 5.5 не выполнить)
 ```
-failed to deploy a stack: nginx Pulling nginx Error Error response from daemon: manifest for 127.0.0.1:5000/custom-nginx:latest not found: manifest unknown: manifest unknown
+docker tag custom-nginx:1.0.0  localhost:5000/custom-nginx:latest
+docker push  localhost:5000/custom-nginx:latest
+
 ```
 ---
 

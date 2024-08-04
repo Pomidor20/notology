@@ -85,7 +85,8 @@ apt update
 apt install nano 
 nano /etc/nginx/conf.d/default.conf
 ```
-
+![](https://github.com/Pomidor20/notology/blob/main/Netology/17.%D0%92%D0%B8%D1%80%D1%82%D1%83%D0%B0%D0%BB%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D1%8F/17.3%20docker-intro/pic/3.6.JPG)
+![](https://github.com/Pomidor20/notology/blob/main/Netology/17.%D0%92%D0%B8%D1%80%D1%82%D1%83%D0%B0%D0%BB%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D1%8F/17.3%20docker-intro/pic/3.8.JPG)
 9. Выйдите из контейнера, набрав в консоли  ```exit``` или Ctrl-D.
 10. Проверьте вывод команд: ```ss -tlpn | grep 127.0.0.1:8080``` , ```docker port custom-nginx-t2```, ```curl http://127.0.0.1:8080```. Кратко объясните суть возникшей проблемы.
 ```
@@ -123,7 +124,7 @@ total 4
 -rw-r--r-- 1 root root  0 Jul 30 19:25 host.txt
 
 ```
-
+![](https://github.com/Pomidor20/notology/blob/main/Netology/17.%D0%92%D0%B8%D1%80%D1%82%D1%83%D0%B0%D0%BB%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D1%8F/17.3%20docker-intro/pic/4.JPG)
 В качестве ответа приложите скриншоты консоли, где видно все введенные команды и их вывод.
 
 
@@ -212,6 +213,13 @@ docker tag custom-nginx:1.0.0  localhost:5000/custom-nginx:latest
 docker push  localhost:5000/custom-nginx:latest
 
 ```
+![](https://github.com/Pomidor20/notology/blob/main/Netology/17.%D0%92%D0%B8%D1%80%D1%82%D1%83%D0%B0%D0%BB%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D1%8F/17.3%20docker-intro/pic/5.1.JPG)
+![](https://github.com/Pomidor20/notology/blob/main/Netology/17.%D0%92%D0%B8%D1%80%D1%82%D1%83%D0%B0%D0%BB%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D1%8F/17.3%20docker-intro/pic/5.2.JPG)
+![](https://github.com/Pomidor20/notology/blob/main/Netology/17.%D0%92%D0%B8%D1%80%D1%82%D1%83%D0%B0%D0%BB%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D1%8F/17.3%20docker-intro/pic/5.3.JPG)
+![](https://github.com/Pomidor20/notology/blob/main/Netology/17.%D0%92%D0%B8%D1%80%D1%82%D1%83%D0%B0%D0%BB%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D1%8F/17.3%20docker-intro/pic/5.4.JPG)
+![](https://github.com/Pomidor20/notology/blob/main/Netology/17.%D0%92%D0%B8%D1%80%D1%82%D1%83%D0%B0%D0%BB%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D1%8F/17.3%20docker-intro/pic/5.5.JPG)
+![](https://github.com/Pomidor20/notology/blob/main/Netology/17.%D0%92%D0%B8%D1%80%D1%82%D1%83%D0%B0%D0%BB%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D1%8F/17.3%20docker-intro/pic/5.6.JPG)
+
 
 В последнем пункте мы видим, что после удаления манифеста у нас выскочило предупреждение - что сревисы запущенные чеерз docker compose отличаются от тех что находятся в текущем манифесте и предлагает нам или имсправить проблему с файлом или удлаишь личшии контейнеры (которые отсутствую в текущем манифесте).
 ```

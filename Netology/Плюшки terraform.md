@@ -25,3 +25,6 @@ cloud_id = var.yc_cloud_id
 folder_id = var.yc_folder_id
 zone = "ru-central1-a"
 ```
+- файлы переменных
+  terraform.tfvars — файл по умолчанию
+ *.auto.tfvars — именованные файлы.Тут можно использовать db.auto.tfvars.Успользуется когда хотим делать именные файлы для варсов.

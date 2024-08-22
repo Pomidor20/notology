@@ -38,3 +38,7 @@ image_name = "ubuntu-2004-lts"
   terraform apply -var-file=./develop/env.tfvars
   terraform apply -var-file=./prod/env.tfvars -var-file=/prod/additional.tfvars
   ```
+- Когда у переменной нужно понять какой тип использовать
+  ```
+  type(var.тут значение перерменной)
+  ```

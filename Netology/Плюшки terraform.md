@@ -33,3 +33,8 @@ image_name = "ubuntu-2004-lts"
   terraform.tfvars — файл по умолчанию   
  *.auto.tfvars — именованные файлы.Тут можно использовать db.auto.tfvars.Успользуется когда хотим делать именные файлы для варсов.   
 ```
+- Передаем вручную пеерменные.
+  ```
+  terraform apply -var-file=./develop/env.tfvars
+  terraform apply -var-file=./prod/env.tfvars -var-file=/prod/additional.tfvars
+  ```

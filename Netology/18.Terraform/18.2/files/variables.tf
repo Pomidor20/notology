@@ -28,13 +28,23 @@ variable "default_cidr" {
   description = "https://cloud.yandex.ru/docs/vpc/operations/subnet-create"
 }
 
+variable "nat_cidr" {
+  type        = list(string)
+  default     = ["10.0.2.0/24"]
+  description = "https://cloud.yandex.ru/docs/vpc/operations/subnet-create"
+}
+
 variable "vpc_name" {
   type        = string
   default     = "develop"
   description = "VPC network & subnet name"
 }
 
-
+variable "vpc_name_nat" {
+  type        = string
+  default     = "vpc_nat"
+  description = "VPC network & subnet name"
+}
 
 
 ### VM's vars ###
@@ -87,8 +97,19 @@ variable "vm_resource" {
 
 ###ssh vars
 
-variable "vms_ssh_root_key" {
-  type        = string
-  default     = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDiBXjuIn6mkJgYLkBwhxtcbTTqAWFrcsLbAwIn+sp/A"
-  description = "ssh-keygen -t ed25519"
-}
+#variable "vms_ssh_root_key" {
+#  type        = string
+#  default     = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDiBXjuIn6mkJgYLkBwhxtcbTTqAWFrcsLbAwIn+sp/A"
+#  description = "ssh-keygen -t ed25519"
+#}
+
+ variable "metadata" {
+  type = object({
+    serial-port-enable = number
+    ssh-keys = string
+    })
+  default = {
+    serial-port-enable = 1
+    ssh-keys           = "ubuntu:ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDiBXjuIn6mkJgYLkBwhxtcbTTqAWFrcsLbAwIn+sp/A"
+  } 
+ }

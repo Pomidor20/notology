@@ -42,3 +42,8 @@ image_name = "ubuntu-2004-lts"
   ```
   type(var.тут значение перерменной)
   ```
+- Посмотреть состояние из стета определенной вещи
+  ```
+  terraform state show google_container_cluster.cluster-staging-main
+  ```
+- 

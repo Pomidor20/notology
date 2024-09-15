@@ -1,3 +1,35 @@
+## Циклы
+ - Динамические блоки
+   ```
+   
+provider "aws" {
+    region = "eu-central-1"
+}
+
+
+resource "aws_security_group" "mywebserver" {
+  name = "Dynamic Security Group"
+    dynamic "ingress" {
+      for_each = ["80", "443", "8080", "1541", "9092"]
+      content {
+        from_port = ingress.value
+        to_port = ingress.value
+        protocol  = "tcp"
+        cidr_blocks = ["0.0.0.0/0"]
+
+      }
+    }
+ 
+    ingress {
+      from_port = 22
+      to_port = 22
+      protocol = "tcp"
+      cidr blocks =
+      ["10.10.0.0/16"]
+    }
+   ```
+
+
 - В выражении count = var.enable_web ? 1 : 0, происходит использование условного оператора (тернарного оператора) для определения значения переменной count в зависимости от значения переменной var.enable_web. Давайте разберем это выражение:
   Название «тернарный» произошло от латинского ternarius – тройной. Оператор принимает три аргумента. Если первый аргумент истина, то возвращается второй аргумент, если ложь, то возвращается третий.
   Синтаксис оператора

@@ -46,6 +46,18 @@ resource "aws_security_group" "mywebserver" {
                { vm_name = "replica", cpu = 2, ram = 4,  disk_volume = 50  }
              ]
            }
+               # Ресурс для создания ВМ с помощью for_each
+              resource "yandex_compute_instance" "db" {
+                for_each    = { for vm in var.each_vm : vm.vm_name => vm }  # Преобразуем список в карту с ключом на основе vm_name результат - { "main" = { vm_name = "main",    cpu = 4, ram = 8,  disk_volume = 100 },  "replica" = { vm_name = "replica", cpu = 2, ram = 4, disk_volume = 50 }}
+                name        = each.value.vm_name  # Используем имя ВМ как ключ
+                platform_id = "standard-v1"  # Тип платформы
+                zone        = "ru-central1-a"  # Зона, можно заменить на переменную
+              
+                # Определяем параметры ресурсов (CPU, RAM, диск)
+                resources {
+                  cores  = each.value.cpu
+                  memory = each.value.ram
+                }
      ```
    - map(object({})
      ```
@@ -60,7 +72,20 @@ resource "aws_security_group" "mywebserver" {
                   "replica" = { cpu = 2, ram = 4,  disk_volume = 50  }
                 }
               }
-              
+                 # Ресурс для создания ВМ с помощью for_each
+                 resource "yandex_compute_instance" "db" {
+                 for_each = var.each_vm
+               
+                 name        = each.value.vm_name
+                 platform_id = "standard-v1"
+                 zone        = each.value.zone
+               
+                 # Параметры ресурсов (CPU, RAM)
+                 resources {
+                   cores  = each.value.cpu
+                   memory = each.value.ram
+                 }
+
      ```
    -  
 

@@ -9,7 +9,7 @@ provider "aws" {
 
 resource "aws_security_group" "mywebserver" {
   name = "Dynamic Security Group"
-    dynamic "ingress" {
+    dynamic "ingress" { # тут как мы хотим что бы в конечном результате назывался наш блок циклами
       for_each = ["80", "443", "8080", "1541", "9092"]
       content {
         from_port = ingress.value

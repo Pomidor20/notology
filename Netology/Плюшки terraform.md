@@ -29,6 +29,40 @@ resource "aws_security_group" "mywebserver" {
     }
 ```
 
+  ### For_each
+  - Если мы случайно обернем наша пееременные в type list(object({}) - то нам как Оленям прийдет все прикодить к map(Нам это реально может понадобиться когда у нас в будут повторящиеся данные, тк map использует только уникальные).Ниже пример как выглядят данные в list(object({}) и map(object({})
+
+   - list(object({})
+     ```
+           variable "each_vm" {
+             type = list(object({
+               vm_name     = string
+               cpu         = number
+               ram         = number
+               disk_volume = number
+             }))
+             default = [
+               { vm_name = "main",    cpu = 4, ram = 8,  disk_volume = 100 },
+               { vm_name = "replica", cpu = 2, ram = 4,  disk_volume = 50  }
+             ]
+           }
+     ```
+   - map(object({})
+     ```
+              variable "each_vm" {
+                type = map(object({
+                  cpu         = number
+                  ram         = number
+                  disk_volume = number
+                }))
+                default = {
+                  "main"    = { cpu = 4, ram = 8,  disk_volume = 100 },
+                  "replica" = { cpu = 2, ram = 4,  disk_volume = 50  }
+                }
+              }
+              
+     ```
+   -  
 
 - В выражении count = var.enable_web ? 1 : 0, происходит использование условного оператора (тернарного оператора) для определения значения переменной count в зависимости от значения переменной var.enable_web. Давайте разберем это выражение:
   Название «тернарный» произошло от латинского ternarius – тройной. Оператор принимает три аргумента. Если первый аргумент истина, то возвращается второй аргумент, если ложь, то возвращается третий.

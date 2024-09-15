@@ -137,4 +137,6 @@ image_name = "ubuntu-2004-lts"
   ```
   terraform state show google_container_cluster.cluster-staging-main
   ```
-- 
+
+--------------------
+https://spacelift.io/blog/terraform-for-each#example-4-using-foreach-with-list-of-objects

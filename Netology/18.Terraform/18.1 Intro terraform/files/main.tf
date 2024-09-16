@@ -101,7 +101,7 @@ resource "yandex_compute_instance" "HW-1" {
 ## ПИЛИМ ДОКЕРА ##
 provider "docker" {
   host = "ssh://test@${yandex_compute_instance.HW-1.network_interface.0.nat_ip_address}:22"
-  ssh_opts = ["-o", "StrictHostKeyChecking=no", "-o", "UserKnownHostsFile=/dev/null"]
+  ssh_opts = ["-o", "StrictHostKeyChecking=no"]
 }
 # Pulls the image
 resource "docker_image" "mysql" {

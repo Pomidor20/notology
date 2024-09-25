@@ -1,15 +1,3 @@
-#templatefile(path, vars)
-resource "local_file" "hostcfg" {
-  content = templatefile("${path.module}/inventory.tftpl", 
-  { 
-    webservers = yandex_compute_instance.default
-    dbservers = yandex_compute_instance.eachvms
-    storageservers = yandex_compute_instance.manydisk
-  } )
-  filename = "${abspath(path.module)}/hosts.ini"
-}
-
-############### Запуск ансибла
 variable "web_provision" {
   type    = bool
   default = true
@@ -20,7 +8,7 @@ variable "web_provision" {
 resource "null_resource" "web_hosts_provision" {
   count = var.web_provision == true ? 1 : 0 
   #Ждем создания инстанса
-  depends_on = [yandex_compute_instance.eachvms ]
+  depends_on = [yandex_compute_instance.example,yandex_compute_instance.bastion]
 
   #Добавление ПРИВАТНОГО ssh ключа в ssh-agent
   provisioner "local-exec" {
@@ -31,14 +19,14 @@ resource "null_resource" "web_hosts_provision" {
 
   #Костыль!!! Даем ВМ 60 сек на первый запуск. Лучше выполнить это через wait_for port 22 на стороне ansible
   # # В случае использования cloud-init может потребоваться еще больше времени
-   provisioner "local-exec" {
-     command = "sleep 60"
-   }
+  # provisioner "local-exec" {
+  #   command = "sleep 60"
+  # }
 
   #Запуск ansible-playbook
   provisioner "local-exec" {
     # without secrets
-    command     = "ANSIBLE_HOST_KEY_CHECKING=False ansible-playbook -i ${abspath(path.module)}/hosts.ini ${abspath(path.module)}/play.yaml"
+    command     = "ANSIBLE_HOST_KEY_CHECKING=False ansible-playbook -i ${abspath(path.module)}/for.ini ${abspath(path.module)}/test.yml"
     
     #secrets pass
     #> nonsensitive(jsonencode( {for k,v in random_password.each: k=>v.result}))

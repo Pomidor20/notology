@@ -11,6 +11,14 @@
   ```
   docker history name_containet
   ```
+- Создание системного пользователя
+  ```
+  RUN addgroup --system python && \
+    adduser --system --disabled-password  --ingroup python python && chown python:python /app
+  USER python
+
+  ```
+- 
 ## Hadolint
 Hadolint представляет собой утилиту (линтер), предназначенную для оценки Dockerfile с точки зрения корректности синтаксиса и безопасности инструкций. Также Hadolint проводит проверку на соблюдение лучших практик по написанию инструкций в Dockerfile.  
 

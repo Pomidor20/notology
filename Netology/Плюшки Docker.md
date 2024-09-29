@@ -98,16 +98,17 @@ docker run --rm --name  test_entry_cmd_2 test_entry_cmd_2 ping mail.ru
    docker run --rm --name  test_entry_cmd_1 test_entry_cmd_1 ls
    ```
    Получим ошибку,так как он пытается записать в таком виде ENTRYPOINT ["/bin/ping", "ya.ru", ls] - и пропинговать сайт ls
-#####
+##### Вывод по первой части
 CMD легко перезаписать!
 ```
 docker run --rm --name  test_entry_cmd_1 test_entry_cmd_1 ping netology.ru
 ```
 Перезаписать ENTRYPOINT чутка сложнее!
-````
-docker run --rm --name  test_entry_cmd_1 --entrypoint "ping"  test_entry_cmd_1 "stackoverflow.com"
 ```
-## Secret
+docker run --rm --name  test_entry_cmd_1 --entrypoint "ping"  test_entry_cmd_1 "stackoverflow.com"
+```   
+   
+## Secret   
 ### Файл сикрета
 Для работы с сикретами мы их передаем через mount файла.В контейнере оно будет лежать в `/run/secrets/`
 

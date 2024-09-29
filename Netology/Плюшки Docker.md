@@ -68,6 +68,14 @@ FROM python:3.9-slim as builder
 FROM python:3.9-alpine as worker
 COPY --chown=python:python --from=builder /app/venv ./venv
 ```
+## SHELL/EXEC
+EXEC - ["/bin/ping", "ya.ru"]
+SHELL - /bin/ping ya.ru
+
+ENTRYPOINT ["/bin/ping", "ya.ru"]
+CMD ["/bin/ping", "ya.ru"]
+
+
 
 ## Secret
 ### Файл сикрета

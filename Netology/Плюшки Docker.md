@@ -69,12 +69,17 @@ FROM python:3.9-alpine as worker
 COPY --chown=python:python --from=builder /app/venv ./venv
 ```
 ## SHELL/EXEC
-EXEC - ["/bin/ping", "ya.ru"]  
-SHELL - /bin/ping ya.ru  
 
-ENTRYPOINT ["/bin/ping", "ya.ru"]
-CMD ["/bin/ping", "ya.ru"]
-Правила:
+ENTRYPOINT ["/bin/ping", "ya.ru"]  #exec#  запускает command arg без  создания оболочки (sh, bash, zsh) 
+ENTRYPOINT /bin/ping ya.ru  #shell# запускает команду в виде /bin/sh -c 'command arg';
+
+CMD ["/bin/ping", "ya.ru"]  #exec#  запускает command arg без  создания оболочки (sh, bash, zsh)
+CMD /bin/ping ya.ru  #shell#  запускает команду в виде /bin/sh -c 'command arg';
+
+#### Первая часть с EXEC
+ENTRYPOINT ["/bin/ping", "ya.ru"]   
+CMD ["/bin/ping", "ya.ru"]   
+Правила:   
 1. Если не указать CMD or ENTRYPOINT то просто вызывается последний  CMD  или ENTRYPOINT из FROM образа.
 2. #CMD легко перезаписать!
 ```

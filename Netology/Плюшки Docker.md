@@ -70,11 +70,11 @@ COPY --chown=python:python --from=builder /app/venv ./venv
 ```
 ## SHELL/EXEC
 
-ENTRYPOINT ["/bin/ping", "ya.ru"]  #exec#  запускает command arg без  создания оболочки (sh, bash, zsh) 
-ENTRYPOINT /bin/ping ya.ru  #shell# запускает команду в виде /bin/sh -c 'command arg';
+ENTRYPOINT ["/bin/ping", "ya.ru"]  #exec#  запускает command arg без  создания оболочки (sh, bash, zsh)   
+ENTRYPOINT /bin/ping ya.ru  #shell# запускает команду в виде /bin/sh -c 'command arg';     
 
-CMD ["/bin/ping", "ya.ru"]  #exec#  запускает command arg без  создания оболочки (sh, bash, zsh)
-CMD /bin/ping ya.ru  #shell#  запускает команду в виде /bin/sh -c 'command arg';
+CMD ["/bin/ping", "ya.ru"]  #exec#  запускает command arg без  создания оболочки (sh, bash, zsh)     
+CMD /bin/ping ya.ru  #shell#  запускает команду в виде /bin/sh -c 'command arg';     
 
 #### Первая часть с EXEC
 ENTRYPOINT ["/bin/ping", "ya.ru"]   

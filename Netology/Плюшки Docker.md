@@ -69,12 +69,35 @@ FROM python:3.9-alpine as worker
 COPY --chown=python:python --from=builder /app/venv ./venv
 ```
 ## SHELL/EXEC
-EXEC - ["/bin/ping", "ya.ru"]
-SHELL - /bin/ping ya.ru
+EXEC - ["/bin/ping", "ya.ru"]  
+SHELL - /bin/ping ya.ru  
 
 ENTRYPOINT ["/bin/ping", "ya.ru"]
 CMD ["/bin/ping", "ya.ru"]
-
+Правила:
+1. Если не указать CMD or ENTRYPOINT то просто вызывается последний  CMD  или ENTRYPOINT из FROM образа.
+2. #CMD легко перезаписать!
+```
+FROM ubuntu
+RUN apt update && apt install -y iputils-ping psmisc
+CMD ["/bin/ping", "ya.ru"]
+```
+Запускам с ключем 
+```
+docker run --rm --name  test_entry_cmd_2 test_entry_cmd_2 ping mail.ru
+```
+Будет пинговаться mail.ru - так как мы переопределили cmd
+3. Если докрфайл создан через ENTRYPOINT ["/bin/ping", "ya.ru"]и попытаться при запуске дописать другой сайт (или другое что то - то он попытается это подставить с правой стороны)
+   ```
+   FROM ubuntu
+   RUN apt update && apt install -y iputils-ping psmisc
+   ENTRYPOINT ["/bin/ping", "ya.ru"]
+   ```
+   Патаемся запустить
+   ```
+   docker run --rm --name  test_entry_cmd_1 test_entry_cmd_1 ls
+   ```
+   Получим ошибку,так как он пытается записать в таком виде ENTRYPOINT ["/bin/ping", "ya.ru", ls] - и пропинговать сайт ls
 
 
 ## Secret

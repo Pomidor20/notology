@@ -60,6 +60,14 @@ error — найдены критические ошибки, которые в�
    ```
 4. 
 
+## Multistage
+
+```
+FROM python:3.9-slim as builder
+...
+FROM python:3.9-alpine as worker
+COPY --chown=python:python --from=builder /app/venv ./venv
+```
 
 ## Secret
 ### Файл сикрета

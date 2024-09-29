@@ -15,7 +15,25 @@
 Программа для оаботы со слоями
 Можно запустить 2 -умя вариантами 
 1. dive имя_контейнера
-2. docker run -ti --rm -v /var/run/docker.sock:/var/run/docker.sock wagoodman/dive имя_контейнера 
+2. docker run -ti --rm -v /var/run/docker.sock:/var/run/docker.sock wagoodman/dive имя_образа
+
+## Работаем со слоями
+Через Хистори или Dive мы узнаем номер интересуещего нас слоя и дальше можем его разорхивировать и разобрать
+1. Сохраняем слой
+   ```
+   docker image save -o /tmp/image.tar.gz имя_образа
+   ```
+2. Разорхивируем олученный образ
+   ```
+   tar xf /tmp/image.tar.gz
+   ```
+3. Дальше переходим в blobs/sha256 и рахорхивируем нужный слой
+   ```
+   cd ./blobs/sha256
+    tar xf имя_слоя
+   ```
+4. 
+
 
 ## Secret
 ### Файл сикрета

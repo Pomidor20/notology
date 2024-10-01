@@ -1,0 +1,16 @@
+ docker build -f ./Dockerfile.python -t python_app .
+
+:/mnt/docker/shvirtd-example-python# yc container registry create --name docker-registory
+done (1s)
+id: crp1oktedotpk7qgibjh
+folder_id: b1gc2qgcmi2b4jojgchd
+name: docker-registory
+status: ACTIVE
+created_at: "2024-10-01T20:04:12.533Z"
+
+
+yc container registry configure-docker
+
+docker tag python_app cr.yandex/crp1oktedotpk7qgibjh/myapp:l.0
+
+docker push cr.yandex/crp1oktedotpk7qgibjh/myapp:l.0

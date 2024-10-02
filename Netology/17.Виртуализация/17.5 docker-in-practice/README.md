@@ -95,6 +95,10 @@ docker push cr.yandex/crp1oktedotpk7qgibjh/myapp:l.0
 
 6. Остановите проект. В качестве ответа приложите скриншот sql-запроса.
 
+## Ответ 3
+[РЕПОЗИТОРИЙ ЛЕЖИТ ТУТ](https://github.com/Pomidor20/notology/tree/main/Netology/17.%D0%92%D0%B8%D1%80%D1%82%D1%83%D0%B0%D0%BB%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D1%8F/17.5%20docker-in-practice/files/clone)
+![](https://github.com/Pomidor20/notology/blob/main/Netology/17.%D0%92%D0%B8%D1%80%D1%82%D1%83%D0%B0%D0%BB%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D1%8F/17.5%20docker-in-practice/pic/3.3.JPG)
+
 ## Задача 4
 1. Запустите в Yandex Cloud ВМ (вам хватит 2 Гб Ram).
 2. Подключитесь к Вм по ssh и установите docker.
@@ -103,8 +107,9 @@ docker push cr.yandex/crp1oktedotpk7qgibjh/myapp:l.0
 5. (Необязательная часть) Дополнительно настройте remote ssh context к вашему серверу. Отобразите список контекстов и результат удаленного выполнения ```docker ps -a```
 6. В качестве ответа повторите  sql-запрос и приложите скриншот с данного сервера, bash-скрипт и ссылку на fork-репозиторий.
 
-## З 4
-[Отчет о скнировании](vulnerabilities.csv)
+## Ответ 4
+
+![](https://github.com/Pomidor20/notology/blob/main/Netology/17.%D0%92%D0%B8%D1%80%D1%82%D1%83%D0%B0%D0%BB%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D1%8F/17.5%20docker-in-practice/pic/4.JPG)
 
 ## Задача 5 (*)
 1. Напишите и задеплойте на вашу облачную ВМ bash скрипт, который произведет резервное копирование БД mysql в директорию "/opt/backup" с помощью запуска в сети "backend" контейнера из образа ```schnitzler/mysqldump``` при помощи ```docker run ...``` команды. Подсказка: "документация образа."
@@ -119,6 +124,15 @@ docker push cr.yandex/crp1oktedotpk7qgibjh/myapp:l.0
 ## Задача 6.1
 Добейтесь аналогичного результата, используя docker cp.  
 Предоставьте скриншоты  действий .
+
+## Ответ 6*
+```
+docker create --name terraform_1 hashicorp/terraform
+docker cp terraform_1:/bin/terraform ./
+```
+
+![](https://github.com/Pomidor20/notology/blob/main/Netology/17.%D0%92%D0%B8%D1%80%D1%82%D1%83%D0%B0%D0%BB%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D1%8F/17.5%20docker-in-practice/pic/6.1.JPG)
+
 
 ## Задача 6.2 (**)
 Предложите способ извлечь файл из контейнера, используя только команду docker build и любой Dockerfile.  

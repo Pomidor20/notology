@@ -1,0 +1,24 @@
+# Базовый образ Python
+FROM python:3.9-slim
+
+# Установка зависимостей для создания виртуального окружения
+RUN apt-get update && apt-get install -y python3-venv && rm -rf /var/lib/apt/lists/*
+
+# Создание рабочей директории внутри контейнера
+WORKDIR /app
+
+# Копируем файлы проекта в контейнер
+COPY . .
+
+# Создаем виртуальное окружение
+RUN python3 -m venv venv
+
+RUN ls -l
+# Устанавливаем зависимости из requirements.txt
+RUN . venv/bin/activate && pip install --no-cache-dir -r requirements.txt
+
+# Открываем порт 
+EXPOSE 8000
+
+# Команда для запуска приложения
+CMD ["./venv/bin/python", "main.py"]

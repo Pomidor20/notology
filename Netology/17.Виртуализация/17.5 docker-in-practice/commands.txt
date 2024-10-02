@@ -14,3 +14,10 @@ yc container registry configure-docker
 docker tag python_app cr.yandex/crp1oktedotpk7qgibjh/myapp:l.0
 
 docker push cr.yandex/crp1oktedotpk7qgibjh/myapp:l.0
+
+
+
+test@fhmlro9ltl4qjrc20bfv:~$  docker create --name terraform_1 hashicorp/terraform
+2e223af38f913764c8bfbbb1726089f0843fb8b074fd7be002a768d2f9f73b41
+test@fhmlro9ltl4qjrc20bfv:~$ docker cp terraform_1:/bin/terraform ./
+Successfully copied 89.1MB to /home/test/./

@@ -22,7 +22,14 @@ sudo apt  install docker-compose  # version 1.25.0-1
 
 See 'snap info docker' for additional versions.
 ```
-В случае наличия установленного в системе ```docker-compose``` - удалите его.  
+В случае наличия установленного в системе ```docker-compose``` - удалите его.     
+  
+  
+  
+  
+
+![](https://github.com/Pomidor20/notology/blob/main/Netology/17.%D0%92%D0%B8%D1%80%D1%82%D1%83%D0%B0%D0%BB%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D1%8F/17.5%20docker-in-practice/pic/1.JPG)
+
 2. Убедитесь что у вас УСТАНОВЛЕН ```docker compose```(без тире) версии не менее v2.24.X, для это выполните команду ```docker compose version```  
 ###  **Своё решение к задачам оформите в вашем GitHub репозитории!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!**
 
@@ -36,6 +43,14 @@ See 'snap info docker' for additional versions.
 4. (Необязательная часть, *) Изучите инструкцию в проекте и запустите web-приложение без использования docker в venv. (Mysql БД можно запустить в docker run).
 5. (Необязательная часть, *) По образцу предоставленного python кода внесите в него исправление для управления названием используемой таблицы через ENV переменную.
 ---
+
+##  Ответ 1
+
+```
+docker build -f ./Dockerfile.python -t python_app .
+```
+![](https://github.com/Pomidor20/notology/blob/main/Netology/17.%D0%92%D0%B8%D1%80%D1%82%D1%83%D0%B0%D0%BB%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D1%8F/17.5%20docker-in-practice/pic/2.1.JPG)
+
 ### ВНИМАНИЕ!
 !!! В процессе последующего выполнения ДЗ НЕ изменяйте содержимое файлов в fork-репозитории! Ваша задача ДОБАВИТЬ 5 файлов: ```Dockerfile.python```, ```compose.yaml```, ```.gitignore```, ```.dockerignore```,```bash-скрипт```. Если вам понадобилось внести иные изменения в проект - вы что-то делаете неверно!
 ---
@@ -46,6 +61,21 @@ See 'snap info docker' for additional versions.
 3. Соберите и залейте в него образ с python приложением из задания №1.
 4. Просканируйте образ на уязвимости.
 5. В качестве ответа приложите отчет сканирования.
+
+
+## Ответ 2
+
+```
+yc container registry configure-docker
+
+docker tag python_app cr.yandex/crp1oktedotpk7qgibjh/myapp:l.0
+
+docker push cr.yandex/crp1oktedotpk7qgibjh/myapp:l.0
+
+```
+![](https://github.com/Pomidor20/notology/blob/main/Netology/17.%D0%92%D0%B8%D1%80%D1%82%D1%83%D0%B0%D0%BB%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D1%8F/17.5%20docker-in-practice/pic/2.jsonJPG.JPG)
+![](https://github.com/Pomidor20/notology/blob/main/Netology/17.%D0%92%D0%B8%D1%80%D1%82%D1%83%D0%B0%D0%BB%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D1%8F/17.5%20docker-in-practice/pic/2.pushregistory.JPG)
+
 
 ## Задача 3
 1. Изучите файл "proxy.yaml"

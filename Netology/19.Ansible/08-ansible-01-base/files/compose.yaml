@@ -1,0 +1,15 @@
+services:
+  deb:
+   #image: ubuntu/python:3.12-24.04_stable #https://hub.docker.com/r/ubuntu/python/tags
+   build: 
+    dockerfile: Dockerfile
+   container_name: ubuntu
+   hostname: ubuntu
+   restart: unless-stopped
+   tty: true
+  centos: 
+   image: centos
+   container_name: centos7
+   hostname: centos7
+   restart: unless-stopped
+   tty: true #https://adw0rd.com/2021/5/19/debugging-in-docker-compose/

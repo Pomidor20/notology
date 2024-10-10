@@ -16,7 +16,7 @@ ansible-playbook -i inventory/<inv_file>.yml <playbook_name>.yml --step
 ```
 ansible-playbook -i inventory/<inv_file>.yml <playbook_name>.yml
 ```
-- Дебаг таски - для этого надо добавить слово  debugger и  его стратегию
+- Дебаг таски - для этого надо добавить слово  debugger и  его стратегию.Во время дебага можно в месте останова получить факты для этот пишем: p task.args или  p task.vars
 https://docs.ansible.com/ansible/latest/playbook_guide/playbooks_debugger.html
 ```
 - name: My play

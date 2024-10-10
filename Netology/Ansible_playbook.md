@@ -1,6 +1,21 @@
 ### Тут буду писать по playbook
 
-
+- Первый запуск стоит осуществлять или на тестовом окружении,или с флагом:~~
+``` 
+ansible-playbook -i inventory <inv_file>.yml <playbook_name>.yml --check
+```
+- Если были найдены ошибки:
+```
+ansible-playbook -i inventory <inv_file>.yml <playbook_name>.yml --start-at-task <task_name>
+```
+- Чтобы запустить исполнение в полуинтерактивном виде: 
+```
+ansible-playbook -i inventory/<inv_file>.yml <playbook_name>.yml --step
+```
+- Полноценный запуск playbook в целевом виде должен выглядеть так:
+```
+ansible-playbook -i inventory/<inv_file>.yml <playbook_name>.yml
+```
 
 
 

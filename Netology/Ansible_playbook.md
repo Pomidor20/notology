@@ -16,7 +16,17 @@ ansible-playbook -i inventory/<inv_file>.yml <playbook_name>.yml --step
 ```
 ansible-playbook -i inventory/<inv_file>.yml <playbook_name>.yml
 ```
-
+- Дебаг таски - для этого надо добавить слово  debugger и  его стратегию
+https://docs.ansible.com/ansible/latest/playbook_guide/playbooks_debugger.html
+```
+- name: My play
+  hosts: all
+  debugger: on_skipped
+  tasks:
+    - name: Execute a command
+      ansible.builtin.command: "true"
+      when: False
+```
 
 
 

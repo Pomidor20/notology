@@ -4,7 +4,7 @@
 ``` 
 ansible-playbook -i inventory <inv_file>.yml <playbook_name>.yml --check
 ```
-- Если были найдены ошибки:
+- Если запус с определенного таска 
 ```
 ansible-playbook -i inventory <inv_file>.yml <playbook_name>.yml --start-at-task <task_name>
 ```

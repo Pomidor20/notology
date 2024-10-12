@@ -1,7 +1,32 @@
 ### Тут буду писать по playbook
 
-
-
+- Первый запуск стоит осуществлять или на тестовом окружении,или с флагом:~~
+``` 
+ansible-playbook -i inventory <inv_file>.yml <playbook_name>.yml --check
+```
+- Если запус с определенного таска 
+```
+ansible-playbook -i inventory <inv_file>.yml <playbook_name>.yml --start-at-task <task_name>
+```
+- Чтобы запустить исполнение в полуинтерактивном виде: 
+```
+ansible-playbook -i inventory/<inv_file>.yml <playbook_name>.yml --step
+```
+- Полноценный запуск playbook в целевом виде должен выглядеть так:
+```
+ansible-playbook -i inventory/<inv_file>.yml <playbook_name>.yml
+```
+- Дебаг таски - для этого надо добавить слово  debugger и  его стратегию.Во время дебага можно в месте останова получить факты для этот пишем: p task.args или  p task.vars
+https://docs.ansible.com/ansible/latest/playbook_guide/playbooks_debugger.html
+```
+- name: My play
+  hosts: all
+  debugger: on_skipped
+  tasks:
+    - name: Execute a command
+      ansible.builtin.command: "true"
+      when: False
+```
 
 
 

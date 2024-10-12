@@ -21,50 +21,52 @@
 11. Запустите playbook на окружении `prod.yml`. При запуске `ansible` должен запросить у вас пароль. Убедитесь, что факты `some_fact` для каждого из хостов определены из верных `group_vars`.
 12. Заполните `README.md` ответами на вопросы. Сделайте `git push` в ветку `master`. В ответе отправьте ссылку на ваш открытый репозиторий с изменённым `playbook` и заполненным `README.md`.
 13. Предоставьте скриншоты результатов запуска команд.
-
-2
+# Ответы
+![](https://github.com/Pomidor20/notology/blob/main/Netology/19.Ansible/08-ansible-01-base/pic/1.JPG)
+### 2
 ```
 sed -i 's/12/all default fact/g'  ./group_vars/all/examp.yml
 ```
-![]()
-3 
+![](https://github.com/Pomidor20/notology/blob/main/Netology/19.Ansible/08-ansible-01-base/pic/2.JPG)
+### 3 
+[Файлы тут](https://github.com/Pomidor20/notology/tree/main/Netology/19.Ansible/08-ansible-01-base/files)
 ```
 docker compose -f ../files/compose.yaml up -d
 ````
 ![]()
-4
+### 4
 
 ```
 
 ```
-![]()
-5 - 6
+![](https://github.com/Pomidor20/notology/blob/main/Netology/19.Ansible/08-ansible-01-base/pic/4.JPG)
+### 5 - 6
 ```
 sed -i 's/deb/deb default fact/g'  ../playbook/group_vars/deb/examp.yml
 sed -i 's/el/el default fact/g'   ../playbook/group_vars/el/examp.yml
 ansible-playbook -i ../playbook/inventory/prod.yml ../playbook/site.yml
 ```
-![]()
-7 - 8
+![](https://github.com/Pomidor20/notology/blob/main/Netology/19.Ansible/08-ansible-01-base/pic/6.JPG)
+### 7 - 8
 ```
 ansible-vault encrypt  ../playbook/group_vars/el/examp.yml
 ansible-vault encrypt  ../playbook/group_vars/deb/examp.yml
 netology
  ansible-playbook -i ../playbook/inventory/prod.yml ../playbook/site.yml --ask-vault-pass
 ```
-![]()
-9
+![](https://github.com/Pomidor20/notology/blob/main/Netology/19.Ansible/08-ansible-01-base/pic/7.JPG)
+### 9
 ```
 Смотрю список всех доступных плагинов командой ansible-doc -l. Буду использовать плагин ansible.builtin.local.
 ```
 ![]()
-10 11 
+### 10 11 
 
 ```
  ansible-playbook -i ../playbook/inventory/prod.yml ../playbook/site.yml --ask-vault-pass
 
 ```
-![]()
+![](https://github.com/Pomidor20/notology/blob/main/Netology/19.Ansible/08-ansible-01-base/pic/10.JPG)
 ## Необязательная часть
 
 1. При помощи `ansible-vault` расшифруйте все зашифрованные файлы с переменными.

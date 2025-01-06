@@ -1,3 +1,43 @@
+# Jenkins
+## Pipeline у дженкинса бывает несколько видов
+- Freestyle
+- Pipeline Job
+ - Multibranch Pipeline
+
+### Freestyle Job
+Freestyle Job — простейшее описание рутины в виде последовательно выполняемых заданий.
+Задача может быть описана удобным способом
+Часть заданий можно описать в репозитории
+Пишется на любом языке програмирования
+
+### Pipeline Job
+Pipeline Job — описание рутины в отдельных файлах с Pipeline на собственном синтаксисе.
+Может быть описано в двух видах:
+ - Declarative Pipeline
+ - Scripted Pipeline
+
+#### Declarative Pipeline 
+Declarative Pipeline— верхнеуровневое описание того, чтонеобходимо сделать. Имеет свой собственный синтаксис
+и описывается в файлах с именованием Jenkinsfile
+Он всегда начинается с pipeline
+Пример Dectarative Pipeline:
+```
+pipe1ine {
+ agent апу
+ stages {
+  stepsstage('Test'){
+steps{
+```
+#### Scripted Pipeline
+ Scripted Pipeline— описание стадий конвейера с использованием собственного синтаксиса, но с дополнениями в виде Groovy-скриптов
+ Он всегда начинается с node и идут сразу в нутри пайпа его задача
+
+### Multibranch Pipeline
+Multibranch Pipeline — вид Pipeline, который умеет запускать 
+сборки по действиям в одном репозитории
+Умеет разделять виды действий в репозитории
+Фильтровать имена branches
+
 ## Установка
 ### Ставим Java
 apt update
@@ -48,5 +88,3 @@ cat /var/lib/jenkins/secrets/initialAdminPassword
    systemctl restart jenkins
    ```
  - 
- 
->>>>>>> 8a3571004188133cfdea7d7d212864c6d747eedf

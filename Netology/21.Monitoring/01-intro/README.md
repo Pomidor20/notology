@@ -96,6 +96,7 @@ SLI = (summ_2xx_requests_less_than_5_sec + summ_3xx_requests_less_than_5_sec) / 
 P.S.: если при запуске некоторые контейнеры будут падать с ошибкой - проставьте им режим `Z`, например
 `./data:/var/lib:Z`
 #
+![](https://github.com/Pomidor20/notology/blob/main/Netology/21.Monitoring/01-intro/pic/1.JPG)
 8. Перейдите в веб-интерфейс Chronograf (http://localhost:8888) и откройте вкладку Data explorer.
         
     - Нажмите на кнопку Add a query
@@ -128,7 +129,8 @@ P.S.: если при запуске некоторые контейнеры б�
       - "8094:8094"
       - "8125:8125/udp"
 ```
-
+![](https://github.com/Pomidor20/notology/blob/main/Netology/21.Monitoring/01-intro/pic/2.JPG)
+![](https://github.com/Pomidor20/notology/blob/main/Netology/21.Monitoring/01-intro/pic/3.JPG)
 После настройке перезапустите telegraf, обновите веб интерфейс и приведите скриншотом список `measurments` в 
 веб-интерфейсе базы telegraf.autogen . Там должны появиться метрики, связанные с docker.
 

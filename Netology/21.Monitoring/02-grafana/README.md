@@ -53,6 +53,24 @@
 1. Сохраните ваш Dashboard.Для этого перейдите в настройки Dashboard, выберите в боковом меню «JSON MODEL». Далее скопируйте отображаемое json-содержимое в отдельный файл и сохраните его.
 1. В качестве решения задания приведите листинг этого файла.
 
+## ОТВЕТЫ
+
+файлы лежат [ТУТ](https://github.com/Pomidor20/notology/tree/main/Netology/21.Monitoring/02-grafana/files)
+![](https://github.com/Pomidor20/notology/blob/main/Netology/21.Monitoring/02-grafana/pic/1.JPG)
+![](https://github.com/Pomidor20/notology/blob/main/Netology/21.Monitoring/02-grafana/pic/2.JPG)
+![](https://github.com/Pomidor20/notology/blob/main/Netology/21.Monitoring/02-grafana/pic/3.JPG)
+![](https://github.com/Pomidor20/notology/blob/main/Netology/21.Monitoring/02-grafana/pic/4.JPG)
+Выражения для метрик
+```
+ round(100 - (avg by (instance) (irate(node_cpu_seconds_total{job="node-exporter",mode="idle"}[5m])) * 100))
+
+node_load1
+node_load
+node_load15
+
+(node_memory_MemFree_bytes{instance="$Instance"} / node_memory_MemTotal_bytes{instance="$Instance"}) * 100
+(node_filesystem_avail_bytes{instance="$Instance"} * 100) / node_filesystem_size_bytes{instance="$Instance"}
+```
 ---
 
 ### Как оформить решение задания

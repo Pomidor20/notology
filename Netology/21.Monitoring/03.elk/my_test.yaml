@@ -1,0 +1,118 @@
+version: "3"
+services:
+    es-hot:
+        container_name: es-hot
+        image: elasticsearch:8.10.2
+        #https://opster.com/guides/elasticsearch/data-architecture/how-to-configure-all-elasticsearch-node-roles/
+        #https://www.instaclustr.com/blog/understanding-and-configuring-elasticsearch-node-types/
+        #https://tipoit.kz/elkstack/all/2021/03/18/elk-cluster-and-master-node.html
+        #https://www.elastic.co/guide/en/elasticsearch/reference/current/modules-discovery-settings.html
+        #https://www.elastic.co/guide/en/elasticsearch/reference/current/security-settings.html
+        #https://www.elastic.co/guide/en/elasticsearch/reference/current/important-settings.html
+        environment:
+            - "ES_JAVA_OPTS=-Xms1g -Xmx1g"
+            - node.name=es-hot
+            - cluster.name=home-work
+            - discovery.seed_hosts=es-hot,es-warm
+            - node.roles=data_hot,master,ingest
+            - xpack.security.enabled=false
+            - "network.host=0.0.0.0"
+            - cluster.initial_master_nodes=es-hot,es-warm
+#            - node.roles: [data_hot, data_warm, data_content]
+        ports:
+            - "9200:9200"
+        volumes:
+            - es-hot-data:/usr/share/elasticsearch/data
+
+    es-warm:
+        container_name: es-warm
+        image: elasticsearch:8.10.2
+        environment:
+            - "ES_JAVA_OPTS=-Xms1g -Xmx1g"
+            - node.name=es-warm
+            - cluster.name=home-work
+            - discovery.seed_hosts=es-hot,es-warm
+            - node.roles=data_warm,master,ingest
+            - xpack.security.enabled=fals
+            - "network.host=0.0.0.0"
+            - cluster.initial_master_nodes=es-hot,es-warm
+#            - node.roles: [data_hot, data_warm, data_content]
+        ports:
+            - "9201:9200"
+        volumes:
+            - es-warm-data:/usr/share/elasticsearch/data
+
+    es-data:
+        container_name: es-data
+        image: elasticsearch:8.10.2
+        environment:
+            - "ES_JAVA_OPTS=-Xms1g -Xmx1g"
+            - node.name=es-warm
+            - cluster.name=home-work
+            - discovery.seed_hosts=es-hot,es-warm
+            - node.roles=data_content
+            - xpack.security.enabled=false
+            - "network.host=0.0.0.0"
+#            - node.roles: [data_hot, data_warm, data_content]
+        ports:
+            - "9202:9200"
+        volumes:
+            - es-content-data:/usr/share/elasticsearch/data
+
+    kibana:
+        container_name: kibana
+        image: "docker.elastic.co/kibana/kibana:8.17.0"
+        #https://www.elastic.co/guide/en/kibana/current/docker.html
+        #https://www.elastic.co/guide/en/kibana/current/docker.html#environment-variable-config
+        environment:
+          SERVER_NAME: kibana
+          ELASTICSEARCH_HOSTS: '["http://es-hot:9200","http://es-warm:9200"]'
+        ports:
+            - "5601:5601"
+        depends_on:
+            - es-hot
+            - es-warm
+            - es-data
+
+    logstash:
+        container_name: logstash
+        image: "docker.elastic.co/logstash/logstash:8.17.0"
+        #https://www.elastic.co/guide/en/logstash/current/docker.html
+        #https://www.elastic.co/guide/en/logstash/current/plugins-inputs-elasticsearch.html
+#        environment:
+#          -
+        ports:
+            - "5044:5044" # Для Filebeat
+            - "5000:5000" # Для TCP JSON сообщений
+            - "9600:9600"
+        volumes:
+            - ./settings/:/usr/share/logstash/config/
+        depends_on:
+            - es-hot
+            - es-warm
+            - es-data
+            - kibana
+
+    filebeat:
+        image: "docker.elastic.co/beats/filebeat:8.17.0"
+        command: ["--environment", "container"]     
+        #https://www.elastic.co/guide/en/beats/filebeat/8.17/filebeat-installation-configuration.html
+        #https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-input-container.html
+        volumes:
+          - /var/lib/docker/containers:/var/lib/docker/containers:ro
+          - ./filebeat/filebeat.yml:/usr/share/filebeat/filebeat.yml:ro
+        depends_on:
+          - logstash    
+   
+    some_application:
+        image: library/python:3.9-alpine
+        container_name: some_app
+        volumes:
+          - ./pinger/:/opt/:Z
+        entrypoint: python3 /opt/run.py
+
+
+volumes:
+    es-hot-data:
+    es-warm-data:
+    es-content-data:

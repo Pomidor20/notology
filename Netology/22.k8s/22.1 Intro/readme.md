@@ -76,21 +76,21 @@
  # Решение
 
  
-Подключаемся к серверу и добавляем в 
-'sudo microk8s refresh-certs --cert front-proxy-client.crt'
-Потом вводим  microk8s config
-копирум файл конфига на вторую вм (клиента) и не забываем в поле с server (в боке - cluster) поменять адрес на внешний (глянуть или через личный кабент или в терраформе)
+Подключаемся к серверу и добавляем в     
+'sudo microk8s refresh-certs --cert front-proxy-client.crt'     
+Потом вводим  microk8s config     
+копирум файл конфига на вторую вм (клиента) и не забываем в поле с server (в боке - cluster) поменять адрес на внешний (глянуть или через личный кабент или в терраформе)      
 
 
-mkdir -p ~/.kube
-vim ~/.kube/config
-сохраняем и тестирум 
-kubectl get pods -A
+mkdir -p ~/.kube    
+vim ~/.kube/config    
+сохраняем и тестирум    
+kubectl get pods -A   
 
-Идем на сервер и включаем нужный нам аддон
-microk8s status
-microk8s enable dashboard
-microk8s dashboard-proxy
+Идем на сервер и включаем нужный нам аддон   
+microk8s status   
+microk8s enable dashboard   
+microk8s dashboard-proxy   
 
-На нужном нам устройстве (не сервере делаем порт-форвард)
-kubectl port-forward -n kube-system service/kubernetes-dashboard 10443:443
+На нужном нам устройстве (не сервере делаем порт-форвард)   
+kubectl port-forward -n kube-system service/kubernetes-dashboard 10443:443  

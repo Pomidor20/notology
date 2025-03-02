@@ -94,3 +94,12 @@ microk8s dashboard-proxy
 
 На нужном нам устройстве (не сервере делаем порт-форвард)   
 kubectl port-forward -n kube-system service/kubernetes-dashboard 10443:443  
+
+![](https://github.com/Pomidor20/notology/blob/main/Netology/22.k8s/22.1%20Intro/pic/1.JPG)
+![](https://github.com/Pomidor20/notology/blob/main/Netology/22.k8s/22.1%20Intro/pic/2.JPG)
+![](https://github.com/Pomidor20/notology/blob/main/Netology/22.k8s/22.1%20Intro/pic/3.JPG)
+![](https://github.com/Pomidor20/notology/blob/main/Netology/22.k8s/22.1%20Intro/pic/4.JPG)
+![](https://github.com/Pomidor20/notology/blob/main/Netology/22.k8s/22.1%20Intro/pic/5.JPG)
+![](https://github.com/Pomidor20/notology/blob/main/Netology/22.k8s/22.1%20Intro/pic/6.JPG)
+![](https://github.com/Pomidor20/notology/blob/main/Netology/22.k8s/22.1%20Intro/pic/7.JPG)
+![](https://github.com/Pomidor20/notology/blob/main/Netology/22.k8s/22.1%20Intro/pic/8.JPG)

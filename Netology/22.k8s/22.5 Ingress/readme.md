@@ -44,6 +44,10 @@
 
 ## Ответы
 
+![](https://github.com/Pomidor20/notology/blob/main/Netology/22.k8s/22.5%20Ingress/pic/1.JPG)
+![](https://github.com/Pomidor20/notology/blob/main/Netology/22.k8s/22.5%20Ingress/pic/2.JPG)
+![](https://github.com/Pomidor20/notology/blob/main/Netology/22.k8s/22.5%20Ingress/pic/3.JPG)
+![](https://github.com/Pomidor20/notology/blob/main/Netology/22.k8s/22.5%20Ingress/pic/4.JPG)
 ### Правила приема работы
 
 1. Домашняя работа оформляется в своем Git-репозитории в файле README.md. Выполненное домашнее задание пришлите ссылкой на .md-файл в вашем репозитории.

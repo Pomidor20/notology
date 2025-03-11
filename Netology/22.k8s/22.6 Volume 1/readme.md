@@ -48,6 +48,10 @@
 4. Предоставить манифесты Deployment, а также скриншоты или вывод команды из п. 2.
 
 ------
+![](https://github.com/Pomidor20/notology/blob/main/Netology/22.k8s/22.6%20Volume%201/pic/1.JPG)
+![](https://github.com/Pomidor20/notology/blob/main/Netology/22.k8s/22.6%20Volume%201/pic/2.JPG)
+![](https://github.com/Pomidor20/notology/blob/main/Netology/22.k8s/22.6%20Volume%201/pic/3.JPG)
+![](https://github.com/Pomidor20/notology/blob/main/Netology/22.k8s/22.6%20Volume%201/pic/4.JPG)
 
 ### Правила приёма работы
 

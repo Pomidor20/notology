@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  name: hw-6
+  labels:
+    app: deploy-busy
+    hw: "6"
+spec:
+  selector:
+    matchLabels:
+      app: busy
+  template:
+    metadata:
+      name: busy
+      labels:
+        app: busy
+    spec:
+      containers:
+        - name: network-multitool
+          image: wbitt/network-multitool
+          env:
+          - name: HTTP_PORT
+            value: "1180"
+          ports:
+          - containerPort: 1180
+            name: http-port
+          volumeMounts:
+            - mountPath: /logs
+              name: logs
+      volumes:
+      - name: logs
+        hostPath:
+          path: /var/log/

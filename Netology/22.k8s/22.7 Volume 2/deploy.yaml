@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hw-7
+  labels:
+    app: deploy-busy
+    hw: "7"
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: busy
+  template:
+    metadata:
+      name: busy
+      labels:
+        app: busy
+    spec:
+      containers:
+        - name: busy
+          image: busybox
+          command: ['sh', '-c', 'while true;do echo $RANDOM >> /out/test.txt; done']
+          volumeMounts:
+            - mountPath: /out
+              name: obmen
+
+        - name: network-multitool
+          image: wbitt/network-multitool
+          env:
+          - name: HTTP_PORT
+            value: "1180"
+          ports:
+          - containerPort: 1180
+            name: http-port
+          volumeMounts:
+            - mountPath: /in
+              name: obmen
+      volumes:
+      - name: obmen
+        persistentVolumeClaim:
+          claimName: local-pvc

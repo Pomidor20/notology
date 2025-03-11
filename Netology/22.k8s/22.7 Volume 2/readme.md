@@ -68,6 +68,10 @@ touch /tmp/nfs/HW7
 5. Продемонстрировать, что файл сохранился на локальном диске ноды. Удалить PV.  Продемонстрировать что произошло с файлом после удаления PV. Пояснить, почему.
 5. Предоставить манифесты, а также скриншоты или вывод необходимых команд.
 
+![](https://github.com/Pomidor20/notology/blob/main/Netology/22.k8s/22.7%20Volume%202/pic/1.JPG)
+![](https://github.com/Pomidor20/notology/blob/main/Netology/22.k8s/22.7%20Volume%202/pic/2.JPG)
+![](https://github.com/Pomidor20/notology/blob/main/Netology/22.k8s/22.7%20Volume%202/pic/3.JPG)
+![](https://github.com/Pomidor20/notology/blob/main/Netology/22.k8s/22.7%20Volume%202/pic/4.JPG)
 ------
 
 ### Задание 2
@@ -80,7 +84,8 @@ touch /tmp/nfs/HW7
 2. Создать Deployment приложения состоящего из multitool, и подключить к нему PV, созданный автоматически на сервере NFS.
 3. Продемонстрировать возможность чтения и записи файла изнутри пода. 
 4. Предоставить манифесты, а также скриншоты или вывод необходимых команд.
-
+![](https://github.com/Pomidor20/notology/blob/main/Netology/22.k8s/22.7%20Volume%202/pic/5.JPG)
+![](https://github.com/Pomidor20/notology/blob/main/Netology/22.k8s/22.7%20Volume%202/pic/6.JPG)
 ------
 
 ### Правила приёма работы

@@ -1,0 +1,25 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: ingress-hw-8
+  namespace: netology
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+spec:
+  ingressClassName: nginx
+  rules:
+  - host: "pomidorkin.co"
+    http:
+      paths:
+      - pathType: Prefix
+        path: "/"
+        backend:
+          service:
+            name: nginx-svc
+            port: 
+              number: 80
+  tls:
+  - hosts:
+    - pomidorkin.co
+    secretName: ingress-cert
+

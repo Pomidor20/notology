@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: "deploy-nginx-8"
+  labels: 
+    app: "nginx-dpl"
+  namespace: netology
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: "nginx"
+  template:
+    metadata:
+      labels:
+        app: "nginx"
+    spec:
+      containers:
+        - name: "nginx"
+          image: nginx:latest
+          ports:
+            - name: nginx-port
+              containerPort: 80
+          volumeMounts:
+            - name: index
+              mountPath:  /usr/share/nginx/html 
+        - name: multitool
+          image: wbitt/network-multitool
+          ports:
+            - name: multitool-ports
+              containerPort: 8080
+          env:
+            - name: HTTP_PORT
+              valueFrom:
+                configMapKeyRef:
+                  name: configmape
+                  key: port
+      volumes:
+        - name: index
+          configMap:
+            name: nginx-maps

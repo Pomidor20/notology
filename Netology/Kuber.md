@@ -131,3 +131,134 @@ Spec: объект, который описывает нужное состоя�
 Image: образ контейнера, который мы хотим запустить в данном поде.
 Name: уникальное имя для контейнера, находящегося в поде.
 ContainerPort: порт, который прослушивает контейнер. Этот параметр можно считать указанием для того, кто читает этот файл (если этот параметр опустить, это не ограничит доступ к порту).
+
+## SECRET CONFIGMAP
+Когда нужно выдернуть только определенный ключ из конфигмапы/секрета
+```
+env:
+- name: CONFIGMAPVAR
+  valueFrom:
+    configMapKeyRef: #secretKeyRef:
+      name: my-configmap
+      key: key
+```
+
+Когда нужно выдервнуть все значения из конфигмапы/секрета
+```
+    envFrom:
+      - configMapRef:
+          name: postgres-config
+      - secretRef:
+          name: postgres-secrets
+```
+когда подлючаем конфигмапы через маунт (Подключаем все значения)
+```
+apiVersion: v1
+kind: Pod
+metadata:
+  name: dapi-test-pod
+spec:
+  containers:
+    - name: test-container
+      image: k8s.gcr.io/busybox
+      command: [ "/bin/sh", "-c", "ls /etc/config/" ]
+      volumeMounts:
+      - name: config-volume
+        mountPath: /etc/config
+  volumes:
+    - name: config-volume
+      configMap:
+        # Provide the name of the ConfigMap containing the files you want
+        # to add to the container
+        name: special-config
+  restartPolicy: Never
+```
+Можно указывать конкретный путь для монтирования данных из конфигмапа. Например, сущность special.level из конфигмапа 
+с именем special-config может быть смонтирована в /etc/config/keys внутри контейнера:
+```
+apiVersion: v1
+kind: Pod
+metadata:
+  name: dapi-test-pod
+spec:
+  containers:
+    - name: test-container
+      image: k8s.gcr.io/busybox
+      command: [ "/bin/sh","-c","cat /etc/config/keys" ]
+      volumeMounts:
+      - name: config-volume
+        mountPath: /etc/config
+  volumes:
+    - name: config-volume
+      configMap:
+        name: special-config
+        items:
+        - key: special.level
+          path: keys
+  restartPolicy: Never
+
+```
+когда подлючаем сикреты через маунт (Подключаем все значения) 
+the volume will contain a single file, called .secret-file, and the dotfile-test-container will have this file present at the path /etc/secret-volume/.secret-file
+```
+apiVersion: v1
+kind: Secret
+metadata:
+  name: dotfile-secret
+data:
+  .secret-file: dmFsdWUtMg0KDQo=
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: secret-dotfiles-pod
+spec:
+  volumes:
+    - name: secret-volume
+      secret:
+        secretName: dotfile-secret
+  containers:
+    - name: dotfile-test-container
+      image: registry.k8s.io/busybox
+      command:
+        - ls
+        - "-l"
+        - "/etc/secret-volume"
+      volumeMounts:
+        - name: secret-volume
+          readOnly: true
+          mountPath: "/etc/secret-volume"
+```
+
+  Можно указывать конкретный путь для монтирования данных из конфигмапа. Например, сущность special.level из конфигмапа 
+```
+apiVersion: v1
+kind: Secret
+metadata:
+  name: my-secret
+type: Opaque
+data:
+  secret.key: c2VjcmV0X3ZhbHVl  # Это "secret_value" в base64
+
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: secret-test-pod
+spec:
+  containers:
+    - name: test-container
+      image: k8s.gcr.io/busybox
+      command: [ "/bin/sh", "-c", "cat /etc/secret/keys" ]
+      volumeMounts:
+        - name: secret-volume
+          mountPath: /etc/secret
+  volumes:
+    - name: secret-volume
+      secret:
+        secretName: my-secret
+        items:
+          - key: secret.key
+            path: keys
+  restartPolicy: Never
+```

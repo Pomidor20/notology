@@ -48,10 +48,10 @@ kubectl apply -f namespace.yaml -f secret_cert_nginx.yaml -f secret_multitool.ya
 4. Создать Ingress и необходимый Service, подключить к нему SSL в вид. Продемонстировать доступ к приложению по HTTPS. 
 4. Предоставить манифесты, а также скриншоты или вывод необходимых команд.
 
-!()[https://github.com/Pomidor20/notology/blob/main/Netology/22.k8s/22.8%20ConfigMap-Secret-env/pic/1.JPG]
-!()[https://github.com/Pomidor20/notology/blob/main/Netology/22.k8s/22.8%20ConfigMap-Secret-env/pic/2.JPG]
-!()[https://github.com/Pomidor20/notology/blob/main/Netology/22.k8s/22.8%20ConfigMap-Secret-env/pic/3.JPG]
-!()[https://github.com/Pomidor20/notology/blob/main/Netology/22.k8s/22.8%20ConfigMap-Secret-env/pic/4.JPG]
+![](https://github.com/Pomidor20/notology/blob/main/Netology/22.k8s/22.8%20ConfigMap-Secret-env/pic/1.JPG)
+![](https://github.com/Pomidor20/notology/blob/main/Netology/22.k8s/22.8%20ConfigMap-Secret-env/pic/2.JPG)
+![](https://github.com/Pomidor20/notology/blob/main/Netology/22.k8s/22.8%20ConfigMap-Secret-env/pic/3.JPG)
+![](https://github.com/Pomidor20/notology/blob/main/Netology/22.k8s/22.8%20ConfigMap-Secret-env/pic/4.JPG)
 ------
 
 ### Правила приёма работы

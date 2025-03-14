@@ -1,0 +1,43 @@
+#cloud-config
+
+users:
+  - name: snake
+    groups: sudo
+    shell: /bin/bash
+    sudo: 'ALL=(ALL) NOPASSWD:ALL'
+    ssh_authorized_keys:
+      - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDiBXjuIn6mkJgYLkBwhxtcbTTqAWFrcsLbAwIn+sp/A  # Твой SSH ключ
+
+disable_root: true
+timezone: Europe/Moscow
+repo_update: true
+repo_upgrade: true
+
+apt:
+  preserve_sources_list: true
+
+package_update: true
+package_upgrade: true
+
+packages:
+  - apt-transport-https
+  - ca-certificates
+  - curl
+  - gnupg
+  - lsb-release
+  - unattended-upgrades
+
+runcmd:
+  - apt update
+  - apt install -y apt-transport-https ca-certificates curl gnupg
+  - mkdir -p -m 755 /etc/apt/keyrings
+  - curl -fsSL https://pkgs.k8s.io/core:/stable:/v1.32/deb/Release.key | gpg --dearmor -o /etc/apt/keyrings/kubernetes-apt-keyring.gpg
+  - chmod 644 /etc/apt/keyrings/kubernetes-apt-keyring.gpg
+  - echo 'deb [signed-by=/etc/apt/keyrings/kubernetes-apt-keyring.gpg] https://pkgs.k8s.io/core:/stable:/v1.32/deb/ /' | tee /etc/apt/sources.list.d/kubernetes.list > /dev/null
+  - chmod 644 /etc/apt/sources.list.d/kubernetes.list
+  - apt update
+  - apt install -y kubectl
+  - echo "Kubernetes (kubectl) установлен!" > /home/snake/k8s_ready.txt
+  # Настройка автодополнения kubectl
+  - echo "source <(kubectl completion bash)" >> /home/snake/.bashrc
+  - source <(kubectl completion bash)  # Активируем автодополнение в текущей сессии

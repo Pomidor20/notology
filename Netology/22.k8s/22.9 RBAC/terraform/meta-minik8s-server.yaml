@@ -1,0 +1,42 @@
+#cloud-config
+
+users:
+  - name: snake
+    groups: sudo
+    shell: /bin/bash
+    sudo: 'ALL=(ALL) NOPASSWD:ALL'
+    ssh_authorized_keys:
+      - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDiBXjuIn6mkJgYLkBwhxtcbTTqAWFrcsLbAwIn+sp/A  
+
+disable_root: true
+timezone: Europe/Moscow
+repo_update: true
+repo_upgrade: true
+
+packages:
+  - apt-transport-https
+  - ca-certificates
+  - curl
+  - gnupg
+  - lsb-release
+  - unattended-upgrades
+  - jq  # Для обработки JSON
+
+runcmd:
+  - sudo apt update
+  - sudo apt install -y snapd
+  - sudo snap install microk8s --classic
+  - sudo usermod -a -G microk8s snake
+  - sudo chown -f -R snake ~/.kube
+  - newgrp microk8s  # Чтобы сразу применить группу
+  
+  # Получаем NAT-адрес (замени команду, если у тебя другой способ получения)
+  - NAT_IP=$(curl -s http://checkip.amazonaws.com)
+
+  # Добавляем NAT-адрес в блок [ alt_names ]
+  - sudo sed -i "/\\[ alt_names \\]/a IP.4 = $NAT_IP" /var/snap/microk8s/current/certs/csr.conf.template
+
+  # Перегенерируем сертификаты MicroK8s
+  - sudo microk8s refresh-certs --cert front-proxy-client
+
+  - echo "MicroK8s установлен и NAT-адрес добавлен!" > /home/snake/microk8s_ready.txt

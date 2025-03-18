@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: "nginx"
+  labels: 
+    app: "deploy-nginx"
+    hw: "3"
+spec:
+  replicas: 1
+  selector: 
+    matchLabels:
+      app: "nginx"
+  template:
+    metadata:
+      name: "nginx"
+      labels:
+        app: "nginx"
+    spec:
+      containers:
+        - name: "nginx"
+          image: nginx:latest
+          ports:
+            - containerPort: 80
+              name: proxy-port
+        - name: network-multitool
+          image: wbitt/network-multitool
+          env:
+          - name: HTTP_PORT
+            value: "1180"
+          ports:
+          - containerPort: 1180
+            name: http-port

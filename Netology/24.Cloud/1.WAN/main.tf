@@ -15,3 +15,12 @@ provider "yandex" {
   zone      = var.default_zone_a
 }
 
+resource "yandex_compute_disk" "my_disk" {
+  for_each = var.disks
+
+  name     = each.value.name
+  type     = "network-ssd"
+  zone     = var.default_zone_a
+  image_id = each.value.image_id
+  size     = "20"
+}

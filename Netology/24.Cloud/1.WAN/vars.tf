@@ -50,30 +50,47 @@ variable "cidr_private" {
   default = "192.168.20.0/24"
 }
 
-variable "disk_name" {
-  type = list(string)
-  default = ["natpc", "workpc"]
+variable "disks" {
+  type = map(object({
+    name     = string
+    image_id = string
+  }))
+  default = {
+    wan = {
+      name     = "wan"    # Lowercase name
+      image_id = "fd8l704v1313gha28lj8"
+    },
+    local = {
+      name     = "local" # Lowercase name
+      image_id = "fd8kc2n656prni2cimp5"
+    }
+  }
 }
-variable "image_id" {
-  type = list(string)
-  default = [ "fd8l704v1313gha28lj8", "fd8kc2n656prni2cimp5"]  
-}
-
 ### переменная для vm
 
-variable "eachVM" {
-  type = list(object({
-    vm_name  = string
-    cpu      = number
-    ram      = number
-    fraction = number
-  }))
-  default = [
-    { vm_name = "WAN", cpu = 2, ram = 4, fraction = 50 },
-    { vm_name = "LOCAL", cpu = 2, ram = 4, fraction = 50 }
-  ]
+variable "LOCAL" {
+  type = string
+  default = "hostname_WAN"
 }
 
+variable "WAN" {
+  type = string
+  default = "WAN"
+}
+
+#variable "eachVM" {
+#  type = list(object({
+#    vm_name  = string
+#    cpu      = number
+#    ram      = number
+#    fraction = number
+#  }))
+#  default = [
+#    { vm_name = "WAN", cpu = 2, ram = 4, fraction = 50 },
+#    { vm_name = "LOCAL", cpu = 2, ram = 4, fraction = 50 }
+#  ]
+#}
+#
 ### переменная для секьюрити груп
 variable "security_rules" {
   type = list(object({

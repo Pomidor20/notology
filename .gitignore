@@ -5,3 +5,16 @@
 *.tfstate
 *.tfstate.backup
 *.tfstate.lock.info
+
+# Local .terraform directories and files
+**/.terraform/*
+.terraform*
+
+!.terraformrc
+
+# .tfstate files
+*.tfstate
+*.tfstate.*
+
+# own secret vars store.
+personal.auto.tfvars

@@ -21,6 +21,10 @@
 - [Object Storage bucket](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/storage_bucket).
 - [KMS key](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/kms_symmetric_key).
 
+![](https://github.com/Pomidor20/notology/blob/main/Netology/24.Cloud/3.WEB/pic/%D0%A1%D0%BD%D0%B8%D0%BC%D0%BE%D0%BA.JPG)
+![](https://github.com/Pomidor20/notology/blob/main/Netology/24.Cloud/3.WEB/pic/2.JPG)
+![](https://github.com/Pomidor20/notology/blob/main/Netology/24.Cloud/3.WEB/pic/3.JPG)
+![](https://github.com/Pomidor20/notology/blob/main/Netology/24.Cloud/3.WEB/pic/4.JPG)
 --- 
 ## Задание 2*. AWS (задание со звёздочкой)
 

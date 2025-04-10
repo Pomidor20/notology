@@ -1,0 +1,3 @@
+https://yandex.cloud/ru/docs/storage/tutorials/static/terraform#manual_1
+https://yandex.cloud/ru/docs/storage/operations/hosting/certificate
+https://yandex.cloud/ru/docs/storage/tutorials/static/terraform

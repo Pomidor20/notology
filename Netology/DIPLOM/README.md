@@ -177,11 +177,18 @@ https://gitlab.com/diplom_pomidorkin
   image:   
     name: registry.gitlab.com/diplom_pomidorkin/tf_image_build:latest    
 на свои значения.Тут по факту поменять только  diplom_pomidorkin на имя вашей группы проетов   
-3.Изменить любой файл в Prepare и закомитеть (внезапно это было прошлое действие).Тут начнет собираться инфра   
-4.Когда выполнился прошлый шаг вешает тега на helm   
-5.В яндекс клауде смотрим ip нашего балансировщика и стучимся на него   
+3. Изменить любой файл в Prepare и закомитеть (внезапно это было прошлое действие).Тут начнет собираться инфра   
+4. Когда выполнился прошлый шаг вешает тега на helm   
+5. В яндекс клауде смотрим ip нашего балансировщика и стучимся на него   
 
-
+!{}(https://github.com/Pomidor20/notology/blob/main/Netology/DIPLOM/pic/1.png)
+!{}(https://github.com/Pomidor20/notology/blob/main/Netology/DIPLOM/pic/2.png)
+!{}(https://github.com/Pomidor20/notology/blob/main/Netology/DIPLOM/pic/3.png)
+!{}(https://github.com/Pomidor20/notology/blob/main/Netology/DIPLOM/pic/4.png)
+!{}(https://github.com/Pomidor20/notology/blob/main/Netology/DIPLOM/pic/5.png)
+!{}(https://github.com/Pomidor20/notology/blob/main/Netology/DIPLOM/pic/6.png)
+!{}(https://github.com/Pomidor20/notology/blob/main/Netology/DIPLOM/pic/7.png)
+!{}(https://github.com/Pomidor20/notology/blob/main/Netology/DIPLOM/pic/8.png)
 
 
 

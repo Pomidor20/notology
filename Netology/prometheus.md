@@ -71,11 +71,13 @@ chown prometheus:prometheus /usr/local/bin/promtool
    ```
 ### Для второго варианта вс находится уже в извлеченной папке и мы только создаем демона:
    ```
+   
    mkdir /opt/prometheus
+   useradd -s /sbin/nologin -d /opt/prometheus/ prometheus
    cp -R ./ /opt/prometheus
    chown  prometheus:prometheus -R /opt/prometheus/
-   nano /etc/systemd/system/prometheus.service
-   
+   #nano /etc/systemd/system/prometheus.service
+   vim /usr/lib/systemd/system/prometheus.service
    [Unit]
    Description=Prometheus
    Wants=network-online.target
